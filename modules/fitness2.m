@@ -1,7 +1,9 @@
-(*This module depends on DesignMorphogeneResponsiveGRCs.m and EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m*)
+(*This module depends on DesignMorphogeneResponsiveGRCs.m and
+EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m*)
 << EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`
 << DesignMorphogeneResponsiveGRCs`
-(*The following is basically the function AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM2*)
+(*The following is basically the function
+AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM2*)
 fitness[
   EvalGRCParamGenotype_List] :=
  Block[{ICs, NullMorpInput, MorpInputProfile, PreMorpInputFS,
@@ -15,7 +17,13 @@ fitness[
    AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,
     NullMorpInput, EvalGRCParamGenotype];
 
-  (*Set the pre-Morphogen SS expression levels as ICs for simulating the dynamics of the system in the presence of the Morphogene*)(*Check that fitness before applying the Morphogene input is>0 (reaches stationary behavior) and is\[LessEqual]0.5 (is unable to generate any striped pattern at all), if this condition is met then assess the ability of the system to interpret the input and generate a striped pattern for any of the genes*)FS4GRCInResponse2MorpInput =
+  (*Set the pre-Morphogen SS expression levels as ICs for simulating the
+  dynamics of the system in the presence of the Morphogene*)(*Check that
+  fitness before applying the Morphogene input is>0 (reaches stationary
+  behavior) and is\[LessEqual]0.5 (is unable to generate any striped pattern at
+  all), if this condition is met then assess the ability of the system to
+  interpret the input and generate a striped pattern for any of the genes*)
+  FS4GRCInResponse2MorpInput =
    If[0 < PreMorpInputFS <= 0.5,
     AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM2[
       SSExpValuesPreMorpInput, MorpInputProfile,
