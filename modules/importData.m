@@ -3,9 +3,6 @@
 importGRNs::usage="importGRNs[  ] importa la lista de GRNs clasificadas no
 isomórficas -> {GRN, número de topología}."
 
-Print[FileNameJoin[
-{ParentDirectory[NotebookDirectory[]],"data","motivos-clasificados-ordenados-no-isomorfos.txt"}]]
-
 importGRNs[]:= Flatten[ToExpression[#],1]&/@Import[ FileNameJoin[
 {ParentDirectory[NotebookDirectory[]],"data","motivos-clasificados-ordenados-no-isomorfos.txt"}],"TSV"]
 
