@@ -11,7 +11,13 @@ fitnessGenes[ {Wmatrix_List, DiffParams_List, DegParams_List} ]:=Block[{GRCPheno
 	EF=((1/3)*Total[EquilibFilter/@GRCPhenotReadout]);
 	(*EF*)
 
-	(*Testing for spatial heterogeneity in the steady state expression pattern, which is also an indicative of whether the expression profiles are sufficiently high so that the cross regulatory interactions can be effective in controlling the expression putput. Note that unlike the FitnessF implemented before, in this FitnessF2 we only checked for the heterogeineity in the output node, and not in the whole set of nodes considered*)
+	(*Testing for spatial heterogeneity in the steady state expression pattern,
+	which is also an indicative of whether the expression profiles are
+	sufficiently high so that the cross regulatory interactions can be
+	effective in controlling the expression putput. Note that unlike the
+	FitnessF implemented before, in this FitnessF2 we only checked for the
+	heterogeineity in the output node, and not in the whole set of nodes
+	considered*)
 	PF = PatternFilter /@ GRCPhenotReadout;
 	(*PF*)
 
