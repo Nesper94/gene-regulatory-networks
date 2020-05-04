@@ -7,7 +7,8 @@ expresión de un genotipo, acepta como argumentos 'gen', con las opciones 'a','b
  y 'c', tamaño del gráfico y 'fps' (cuadros por segundo)."
 
 (*Esta línea importa la lista de motivos clasificados, ordenados no isomorfos*)
-motivosClasificadosOrdenadosNoIsomorfos = Flatten[ToExpression[#],1]&/@Import["/home/nesper94/Documentos/biologia-de-sistemas/RobustnessModularityProject/RobustnessModularityProject/motivos_clasificados_ordenados_no_isomorfos.txt","TSV"];
+motivosClasificadosOrdenadosNoIsomorfos = Flatten[ToExpression[#],1] &/@
+Import["/home/nesper94/Documentos/biologia-de-sistemas/RobustnessModularityProject/RobustnessModularityProject/motivos_clasificados_ordenados_no_isomorfos.txt","TSV"];
 
 (*Esta función me permite saber en qué posiciones están los genotipos que pertenecen a determinado motivo de red*)
 posiciónMotivos[motivo_Integer]:=Flatten[{First[#],Last[#]}&/@{Position[motivosClasificadosOrdenadosNoIsomorfos[[All,2]],motivo]}]
