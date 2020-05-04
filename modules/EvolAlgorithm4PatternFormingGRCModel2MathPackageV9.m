@@ -188,7 +188,7 @@ IntTime = 500.;
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
 
-(*Las condiciones límite (boundary) se refieren a las concentraciones de las proteínas en la célula "0" y en la "31", que en realidad no existen, pero es necesario para resolver las ecuaciones que tengan un valor*)
+(*Las condiciones l\[IAcute]mite (boundary) se refieren a las concentraciones de las prote\[IAcute]nas en la c\[EAcute]lula "0" y en la "31", que en realidad no existen, pero es necesario para resolver las ecuaciones que tengan un valor*)
 ProtInitExpStat=Flatten[{Table[Table[Prot[a,n,0]==0.01,{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0]==0.00,{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
 
 DynSyst=Flatten[
@@ -206,7 +206,7 @@ GRCPhenotReadout= Transpose[Thread[Table[Flatten[Table[Flatten[Evaluate[Prot[i,n
 
 ]
 
-(*2019.03.08: La siguiente función fue modificada para no tener que especificar el input de morfógeno. A continuación está la línea original comentada.*)
+(*2019.03.08: La siguiente funci\[OAcute]n fue modificada para no tener que especificar el input de morf\[OAcute]geno. A continuaci\[OAcute]n est\[AAcute] la l\[IAcute]nea original comentada.*)
 (*SpaceTimeFeats4StripeFormingGRCs4SSMorpGradientWithSumAndFilterModel0[{Wmatrix_List,MorphInput_List,DiffParams_List,DegParams_List}]:=Module[*)
 SpaceTimeFeats4StripeFormingGRCs4SSMorpGradientWithSumAndFilterModel0[MorphInput_List:SSInputMorphogen[1],{Wmatrix_List,DiffParams_List,DegParams_List}]:=Module[
 {Prot,ProtStateVariab,ProtInitExpStat,DynSyst,Sol,GRCPhenotReadout},
@@ -253,7 +253,7 @@ CreatSpaceTimePlots4GRC[TimeSeries_List]:=GraphicsRow[MapIndexed[With[{opts={Ima
 (**************************************************************************************************************)
 (**************************************************************************************************************)
 
-(*La siguiente línea es la línea original:*)
+(*La siguiente l\[IAcute]nea es la l\[IAcute]nea original:*)
 (*AssessFitnessScoreStripeFormingGRCs4SSMorpGradient[{Wmatrix_List,MorphInput_List,DiffParams_List,DegParams_List}]:=Block[*)
 AssessFitnessScoreStripeFormingGRCs4SSMorpGradient[MorphInput_List:SSInputMorphogen[1],{Wmatrix_List,DiffParams_List,DegParams_List}]:=Block[
 {GRCPhenotReadout},
@@ -314,7 +314,7 @@ FitnessF4SingleStripe[GRCPhenotReadout_]:=Block[{},
 (*Modeling a steady state (exponentially decaying from the anterior-to-posterior axis) morphogen gradient. This morphogen distribution profile is similar to that exhibited by Bicoid in the Drosophila developing embryo*)
 MGradientF[A0_,CellIndex_,DecayRate_]:=A0*Exp[-CellIndex/DecayRate]
 NumNuclei=30;
-SSInputMorphogen[A0_]:=MGradientF[A0,#,0.4]&/@Drop[Range[0,1,1/NumNuclei],-1];
+SSInputMorphogen[A0_, h_:0.4]:=MGradientF[A0,#,h]&/@Drop[Range[0,1,1/NumNuclei],-1];
 
 GenerateComposedWiringMatrixTemplate:=Block[{},
 RndWiring=Partition[RandomChoice[{-1,0,1},12],{4}];
