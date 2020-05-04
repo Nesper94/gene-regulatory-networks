@@ -1,4 +1,5 @@
 (* ::Package:: *)
+(* Author: Juan Camilo Arboleda Rivera based on code by Jayson Gutiérrez*)
 
 (*This module depends on DesignMorphogeneResponsiveGRCs.m and
 EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m*)
@@ -7,6 +8,11 @@ EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m*)
 
 (*The following is basically the function
 AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM2*)
+fitness::usage='fitness[ GRN_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ]
+calculates the fitness of the Gene Regulatory Network (GRN) using A0 as the max
+morphogen concentration, h as the morphogen decay parameter and ICs as the
+initial concentrations of the gene products in each one of the cells of the
+morphogenetic field.'
 
 fitness[EvalGRCParamGenotype_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ] :=
  Block[{NullMorpInput, MorpInputProfile, PreMorpInputFS,
