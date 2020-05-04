@@ -14,7 +14,7 @@ morphogen concentration, h as the morphogen decay parameter and ICs as the
 initial concentrations of the gene products in each one of the cells of the
 morphogenetic field.'
 
-fitness[EvalGRCParamGenotype_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ] :=
+fitness[GRN_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ] :=
  Block[{NullMorpInput, MorpInputProfile, PreMorpInputFS,
    SSExpValuesPreMorpInput, FS4GRCInResponse2MorpInput, NumNuclei},
   (*Set ICs for all genes in all nuclei and run system without Morphogene input*)
@@ -23,7 +23,7 @@ fitness[EvalGRCParamGenotype_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ] :=
 
   {PreMorpInputFS, SSExpValuesPreMorpInput} =
    AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,
-    NullMorpInput, EvalGRCParamGenotype];
+    NullMorpInput, GRN];
 
   (*Set the pre-Morphogen SS expression levels as ICs for simulating the
   dynamics of the system in the presence of the Morphogene*)(*Check that
@@ -35,7 +35,7 @@ fitness[EvalGRCParamGenotype_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ] :=
    If[0 < PreMorpInputFS <= 0.5,
     AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM2[
       SSExpValuesPreMorpInput, MorpInputProfile,
-      EvalGRCParamGenotype][[1]], 0]
+      GRN][[1]], 0]
 ]
 
 
