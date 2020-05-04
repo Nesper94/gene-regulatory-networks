@@ -1,10 +1,12 @@
-(*Paquete para importar datos.*)
+(*Package to import data
+Author: Juan Camilo Arboleda Rivera
+Last modified: 2020-05-04*)
 
 importGRNs::usage="importGRNs[  ] importa la lista de GRNs clasificadas no
 isomórficas -> {GRN, número de topología}."
 
 importGRNs[]:= Flatten[ToExpression[#],1] &/@ Import[ FileNameJoin[
-{ParentDirectory[NotebookDirectory[]],"data","motivos-clasificados-ordenados-no-isomorfos.txt"}],"TSV"]
+{ParentDirectory[NotebookDirectory[]],"data","ordered-non-isomorph-grns.txt"}],"TSV"]
 
 importTopologies::usage="importTopologies[  ] importa la lista de topologías
 ordenadas según su respectiva abundancia -> {topología, ranking de abundancia}."
