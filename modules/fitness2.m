@@ -1,17 +1,19 @@
+(* ::Package:: *)
+
 (*This module depends on DesignMorphogeneResponsiveGRCs.m and
 EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m*)
 << EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`
 << DesignMorphogeneResponsiveGRCs`
+
 (*The following is basically the function
 AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM2*)
-fitness[
-  EvalGRCParamGenotype_List] :=
- Block[{ICs, NullMorpInput, MorpInputProfile, PreMorpInputFS,
-   SSExpValuesPreMorpInput, FS4GRCInResponse2MorpInput},
+
+fitness[EvalGRCParamGenotype_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ] :=
+ Block[{NullMorpInput, MorpInputProfile, PreMorpInputFS,
+   SSExpValuesPreMorpInput, FS4GRCInResponse2MorpInput, NumNuclei},
   (*Set ICs for all genes in all nuclei and run system without Morphogene input*)
-  ICs = ConstantArray[1, 90];
   NullMorpInput = ConstantArray[0, 30];
-  MorpInputProfile = SSInputMorphogen[1.0];
+  MorpInputProfile = SSInputMorphogen[A0,h];
 
   {PreMorpInputFS, SSExpValuesPreMorpInput} =
    AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,
@@ -27,7 +29,8 @@ fitness[
    If[0 < PreMorpInputFS <= 0.5,
     AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM2[
       SSExpValuesPreMorpInput, MorpInputProfile,
-      EvalGRCParamGenotype][[1]], 0]]
+      EvalGRCParamGenotype][[1]], 0]
+]
 
 
 modifiedAssessFitnessScore4StripePattern4SSMorpGradient4SFGRM2[ICs_List,
