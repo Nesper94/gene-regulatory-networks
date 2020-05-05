@@ -1,5 +1,5 @@
 # Gene Regulatory Networks in Development
----
+
 This repository contains the main data for the project. All code is written in 
 Mathematica.
 
@@ -14,8 +14,10 @@ por ejemplo: `mi-archivo.txt`
 ejemplo: `1954-11-03-godzilla.txt`
 - Intenta que cada nombre sea significativo e indique el contenido del archivo.
 - ¿Eres de los que hacen esto?↴
+
 ![meme control de versiones](https://trucnguyen.github.io/designers-learn-github/slides/image/novc-filenames.png)
-No crees varias versiones de un mismo archivo, ¡usa [Git](https://git-scm.com/)!
+
+No crees más versiones de un mismo archivo, ¡usa [Git](https://git-scm.com/)!
 
 ## Description of data in this repository
 
