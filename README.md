@@ -1,6 +1,6 @@
 # Gene Regulatory Networks in Development
 
-This repository contains the main data for the project. All code is written in 
+This repository contains the main data for the project. All code is written in
 Mathematica.
 
 Data is intended to be imported and used in Mathematica too.
@@ -25,3 +25,7 @@ No crees más versiones de un mismo archivo, ¡usa [Git](https://git-scm.com/)!
 to visualize data.
 - `data/` folder contains data such as the 2061 Gene Regulatory Networks
 (GRNs) and the topologies they belong to.
+
+Universidad de Antioquia, Colombia.
+
+![logo UdeA](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Escudo-UdeA.svg/200px-Escudo-UdeA.svg.png)
