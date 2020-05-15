@@ -1,0 +1,12 @@
+Topologies imported
+Topology 9 selected
+Exported fitnessStochasticA0 to results/perturbations-topol-9/fitness-perturb-a0.txt
+Robustness to A0 stochastic fluctations: 0.1368421052631579
+Exported fitnessStochastich to results/perturbations-topol-9/fitness-perturb-h.txt
+Robustness to h stochastic fluctations: 0.1405263157894737
+Exported fitnessStochasticICs to results/perturbations-topol-9/fitness-perturb-ics.txt
+Robustness to ICs stochastic fluctations: 0.06
+
+real	101m20,969s
+user	253m39,066s
+sys	5m23,062s
