@@ -1,1 +1,10 @@
 notebooks/
+figures/
+*.log
+*.aux
+*.pdf
+*.backup
+*.bbl
+*.out
+*.gz
+
