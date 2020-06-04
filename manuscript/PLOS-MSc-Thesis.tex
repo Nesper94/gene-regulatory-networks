@@ -838,13 +838,14 @@ part of the morphogenetic field, thus generating a lightly higher level of
 expression of gene C in the center of the field. Because gene C activates its
 own expression, a band of expression begins to form. This band of expression
 then begins to activate the gene A also in the center of the field
-(Fig~\ref{fig:topol9-dyn}).
+(\nameref{S2_Fig}).
+% (Fig~\ref{fig:topol9-dyn}).
 
-\begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/topol-9-dynamics}
- \caption{\bf Dynamics of expression in topology number 9.}
- \label{fig:topol9-dyn}
-\end{figure}
+% \begin{figure}[!h]
+%  \includegraphics[width=\textwidth]{figures/results/topol-9-dynamics}
+%  \caption{\bf Dynamics of expression in topology number 9.}
+%  \label{fig:topol9-dyn}
+% \end{figure}
 
 In this way two bands of expression are formed that depend on each other. The
 high level of gene C in the middle of the field counteract its inhibition by
@@ -857,25 +858,6 @@ expression depends on gene C.
 This is a complex mechanism described by the first time in this study, and it
 would be interesting to study its feasibility and possible implementation in
 synthetic gene regulatory networks.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%% copy of table environment %%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{table}[!ht]
-% \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-% \centering
-% \caption{{\bf Network descriptors of neutral network of topologies.}}
-% \begin{tabular}{|l+l|l|l|l|l|l|l|}
-% \hline
-% \multicolumn{4}{|l|}{\bf Heading1} & \multicolumn{4}{|l|}{\bf Heading2}\\ \thickhline
-% $cell1 row1$ & cell2 row 1 & cell3 row 1 & cell4 row 1 & cell5 row 1 & cell6 row 1 & cell7 row 1 & cell8 row 1\\ \hline
-% $cell1 row2$ & cell2 row 2 & cell3 row 2 & cell4 row 2 & cell5 row 2 & cell6 row 2 & cell7 row 2 & cell8 row 2\\ \hline
-% $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row 3 & cell7 row 3 & cell8 row 3\\ \hline
-% \end{tabular}
-% \begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
-% \end{flushleft}
-% \label{table1}
-% \end{adjustwidth}
-% \end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %PLOS does not support heading levels beyond the 3rd (no 4th level headings).
 % \subsection*{\lorem\ and \ipsum\ nunc blandit a tortor}
@@ -939,12 +921,25 @@ example, topology number 420, which presents high complexity, was one of the
 topologies with lower abundance and was disconnected from all other topologies 
 in the two-step neighbors in the neutral network.
 
-It is interesting that the one-step neutral network 
+The cladogram of spatiotemporal expression profiles shows that the genetic 
+algorithm selected similar expression mechanisms that can be produced by very 
+different topologies.
+
+Although GRNs that produce a band of gene expression with only two nodes have 
+been described (e.g. the I-zero motif, \cite{Schaerli2014}) this is to our 
+knowledge the first time a GRN with a topology such as that of topology nine 
+and its expression mechanism are reported, increasing our knowledge of the 
+genotype-phenotype map in this kind of system. 
+
+However, it is still necessary to confirm experimentally the ability of this 
+topology to generate the described pattern and it would be interesting to 
+study its feasibility and possible implementation in synthetic gene regulatory 
+networks.
 
 \section*{Conclusion}
 
 This study can help us to understand the mechanisms by which the GRNs work in
-nature as modules that make part of genomes, but it also can provide guidance
+nature as modules that make part of genomes, and it also can provide guidance
 in the construction of new synthetic GRNs in the field of synthetic biology.
 
 %CO\textsubscript{2} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque. Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed velit. 
@@ -956,27 +951,28 @@ in the construction of new synthetic GRNs in the field of synthetic biology.
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
 \paragraph*{S1 Fig.}
 \label{S1_Fig}
-{\bf Bold the title sentence.} Add descriptive text after the title of the item (optional).
+{\bf Relevant subgraphs present in the set of GRNs.}
+%Add descriptive text after the title of the item (optional).
 
 \paragraph*{S2 Fig.}
 \label{S2_Fig}
-{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+{\bf Dynamics of expression of topology number 9.}
 
-\paragraph*{S1 File.}
-\label{S1_File}
-{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-\paragraph*{S1 Video.}
-\label{S1_Video}
-{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-\paragraph*{S1 Appendix.}
-\label{S1_Appendix}
-{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+% \paragraph*{S1 File.}
+% \label{S1_File}
+% {\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+% 
+% \paragraph*{S1 Video.}
+% \label{S1_Video}
+% {\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+% 
+% \paragraph*{S1 Appendix.}
+% \label{S1_Appendix}
+% {\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
 
 \paragraph*{S1 Table.}
 \label{S1_Table}
-{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+{\bf Proportion of relevant subgraphs in the set of GRNs.}
 
 \section*{Acknowledgments}
 Cras egestas velit mauris, eu mollis turpis pellentesque sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id pretium nisi. Sed ac quam id nisi malesuada congue. Sed interdum aliquet augue, at pellentesque quam rhoncus vitae.
