@@ -194,11 +194,14 @@ Jayson Gutiérrez\textsuperscript{3},
 % with the Lorem Ipsum Consortium\textsuperscript{\textpilcrow}
 \\
 \bigskip
-\textbf{1} Instituto de Biología, Universidad de Antioquia, Medellín, Antioquia, Colombia
+\textbf{1} Instituto de Biología, Universidad de Antioquia, Medellín,
+Antioquia, Colombia
 \\
-\textbf{2} Instituto de Física, Universidad de Antioquia, Medellín, Antioquia, Colombia
+\textbf{2} Instituto de Física, Universidad de Antioquia, Medellín, Antioquia,
+Colombia
 \\
-\textbf{3} Affiliation Dept/Program/Center, Ghent University, Ghent, State, Belgium
+\textbf{3} Flanders Marine Institute (VLIZ), Wandelaarkaai 7, 8400 Oostende,
+Belgium
 % \textbf{3} Affiliation Dept/Program/Center, Institution Name, City, State, Country
 \\
 \bigskip
@@ -232,20 +235,29 @@ Medellín, Antioquia, Colombia % change symbol to "\textcurrency a" if more than
 \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-One of the central problems in developmental and synthetic biology is to 
-understand how do cells obtain information about its relative position to 
-other cells in a developing embryo, a tissue or in a petri dish. It has been 
-stated that a gradient of concentration of certain molecule is enough to 
-provide such a positional information and produce cell differentiation by 
-interacting with the cell's gene regulatory networks (GRNs). In this study we 
-used a genetic algorithm in order to explore the genotypic space of GRNs 
-capable of producing a band expression pattern in a group of cells.
 
-Out of 2061 GRNs selected using the genetic algorithm, 714 groups of topologies
-were found that were able to interpret a morphogen input. The main network 
-motif involved in the formation of the band expression pattern was the type 3
-Incoherent Feed Forward Loop (I3-FFL); we also present here other network
-topologies that have not been previously reported.
+\subsection*{Background}
+One of the central problems in developmental and synthetic biology is to 
+understand how cells process external cues on its relative position to other 
+cells in a developing embryo, a tissue or in a petri dish and transform such
+information into a coherent response, e.g. terminal differentiation state. It 
+has been stated that a gradient of concentration of certain molecule is enough 
+to provide such positional information and produce cell differentiation by 
+interacting with the cell's gene regulatory networks (GRNs).
+
+\subsection*{Methods}
+In this study we used a genetic algorithm in order to explore the genotypic 
+space of GRNs capable of producing a band expression pattern in a group of 
+cells.
+
+\subsection*{Results}
+Out of 2061 GRNs selected using the genetic algorithm, 714 groups of 
+topologies were found that were able to interpret a morphogen input. The 
+main network motif involved in the formation of the band expression pattern 
+was the type 3 Incoherent Feed Forward Loop (I3-FFL); we also present here 
+other network topologies that have not been previously reported.
+
+\subsection*{Conclusions}
 
 
 % Please keep the Author Summary between 150 and 200 words
@@ -282,7 +294,9 @@ than those in randomized networks \cite{Milo2002}. This novel approach, along
 with mathematical modeling and computational methods have been shown to be a
 powerful tool to study GRNs and the predictions of studies using these methods
 have been validated by experimental studies
-\cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005,Basu2005}.
+\cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005}, and some of them 
+have used synthetic GRNs to produce artificial cell differentiation in bacteria
+cell cultures~\cite{Basu2005}.
 
 However, although several studies have analyzed the properties of GRNs that
 process positional information, they have focused on particular natural networks
@@ -627,12 +641,12 @@ distribution using Wolfram Mathematica.
 % Results and Discussion can be combined.
 \section*{Results}
 
-The classification of GRNs showed that in our initial set of 2061 GRNs exists a 
-number of 714 different network topologies, each one of them containing a 
-different number of GRNs (Fig~\ref{fig:distopol}). This abundances distribution 
-was not produced by chance (Shannon entropy = 8.52963, 95\% confidence interval 
-= [10.8915, 10.9275]), and instead it shows a structuring, indicating the 
-possible existence of network motifs.
+The classification of GRNs showed that our initial set of 2061 GRNs can be 
+grouped in a number of 714 distinct network topologies, each one of them
+containing a different number of GRNs (Fig~\ref{fig:distopol}). This abundances
+distribution was not produced by chance (Shannon entropy = 8.52963, 95\%
+confidence interval = [10.8915, 10.9275]), and instead it displays some level 
+of structure, indicating the existence of network motifs.
 
 \begin{figure}[!h]
  \center
@@ -648,25 +662,24 @@ addition, we found that topology number 9 could produce the striped phenotype
 with only two nodes.
 
 \begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/most-abundant-topologies}
+ \includegraphics[width=\textwidth]{figures/results/most-abu-topol}
  \caption{\bf Most frequent network topologies.}
- In this figure we show the most frequent network topologies, which contain the 
- I3-FFL network motif. Top left of each box is presented the network topology 
- number in order of abundance. Top center is presented the number of GRNs 
- belonging to that network topology. Circled in red are the input nodes of 
- I3-FFL in network topologies 1 to 5, that display the striped pattern of gene 
- expression using three nodes, in contrast, network topology number 9 displays 
- the same phenotype using a two-node GRN.
+ Most frequent network topologies contain the I3-FFL network motif. Topologies 
+ are numbered in order of decreasing abundance.
+ The number of GRNs belonging to each network topology is presented below 
+ topology number.
+ Network topology number 9 produces the striped phenotype using a two-node GRN.
  \label{fig:topol}
 \end{figure}
 
-The neutral network shows that most of the network topologies are grouped into a
-connected graph. This graph is composed of 639 nodes that are accessible by one 
-mutational step. The 15 most abundant network topologies, with the exception of 
-number 10, are located in this graph (Fig~\ref{fig:neutral-network}). We also 
+The neutral network (a metagraph in wich each node is a network topology) 
+shows that most of the network topologies are grouped into a connected graph.
+This graph is composed of 639 nodes that are accessible by one mutational step.
+The 15 most abundant network topologies, with the exception of 
+number 10, are part of this graph (Fig~\ref{fig:neutral-network}). We also 
 found nodes inside the neutral network that had more connections between them 
-than with other nodes, generating thus clusters of nodes, interestingly in 
-almost every cluster is present one or more of the most abundant network 
+than with other nodes, generating clusters of nodes, interestingly in 
+almost every cluster is present one or more of the 15 most abundant network 
 topologies. In addition, we found that the first eight most abundant network 
 topologies were located in the largest cluster.
 
@@ -687,9 +700,8 @@ number of nodes with low degree and a few nodes with high degree
 (Fig~\ref{fig:deg-dist}). Nodes corresponding to topologies number one and three
 showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, nodes with 
 higher degree resulted to be also those network topologies with higher abundance
-(Fig~\ref{fig:ab-deg}), indicating a high robustness to topological mutations as
-well as robustness to mutations in the parameter values. This relationship 
-between abundance and node degree was corroborated by the Spearman correlation 
+(Fig~\ref{fig:ab-deg}). This relationship between abundance and node degree 
+was corroborated by the Spearman's rank correlation coefficient 
 ($r_S = −0.353752$, $p = 6.2933\times10^{-23} $).
 
 \begin{figure}[!h]
@@ -794,10 +806,10 @@ state before $t = 150$ (Fig~\ref{fig:profile}).
 Hierarchical clustering of spatiotemporal expression profiles showed that GRNs
 with topologies that seemed to be very different have indeed very similar
 expression dynamics. We expected to find GRNs with the same topology to group
-together but instead we found GRNs with different topologies grouped as sister
-taxa (Fig~\ref{fig:exp-tree}). More interestingly, some GRNs displaying very
-abundant network topologies are grouped together with GRNs displaying very
-infrequent network topologies.
+together but instead we found GRNs with different topologies grouped as close
+neighbors (Fig~\ref{fig:exp-tree}). More interestingly, some GRNs displaying 
+very abundant network topologies were grouped together with GRNs displaying 
+very infrequent network topologies.
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/spatio-temporal-profile-clustering-i3-ffl}
@@ -835,13 +847,13 @@ I3-FFL. Initially the expression pattern of the gene A is uniform in the
 morphogenetic field, but later it is shaped by the morphogen gradient in such a
 way that two important events occur, in first place the overall expression
 level of the gene A is decreased by the inhibition of the morphogen, releasing
-gene C from its repression by gene A; in second place, appears a non-homogeneous
-spatial distribution in which gene A is expressed at higher levels in the cells
-at the rightmost part of the morphogenetic field.\\
+gene C from its repression by gene A; in second place, it appears a 
+non-homogeneous spatial distribution in which gene A is expressed at higher 
+levels in the cells at the rightmost part of the morphogenetic field.\\
 
 These two events conduce to the repression of the gene C by the gene A in the
 rightmost part of the morphogenetic field and by the morphogen in the leftmost
-part of the morphogenetic field, thus generating a lightly higher level of
+part of the morphogenetic field, thus generating a slightly higher level of
 expression of gene C in the center of the field. Because gene C activates its
 own expression, a band of expression begins to form. This band of expression
 then begins to activate the gene A also in the center of the field
@@ -854,9 +866,9 @@ then begins to activate the gene A also in the center of the field
 %  \label{fig:topol9-dyn}
 % \end{figure}
 
-In this way two bands of expression are formed that depend on each other. The
+In this way two bands of expression that depend on each other are formed. The
 high level of gene C in the middle of the field counteract its inhibition by
-gene A, while in the ends of the bands the inhibition of gene A on gene C
+gene A, while at the ends of the bands the inhibition of gene A on gene C
 overcomes the self-activation of gene C, preventing the expression of the
 latter to extend out of the middle of the field. In turn, the band of
 expression of gene A can only exist in the middle of the field because its
@@ -890,9 +902,15 @@ synthetic gene regulatory networks.
 
 \section*{Discussion}
 
-We found the presence of network motifs in the GRNs produced by the genetic
-algorithm. However, we also found a great diversity of network topologies that
-could produce a striped gene expression pattern.\\
+We found the presence of network motifs in the set of GRNs produced by the
+genetic algorithm. However, we also found a great diversity of network 
+topologies that could produce a striped gene expression pattern.\\
+
+That the most abundant topologies were found to be part of highly connected 
+clusters in the neutral network indicates that these topologies are both robust 
+to quantitative changes in the strength of interactions and diffusion and 
+degradation parameters as well as to qualitative changes in the topology 
+itself.
 
 We found that the I3-FFL is one of the network motifs that appears more
 frequently in these GRNs, as has also been reported by Cotterell \& Sharpe
