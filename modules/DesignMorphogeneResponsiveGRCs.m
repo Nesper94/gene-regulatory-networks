@@ -151,8 +151,8 @@ TimeSeriesSpatialExpOutput=StripeFormingGRCs4SSMorpGradientSFGRM[SSExpValues,Mor
 
 (************************************************************************************************************************)
 
-(*NOTE: to assess the degenerate structure of a GRC we have to slightly modify the previous methods used to assess a GRC for its ability to
-	generate a stripe expression pattern*)
+(*NOTE: to assess the degenerate structure of a GRC we have to slightly modify the previous methods used to assess a GRC
+ for its ability to	generate a stripe expression pattern*)
 AssessDegenerateStruc4EngineeredMorpResponsiveGRC[GRCGenotype_List,
   FitnessThrs_, MaxNumDeletedEdges_, ReportData_String] :=
  Block[{ParamGRCWiring, MorphogeneInput, DiffParams, DegParams,
