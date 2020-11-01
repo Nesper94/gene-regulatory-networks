@@ -1,0 +1,28 @@
+"Pattern formation is a central problem in development
+(Wolpert, 1969)"
+
+"Central problems are how positional information is set up, how it is
+recorded, and then how it is interpreted by the cells".
+
+"The function of a positional gradient is to specify position and how this is
+recorded and appropriate genes turned on and off is a central problem. Ashe
+and Briscoe (2006) reviewed how morphogens act as graded positional
+cues and raises several mechanistic issues, such as how responding cells per-
+ceive and interpret the concentration-dependent information to generate
+precise patterns of gene expression and cell differentiation in developing tis-
+sues."
+
+«Cohen, Briscoe, and Blassberg (2013) argue, that is, that cell iden-
+tity results from the combined input of Shh signaling, uniformly expressed
+neural factors, and the cross-regulatory network of downstream Shh target
+genes. They provide evidence that “Shh morphogen interpretation in the
+neural tube is an emergent property of its downstream gene regulatory
+network. Cells transform the extracellular gradient of Shh into a dynamic
+profile of intracellular Gli activity that engages a transcriptional circuit,
+the regulatory logic of which is responsible for the generation of the char-
+acteristic temporal and spatial patterns of gene expression. This mechanism
+offers a powerful strategy to achieve the characteristic precision and robust-
+ness of morphogen-mediated pattern formation.”»
+
+Wolpert (2016). Positional Information and Pattern Formation. Chapter 35. In 
+Current Topics in Developmental Biology. http://dx.doi.org/10.1016/bs.ctdb.2015.11.008
