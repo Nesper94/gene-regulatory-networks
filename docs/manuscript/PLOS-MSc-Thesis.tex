@@ -304,8 +304,8 @@ with mathematical modeling and computational methods have been shown to be a
 powerful tool to study GRNs and the predictions of studies using these methods
 have been validated by experimental studies
 \cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005}, and some of them 
-have used synthetic GRNs to produce artificial cell differentiation in bacteria
-cell cultures~\cite{Basu2005}.
+have even used synthetic GRNs to produce artificial cell differentiation~\cite{Basu2005} 
+and circadian gene expression~\cite{atkinson_development_2003}.
 
 However, although several studies have analyzed the properties of GRNs that
 process positional information, they have focused on particular natural networks
@@ -457,14 +457,14 @@ The genetic algorithm used to produce the set of gene regulatory networks (GRNs)
 consisted in the following steps:
 
 \begin{enumerate}
- \item{\bf Generate a set of 200 random GRNs.}
+ \item{\bf Generate a random GRN.}
  
- \item{\bf Numerically solve the dynamical system for each GRN from t=0 until 
- t=500.} We integrated the differential equation using the function NDSolve from
- Wolfram Mathematica 11 with the option “EquationSimplification” and the 
- “Residual” simplification method.
+ \item{\bf{Numerically solve the dynamical system for the GRN from t=0 until 
+t=500.} We integrated the differential equation using the function NDSolve from 
+Wolfram Mathematica 11 with the option “EquationSimplification” and the 
+“Residual” simplification method.}
  
- \item{\bf Evaluate fitness by comparing the phenotypes with the optimal 
+ \item{\bf Evaluate fitness by comparing the GRN phenotype with the optimal 
  phenotype (Fig~\ref{fig:exp-pattern}).} In order to compute the fitness 
  function for each GRN we used three different filters. The first filter 
  assesses whether the expression profile of the output node reaches a 
@@ -519,16 +519,24 @@ consisted in the following steps:
   F = \mathit{PF_{eff}} \cdot Q_1(P_{filter}) \cdot Q_2(S_{filter}).
  \end{equation}
 
- \item{\bf Select GRNs with a probability proportional to its fitness.}
+ \item{\bf Mutate GRN network parameters or gene product diffusion or 
+degradation rates randomly and evaluate fitness again.} If fitness of the 
+mutated GRN is greater than that of the previous GRN, save GRN and continue 
+mutating.
  
- \item{\bf Recombine and mutate GRNs.} Mutations included changes in the
- numerical values of degradation and diffusion parameters and interaction
- strengths, and addition and removal of interactions among genes and between the
- genes and the morphogen.
+ \item {\bf Mutate GRNs randomly and evaluate fitness again.} Mutations 
+included changes in the  numerical values of degradation and diffusion 
+parameters and interaction strengths, and addition and removal of interactions 
+among genes and between the genes and the morphogen. If fitness of the mutated 
+GRN was greater or equal than that of the previous GRN, mutated GRN was saved 
+and the cycle continued from step 2. This cycle was repeated 5000000 times and 
+GRNs with a fitness greater or equal than 0.95 were saved into a file.
+
 \end{enumerate}
 
-Steps 2 to 5 were iterated 1000 times, resulting in a set of 2061 GRNs with a
+Steps 1 to 5 were iterated 500 times, resulting in a set of 2061 GRNs with a 
 striped pattern of gene expression in at least one gene.
+
 
 \subsection*{Classification of GRNs}
 
