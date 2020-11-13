@@ -241,7 +241,7 @@ Medellín, Antioquia, Colombia % change symbol to "\textcurrency a" if more than
 
 \subsection*{Background}
 A central problem in developmental and synthetic biology is to understand the 
-mechanisms by which cells in a tissue or in a petri dish process external cues 
+mechanisms by which cells in a tissue or in a Petri dish process external cues 
 and transform such information into a coherent response, e.g. a terminal 
 differentiation state. It was long believed that this type of positional 
 information could be entirely attributed to a gradient of concentration of a 
@@ -275,9 +275,9 @@ interpretation mechanisms.
 % Use first person. PLOS ONE authors please skip this step. 
 % Author Summary not valid for PLOS ONE submissions.   
 \section*{Author summary}
-Systems biology is growing very quickly thanks to the advances in computing and
+Systems biology is a very fast growing field thanks to the advances in computing and
 mathematical modeling of biological systems, and has proven to be a powerful tool that
-can help us to understand complex biological processes such as pattern formation and
+can help us to understand complex biological processes such as pattern formation in
 development. In this article we use an \textit{in silico} approach in order to find and study
 the design space of three node Gene Regulatory Networks that are able to produce a 
 striped pattern of gene expression.
@@ -390,7 +390,7 @@ product \emph{i} in time, as shown in Eq~\ref{ec:modelo-gral}.
   \cdot [ G ]^i_n ,
   \label{ec:modelo-gral}
  \end{eqnarray}
-
+\noindent
 in which $[G]^{i}_{n}$ is the concentration of the i-th gene in the \emph{n}-th 
 cell ($[G]^{i}_{n} ≥ 0$), $g(u^i)$ is a function describing the relationship 
 between the interactions on the \emph{i}-th gene and its expression 
@@ -399,15 +399,13 @@ $\delta_i$ are the diffusion and the degradation rate of \emph{i}-th gene
 product, respectively.\\
 
 The input function is a sigmoid function described by Eq~\ref{ec:input-func}.
-
 \begin{equation}
  g(u^i) = \frac{1}{1 + \exp(a - b \cdot u^i)},
  \label{ec:input-func}
 \end{equation}
-
+\noindent
 in which $a$ is the sigmoid steepness, equal to 5; $a/b$ is the threshold value,
 set to 1 for all simulations, and $u^i$ is the following equation:
-
 \begin{equation}
  u^i = \sum_j w_{ij} \cdot [G]^j_n + w_{im} \cdot [M]_n.
  \label{ec:mat-sum}
@@ -423,12 +421,11 @@ product and the morphogen in the \emph{n}-th cell.
 
 The morphogen concentration along the morphogenetic field is described by 
 Eq~\ref{ec:morph}.
-
 \begin{equation}
  M = A_0 \cdot \exp(-c/h),
  \label{ec:morph}
 \end{equation}
-
+\noindent
 were $A_0$ is the concentration of the morphogen in the position zero of the 
 morphogenetic field and was set to 1 in our experiments; $c$ is the cell index, 
 defined as the ratio between the \emph{n}-th cell from left to right and the 
@@ -463,17 +460,16 @@ consisted in the following steps:
 \begin{enumerate}
  \item{\bf Generate a random GRN.}
  
- \item{\bf{Numerically solve the dynamical system for the GRN from t=0 until 
-t=500.} We integrated the differential equation using the function NDSolve from 
-Wolfram Mathematica 11 with the option “EquationSimplification” and the 
-“Residual” simplification method.}
+ \item{\bf Numerically solve the dynamical system for the GRN from t=0 until 
+ t=500.} We integrated the differential equation using the function NDSolve from 
+ Wolfram Mathematica 11 with the option “EquationSimplification” and the 
+ “Residual” simplification method.
  
  \item{\bf Evaluate fitness by comparing the GRN phenotype with the optimal 
  phenotype (Fig~\ref{fig:exp-pattern}).} In order to compute the fitness 
  function for each GRN we used three different filters. The first filter 
  assesses whether the expression profile of the output node reaches a 
  quasi-steady state:
- 
  \begin{equation}
   S_{filter} = \left( \frac{1}{I \cdot N}\right) \sqrt{\sum_{i=1}^{I=3}
   \sum_{n=1}^{N=30} ([G]_n^i(t=500) - [G]^i_n(t=250))^2}.
@@ -483,7 +479,6 @@ Wolfram Mathematica 11 with the option “EquationSimplification” and the
  $S_{filter} < 0.001$.\\
  
  The second filter measures the spatial heterogeneity in the field:
- 
  \begin{equation}
   P_{filter} = \left( \frac{1}{I \cdot N} \right) \sqrt{ \sum_{i=3}^{I=3}
   \sum_{n=1}^{N=30} \left( [G]^i_n - \langle [G]^i_n \rangle \right)^2 },
@@ -495,7 +490,6 @@ Wolfram Mathematica 11 with the option “EquationSimplification” and the
  The third filter relates the Manhattan Distance ($D_{obs}$) between an
  expression pattern and the optimal pattern with the maximum distance achievable
  ($D_{max}$):
- 
  \begin{equation}
   \mathit{PF}_{eff} = 1 - \frac{D_{obs}}{D_{max}}.
  \end{equation}
@@ -505,20 +499,18 @@ Wolfram Mathematica 11 with the option “EquationSimplification” and the
  integer ranging from 1 to 10.\\
  
  The filters mentioned above are integrated in the following functions that 
- asses the quality of a given phenotype:
+ evaluates the  quality of a given phenotype:
  
  \begin{equation}
   Q_1(P_{filter}) = \left( \frac{ {P_{filter}}^{10} }{ {P_{filter}}^{10} + 
   0.1^{10} } \right),
  \end{equation}
- 
  \begin{equation}
   Q_2(S_{filter}) = \left( \frac{ 0.1^2 }{ {S_{filter}}^2 + 0.1^2 } \right).
  \end{equation}
 
  Finally, these quality functions were used to compute the fitness score with
  the following fitness function:
- 
  \begin{equation}
   F = \mathit{PF_{eff}} \cdot Q_1(P_{filter}) \cdot Q_2(S_{filter}).
  \end{equation}
@@ -541,7 +533,6 @@ GRNs with a fitness greater or equal than 0.95 were saved into a file.
 Steps 1 to 5 were iterated 500 times, resulting in a set of 2061 GRNs with a 
 striped pattern of gene expression in at least one gene.
 
-
 \subsection*{Classification of GRNs}
 
 In order to group all the isomorphic networks in the set of 2061 GRNs we used a
@@ -556,7 +547,6 @@ The neutral network was obtained by generating all possible isomorphs of a
 network topology and then calculating the minimal Hamming distance between these
 isomorphs and other network topologies. The Hamming distance between two 
 topologies was calculated using the following equation:
-
 \begin{equation}
  D_H(W^A, W^B) = \sum_{ij} \mid sgn(w_{ij}^A) - sgn(w^B_{ij}) \mid .
 \end{equation}
@@ -571,7 +561,7 @@ other.
 In order to evaluate the robustness of the different topologies to perturbations
 in parameters of interactions between genes we took a GRN belonging to each one 
 of the network topologies and we modified each interaction independently by 
-increasing and decreasing its value in a 20\%. For topologies with 3 or more 
+increasing and decreasing its value by 20\%. For topologies with 3 or more 
 GRNs we chose the most similar to the mean configuration for that topology.\\
 
 As a measure of the robustness of the topology we chose the proportion of times 
@@ -601,7 +591,6 @@ by chance with a probability greater than 0.05. In order to obtain a 95\%
 confidence interval, we generated 30 samples of a set of 2061 random matrices 
 and calculated the Shannon entropy in bits for each sample and tested these data
 for normality.
-
 \begin{equation}
  H = -\sum p(x) \cdot \log_{2}p(x).
  \label{ec:shannon}
@@ -638,11 +627,10 @@ using the Neighbor Joining method in the Scikit Bio package.
 As a measure of network complexity, we used the complexity index based on 
 Shannon entropy proposed by Bonchev \& Rovray \cite{D.2005}. We calculated this 
 index using the following equation:
-
 \begin{equation}
  I_{vd} = \sum_{i=1}^V a_i \cdot \log_{2} a_i,
 \end{equation}
-
+\noindent
 being $a_i$ the degree of \emph{i}-th node and $V$ the number of nodes in the 
 network. The network descriptors were calculated using built-in functions from 
 Wolfram Mathematica software.\\
@@ -937,7 +925,7 @@ We found that the I3-FFL is one of the network motifs that appears more
 frequently in these GRNs, as has also been reported by Cotterell \& Sharpe
 \cite{Cotterell2010}, and has been found in transcriptional networks involved 
 in cell fate definition \cite{Li2019}. Moreover, our results indicate that this 
-is a robust motif that can be usefull for construction of synthetic gene 
+is a robust motif that can be useful for construction of synthetic gene 
 regulatory networks that are exposed to stochastic fluctuations in the 
 environment and mutations.
 
