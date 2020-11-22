@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (*2019.03.07: Voy a cambiar la presentación de los gráficos de manera que la
 inhibición se represente como una flecha con cabeza plana, según la convención
 general. Este módulo es básicamente la función

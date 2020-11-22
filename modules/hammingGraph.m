@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (*La idea con este módulo es generar el grafo de distancias de Hamming pero uniendo topologías separadas hasta por dos pasos mutacionales*)
 importClassifiedTopologies::usage = "importClassifiedTopologies[] importa la lista de topologías de red con su abundancia."
 importClassifiedTopologies[]:= {

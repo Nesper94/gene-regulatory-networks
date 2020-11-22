@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (*Package to import data
 Author: Juan Camilo Arboleda Rivera
 Last modified: 2020-05-14*)

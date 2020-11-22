@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (*Módulo para calcular el índice de complejidad*)
 
 vertexDegrees::usage="vertexDegrees[ adjacencyMatrix ] calcula la cantidad de
