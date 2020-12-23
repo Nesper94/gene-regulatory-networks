@@ -5,21 +5,21 @@
 %
 % -- IMPORTANT NOTE
 %
-% This template contains comments intended 
-% to minimize problems and delays during our production 
+% This template contains comments intended
+% to minimize problems and delays during our production
 % process. Please follow the template instructions
 % whenever possible.
 %
-% % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % %
 %
-% Once your paper is accepted for publication, 
-% PLEASE REMOVE ALL TRACKED CHANGES in this file 
-% and leave only the final text of your manuscript. 
+% Once your paper is accepted for publication,
+% PLEASE REMOVE ALL TRACKED CHANGES in this file
+% and leave only the final text of your manuscript.
 % PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
 % Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
 %
 %
-% There are no restrictions on package use within the LaTeX files except that 
+% There are no restrictions on package use within the LaTeX files except that
 % no packages listed in the template may be deleted.
 %
 % Please do not include colors or graphics in the text.
@@ -33,8 +33,8 @@
 % Please include tables/figure captions directly after the paragraph where they are first cited in the text.
 %
 % DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
-% - Figures should be uploaded separately from your manuscript file. 
-% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
+% - Figures should be uploaded separately from your manuscript file.
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission.
 % - Figures containing multiple panels/subfigures must be combined into one image file before submission.
 % For figure citations, please use "Fig" instead of "Figure".
 % See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
@@ -58,15 +58,15 @@
 %
 % Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
 %
-% Please add line breaks to long display equations when possible in order to fit size of the column. 
+% Please add line breaks to long display equations when possible in order to fit size of the column.
 %
 % For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
 %
-% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2". 
+% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2".
 %
 % Do not use \cal for caligraphic font.  Instead, use \mathcal{}
 %
-% % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % %
 %
 % Please contact latex@plos.org with any questions.
 %
@@ -125,13 +125,13 @@
 
 
 % Remove comment for double spacing
-%\usepackage{setspace} 
+%\usepackage{setspace}
 %\doublespacing
 
 % Text layout
 \raggedright
 \setlength{\parindent}{0.5cm}
-\textwidth 5.25in 
+\textwidth 5.25in
 \textheight 8.75in
 
 % Bold the 'Figure #' in the caption and separate it from the title/caption with a period
@@ -178,7 +178,7 @@
 % Title must be 250 characters or less.
 \begin{flushleft}
 {\Large
-\textbf\newline{Elucidating multi-input processing 3-node gene regulatory 
+\textbf\newline{Elucidating multi-input processing 3-node gene regulatory
 network topologies capable of generating striped gene expression patterns}
 % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
@@ -210,7 +210,7 @@ Belgium
 \bigskip
 
 % Insert additional author notes using the symbols described below. Insert symbol callouts after author names as necessary.
-% 
+%
 % Remove or comment out the author notes below if they aren't used.
 %
 % Primary Equal Contribution Note
@@ -221,9 +221,9 @@ Belgium
 \ddag These authors also contributed equally to this work.
 
 % Current address notes
-\textcurrency Current Address: Dept/Program/Center, Universidad de Antioquia, 
+\textcurrency Current Address: Dept/Program/Center, Universidad de Antioquia,
 Medellín, Antioquia, Colombia % change symbol to "\textcurrency a" if more than one current address note
-% \textcurrency b Insert second current address 
+% \textcurrency b Insert second current address
 % \textcurrency c Insert third current address
 
 % Deceased author note
@@ -240,46 +240,46 @@ Medellín, Antioquia, Colombia % change symbol to "\textcurrency a" if more than
 \section*{Abstract}
 
 \subsection*{Background}
-A central problem in developmental and synthetic biology is to understand the 
-mechanisms by which cells in a tissue or in a Petri dish process external cues 
-and transform such information into a coherent response, e.g. a terminal 
-differentiation state. It was long believed that this type of positional 
-information could be entirely attributed to a gradient of concentration of a 
-certain signaling molecule (i.e. a morphogen). However, advances in experimental 
-methodologies and computer modeling have demonstrated the crucial role of the 
-dynamics of a cell's gene regulatory network (GRN) in decoding the information 
-carried by the morphogen, which is eventually translated into a spatial 
-pattern. This morphogen interpretation mechanism has gained a lot of attention 
-in systems biology as a tractable system to investigate the emergent properties 
+A central problem in developmental and synthetic biology is to understand the
+mechanisms by which cells in a tissue or in a Petri dish process external cues
+and transform such information into a coherent response, e.g. a terminal
+differentiation state. It was long believed that this type of positional
+information could be entirely attributed to a gradient of concentration of a
+certain signaling molecule (i.e. a morphogen). However, advances in experimental
+methodologies and computer modeling have demonstrated the crucial role of the
+dynamics of a cell's gene regulatory network (GRN) in decoding the information
+carried by the morphogen, which is eventually translated into a spatial
+pattern. This morphogen interpretation mechanism has gained a lot of attention
+in systems biology as a tractable system to investigate the emergent properties
 of complex genotype-phenotype maps.
 
 \subsection*{Methods}
-In this study we used a genetic algorithm in order to explore the genotypic 
-space of three-node GRNs capable of producing a band expression pattern in a 
-group of cells. In contrast to previous studies, we explore multiple input 
+In this study we used a genetic algorithm in order to explore the genotypic
+space of three-node GRNs capable of producing a band expression pattern in a
+group of cells. In contrast to previous studies, we explore multiple input
 network designs that enable more morphogen interpretation mechanisms to arise.
 
 \subsection*{Results}
-Out of 2061 GRNs selected using the genetic algorithm, we found 714 groups of 
-topologies that were able to interpret a morphogen input. The main network motif 
-involved in the formation of the band expression pattern was the type 3 
-Incoherent Feed Forward Loop (I3-FFL); we also present here other network 
-topologies that have not been previously reported and that can be useful as 
-synthetic regulatory networks due to its simple design and robust morphogen 
+Out of 2061 GRNs selected using the genetic algorithm, we found 714 groups of
+topologies that were able to interpret a morphogen input. The main network motif
+involved in the formation of the band expression pattern was the type 3
+Incoherent Feed Forward Loop (I3-FFL); we also present here other network
+topologies that have not been previously reported and that can be useful as
+synthetic regulatory networks due to its simple design and robust morphogen
 interpretation mechanisms.
 
 \subsection*{Conclusions}
 
 
 % Please keep the Author Summary between 150 and 200 words
-% Use first person. PLOS ONE authors please skip this step. 
-% Author Summary not valid for PLOS ONE submissions.   
+% Use first person. PLOS ONE authors please skip this step.
+% Author Summary not valid for PLOS ONE submissions.
 \section*{Author summary}
 Systems biology is a very fast growing field thanks to the advances in computing and
 mathematical modeling of biological systems, and has proven to be a powerful tool that
 can help us to understand complex biological processes such as pattern formation in
 development. In this article we use an \textit{in silico} approach in order to find and study
-the design space of three node Gene Regulatory Networks that are able to produce a 
+the design space of three node Gene Regulatory Networks that are able to produce a
 striped pattern of gene expression.
 
 \linenumbers
@@ -304,11 +304,11 @@ than those in randomized networks \cite{Milo2002}. This novel approach, along
 with mathematical modeling and computational methods have been shown to be a
 powerful tool to study GRNs and the predictions of studies using these methods
 have been validated by experimental studies
-\cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005}, and some of them 
-have even used synthetic GRNs to produce artificial cell differentiation~\cite{Basu2005} 
-and circadian gene expression~\cite{atkinson_development_2003}. Moreover, 
-the design and implementation of GRNs through synthetic biology is emerging as 
-a promising tool to study biological phenomena as pattern formation 
+\cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005}, and some of them
+have even used synthetic GRNs to produce artificial cell differentiation~\cite{Basu2005}
+and circadian gene expression~\cite{atkinson_development_2003}. Moreover,
+the design and implementation of GRNs through synthetic biology is emerging as
+a promising tool to study biological phenomena as pattern formation
 \cite{santos-moreno_using_2019}.
 
 However, although several studies have analyzed the properties of GRNs that
@@ -319,7 +319,7 @@ GRNs \cite{Elowitz2000}.
 
 In this study, we used a set of 2061 three-node GRNs selected by a genetic
 algorithm to interpret a morphogen signal and respond to it generating a
-striped pattern of gene expression in order to analyse the role of network 
+striped pattern of gene expression in order to analyse the role of network
 motifs in this process and its dynamic properties.
 
 % Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Nullam Eq~(\ref{eq:schemeP}) sapien tellus, commodo id velit id, eleifend volutpat quam. Nunc pellentesque pretium diam, quis maximus dolor faucibus id.~\cite{bib2} Nunc convallis sodales ante, ut ullamcorper est egestas vitae.
@@ -334,15 +334,15 @@ motifs in this process and its dynamic properties.
 \subsection*{Gene Regulatory Networks and morphogenetic field}
 
 % For figure citations, please use "Fig" instead of "Figure".
-In order to study three-node GRNs we represented them by three sets of real 
+In order to study three-node GRNs we represented them by three sets of real
 numbers, the first set was composed of the interaction values
-between genes in the network; the second of the diffusion rates (D) of each of 
-the three gene products; and the third of the degradation rates ($\delta$) of 
+between genes in the network; the second of the diffusion rates (D) of each of
+the three gene products; and the third of the degradation rates ($\delta$) of
 these same gene products, with $D$ and $\delta  \in [0, 0.05]$.\\
 
-The set of interaction values was represented as adjacency matrices $W \in 
-\mathbb{R}^{3\times4}$ where $i$ represents a regulated node of the GRN and $j$ 
-represents a regulator node of the GRN Fig \ref{fig:adjmat} with 
+The set of interaction values was represented as adjacency matrices $W \in
+\mathbb{R}^{3\times4}$ where $i$ represents a regulated node of the GRN and $j$
+represents a regulator node of the GRN Fig \ref{fig:adjmat} with
 $w_{\textit{ij}}~\in [-10,\ 10]$. Values in these matrices can be negative, zero
 or positive and represent represion, no interaction, or activation respectively.
 The magnitude of the value is proportional to the strength of the interaction.\\
@@ -351,51 +351,51 @@ The magnitude of the value is proportional to the strength of the interaction.\\
 %  \centering
  \includegraphics[width=\textwidth]{figures/metodos/matriz-de-adyacencia}
     \caption{\bf Modelling of GRNs.}
-    A: GRN represented as a directed graph with activation (blue arrows) and 
+    A: GRN represented as a directed graph with activation (blue arrows) and
     inhibition (red arrows) interactions. Black circles
     tagged with a \textbf{M} represent the morphogen; \textbf{A}, \textbf{B} and
     \textbf{C} represent genes in the network.
-    B: The same GRN represented as an adjacency matrix in which positive values 
+    B: The same GRN represented as an adjacency matrix in which positive values
     represent activation, negative ones represent inhibition and
     zeros represent no interaction.
  \label{fig:adjmat}
 \end{figure}
 
-In our model the morphogen could interact with any of the three genes on the 
-GRN, but could not be affected by them. The morphogenetic field was defined by 
-an unidimensional array of 30 isogenic cells exposed to the morphogen 
-concentration gradient (Fig~\ref{fig:morfgrad}). The initial concentration of 
+In our model the morphogen could interact with any of the three genes on the
+GRN, but could not be affected by them. The morphogenetic field was defined by
+an unidimensional array of 30 isogenic cells exposed to the morphogen
+concentration gradient (Fig~\ref{fig:morfgrad}). The initial concentration of
 each gen product in all cells was set to 0.1 in all simulations.\\
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/metodos/morphogen-gradient}
  \caption{\bf Morphogenetic field.}
- In our model the field was composed of a linear array of 30 isogenic cells and 
- a morphogen gradient concentration described by an exponential decay function. 
- Horizontal arrows between cells represent diffusion of gene products between 
+ In our model the field was composed of a linear array of 30 isogenic cells and
+ a morphogen gradient concentration described by an exponential decay function.
+ Horizontal arrows between cells represent diffusion of gene products between
  adjacent cells.
  \label{fig:morfgrad}
 \end{figure}
 
 \subsection*{Mathematical model}
 
-Our model is a modification of the model used by Cotterell \& Sharpe 
-\cite{Cotterell2010} and proposed by Reinitz et al. \cite{Reinitz1995}. The 
-model is a dynamical system that describes the change in concentration of gene 
+Our model is a modification of the model used by Cotterell \& Sharpe
+\cite{Cotterell2010} and proposed by Reinitz et al. \cite{Reinitz1995}. The
+model is a dynamical system that describes the change in concentration of gene
 product \emph{i} in time, as shown in Eq~\ref{ec:modelo-gral}.
 
  \begin{eqnarray}
   \frac{d[G]^i_n}{dt}
-  = g(u^i) + D_i \cdot [ ([G]^i_{n-1}-[G]^i_n) +([G]^i_{n+1}-[G]^i_n)]-\delta_i 
+  = g(u^i) + D_i \cdot [ ([G]^i_{n-1}-[G]^i_n) +([G]^i_{n+1}-[G]^i_n)]-\delta_i
   \cdot [ G ]^i_n ,
   \label{ec:modelo-gral}
  \end{eqnarray}
 \noindent
-in which $[G]^{i}_{n}$ is the concentration of the i-th gene in the \emph{n}-th 
-cell ($[G]^{i}_{n} ≥ 0$), $g(u^i)$ is a function describing the relationship 
-between the interactions on the \emph{i}-th gene and its expression 
-Eq~(\ref{ec:input-func}) and described in more detail below. $D_i$ and 
-$\delta_i$ are the diffusion and the degradation rate of \emph{i}-th gene 
+in which $[G]^{i}_{n}$ is the concentration of the i-th gene in the \emph{n}-th
+cell ($[G]^{i}_{n} ≥ 0$), $g(u^i)$ is a function describing the relationship
+between the interactions on the \emph{i}-th gene and its expression
+Eq~(\ref{ec:input-func}) and described in more detail below. $D_i$ and
+$\delta_i$ are the diffusion and the degradation rate of \emph{i}-th gene
 product, respectively.\\
 
 The input function is a sigmoid function described by Eq~\ref{ec:input-func}.
@@ -411,39 +411,39 @@ set to 1 for all simulations, and $u^i$ is the following equation:
  \label{ec:mat-sum}
 \end{equation}
 
-This equation sums the interactions acting upon the \emph{i}-th gene, being 
-$w_{ij}$ the interaction strength of the \emph{j}-th gene upon the \emph{i}-th 
+This equation sums the interactions acting upon the \emph{i}-th gene, being
+$w_{ij}$ the interaction strength of the \emph{j}-th gene upon the \emph{i}-th
 gene and $w_{im}$ the interaction strength of the morphogen upon the \emph{i}-th
-gene. $[G]^j_n$ and $[M]_n$ are the concentrations of the \emph{j}-th gene 
+gene. $[G]^j_n$ and $[M]_n$ are the concentrations of the \emph{j}-th gene
 product and the morphogen in the \emph{n}-th cell.
 
 \subsection*{Morphogen spatial distribution}
 
-The morphogen concentration along the morphogenetic field is described by 
+The morphogen concentration along the morphogenetic field is described by
 Eq~\ref{ec:morph}.
 \begin{equation}
  M = A_0 \cdot \exp(-c/h),
  \label{ec:morph}
 \end{equation}
 \noindent
-were $A_0$ is the concentration of the morphogen in the position zero of the 
-morphogenetic field and was set to 1 in our experiments; $c$ is the cell index, 
-defined as the ratio between the \emph{n}-th cell from left to right and the 
-total number of cells, and $h$ is a decay parameter, whose value in our model 
+were $A_0$ is the concentration of the morphogen in the position zero of the
+morphogenetic field and was set to 1 in our experiments; $c$ is the cell index,
+defined as the ratio between the \emph{n}-th cell from left to right and the
+total number of cells, and $h$ is a decay parameter, whose value in our model
 was set to 0.4.
 
-The phenotype of a GRN was defined as the expression pattern of each gene along 
-the morphogenetic field after 500 time steps of integration of the dynamical 
-system. We chose that number of time steps because numerical experiments showed 
+The phenotype of a GRN was defined as the expression pattern of each gene along
+the morphogenetic field after 500 time steps of integration of the dynamical
+system. We chose that number of time steps because numerical experiments showed
 that GRNs reached the steady state in approximately 300 steps.
 
 \subsection*{Optimal pattern definition}
 
-The optimal pattern of gene expression defined by us, consisted in cells at the 
-sides of the field ($n<11$ and $n>20$) displaying expression levels lower than 
+The optimal pattern of gene expression defined by us, consisted in cells at the
+sides of the field ($n<11$ and $n>20$) displaying expression levels lower than
 10\% of the maximal level observed along the field of cells for the output gene,
-and cells at the middle of the field ($n ∈ [11,20]$) displaying expression 
-levels greater than 90\% of the maximal level observed along the entire field 
+and cells at the middle of the field ($n ∈ [11,20]$) displaying expression
+levels greater than 90\% of the maximal level observed along the entire field
 for the output gene (Fig~\ref{fig:exp-pattern}).
 
 \begin{figure}[!h]
@@ -459,50 +459,50 @@ consisted in the following steps:
 
 \begin{enumerate}
  \item{\bf Generate a random GRN.}
- 
- \item{\bf Numerically solve the dynamical system for the GRN from t=0 until 
- t=500.} We integrated the differential equation using the function NDSolve from 
- Wolfram Mathematica 11 with the option “EquationSimplification” and the 
+
+ \item{\bf Numerically solve the dynamical system for the GRN from t=0 until
+ t=500.} We integrated the differential equation using the function NDSolve from
+ Wolfram Mathematica 11 with the option “EquationSimplification” and the
  “Residual” simplification method.
- 
- \item{\bf Evaluate fitness by comparing the GRN phenotype with the optimal 
- phenotype (Fig~\ref{fig:exp-pattern}).} In order to compute the fitness 
- function for each GRN we used three different filters. The first filter 
- assesses whether the expression profile of the output node reaches a 
+
+ \item{\bf Evaluate fitness by comparing the GRN phenotype with the optimal
+ phenotype (Fig~\ref{fig:exp-pattern}).} In order to compute the fitness
+ function for each GRN we used three different filters. The first filter
+ assesses whether the expression profile of the output node reaches a
  quasi-steady state:
  \begin{equation}
   S_{filter} = \left( \frac{1}{I \cdot N}\right) \sqrt{\sum_{i=1}^{I=3}
   \sum_{n=1}^{N=30} ([G]_n^i(t=500) - [G]^i_n(t=250))^2}.
  \end{equation}
- 
- The expression profile was considered to have reached the steady state if 
+
+ The expression profile was considered to have reached the steady state if
  $S_{filter} < 0.001$.\\
- 
+
  The second filter measures the spatial heterogeneity in the field:
  \begin{equation}
   P_{filter} = \left( \frac{1}{I \cdot N} \right) \sqrt{ \sum_{i=3}^{I=3}
   \sum_{n=1}^{N=30} \left( [G]^i_n - \langle [G]^i_n \rangle \right)^2 },
  \end{equation}
- 
- where $\langle [G]^i_n \rangle$ is the mean concentration of the \emph{i}-th 
+
+ where $\langle [G]^i_n \rangle$ is the mean concentration of the \emph{i}-th
  gene along the field at $t=500$.\\
- 
+
  The third filter relates the Manhattan Distance ($D_{obs}$) between an
  expression pattern and the optimal pattern with the maximum distance achievable
  ($D_{max}$):
  \begin{equation}
   \mathit{PF}_{eff} = 1 - \frac{D_{obs}}{D_{max}}.
  \end{equation}
- 
+
  In this function, the expression profile of the output gene was normalized and
  discretized so that each expression value for each cell in the field was an
  integer ranging from 1 to 10.\\
- 
- The filters mentioned above are integrated in the following functions that 
+
+ The filters mentioned above are integrated in the following functions that
  evaluates the  quality of a given phenotype:
- 
+
  \begin{equation}
-  Q_1(P_{filter}) = \left( \frac{ {P_{filter}}^{10} }{ {P_{filter}}^{10} + 
+  Q_1(P_{filter}) = \left( \frac{ {P_{filter}}^{10} }{ {P_{filter}}^{10} +
   0.1^{10} } \right),
  \end{equation}
  \begin{equation}
@@ -515,80 +515,80 @@ consisted in the following steps:
   F = \mathit{PF_{eff}} \cdot Q_1(P_{filter}) \cdot Q_2(S_{filter}).
  \end{equation}
 
- \item{\bf Mutate GRN network parameters or gene product diffusion or 
-degradation rates randomly and evaluate fitness again.} If fitness of the 
-mutated GRN is greater than that of the previous GRN, save GRN and continue 
+ \item{\bf Mutate GRN network parameters or gene product diffusion or
+degradation rates randomly and evaluate fitness again.} If fitness of the
+mutated GRN is greater than that of the previous GRN, save GRN and continue
 mutating.
- 
- \item {\bf Mutate GRNs randomly and evaluate fitness again.} Mutations 
-included changes in the  numerical values of degradation and diffusion 
-parameters and interaction strengths, and addition and removal of interactions 
-among genes and between the genes and the morphogen. If fitness of the mutated 
-GRN was greater or equal than that of the previous GRN, mutated GRN was saved 
-and the cycle continued from step 2. This cycle was repeated 5000000 times and 
+
+ \item {\bf Mutate GRNs randomly and evaluate fitness again.} Mutations
+included changes in the  numerical values of degradation and diffusion
+parameters and interaction strengths, and addition and removal of interactions
+among genes and between the genes and the morphogen. If fitness of the mutated
+GRN was greater or equal than that of the previous GRN, mutated GRN was saved
+and the cycle continued from step 2. This cycle was repeated 5000000 times and
 GRNs with a fitness greater or equal than 0.95 were saved into a file.
 
 \end{enumerate}
 
-Steps 1 to 5 were iterated 500 times, resulting in a set of 2061 GRNs with a 
+Steps 1 to 5 were iterated 500 times, resulting in a set of 2061 GRNs with a
 striped pattern of gene expression in at least one gene.
 
 \subsection*{Classification of GRNs}
 
 In order to group all the isomorphic networks in the set of 2061 GRNs we used a
-classification algorithm that selected a random GRN, then it generated all 
-isomorphs of that GRN by performing permutations in rows and columns. The 
-algorithm then compared all six isomorphs with other GRN and classified the 
+classification algorithm that selected a random GRN, then it generated all
+isomorphs of that GRN by performing permutations in rows and columns. The
+algorithm then compared all six isomorphs with other GRN and classified the
 topologies in the same group if they were isomorphic networks.
 
 \subsection*{Neutral network}
 
-The neutral network was obtained by generating all possible isomorphs of a 
+The neutral network was obtained by generating all possible isomorphs of a
 network topology and then calculating the minimal Hamming distance between these
-isomorphs and other network topologies. The Hamming distance between two 
+isomorphs and other network topologies. The Hamming distance between two
 topologies was calculated using the following equation:
 \begin{equation}
  D_H(W^A, W^B) = \sum_{ij} \mid sgn(w_{ij}^A) - sgn(w^B_{ij}) \mid .
 \end{equation}
 
-We adopted the same definition of neighborhood as Cotterell \& Sharpe 
-\cite{Cotterell2010}, in which two topologies were neighbors if the gain or 
-removal of any one interaction can transform one of the topologies into the 
+We adopted the same definition of neighborhood as Cotterell \& Sharpe
+\cite{Cotterell2010}, in which two topologies were neighbors if the gain or
+removal of any one interaction can transform one of the topologies into the
 other.
 
 \subsection*{Robustness analysis}
 
 In order to evaluate the robustness of the different topologies to perturbations
-in parameters of interactions between genes we took a GRN belonging to each one 
-of the network topologies and we modified each interaction independently by 
-increasing and decreasing its value by 20\%. For topologies with 3 or more 
+in parameters of interactions between genes we took a GRN belonging to each one
+of the network topologies and we modified each interaction independently by
+increasing and decreasing its value by 20\%. For topologies with 3 or more
 GRNs we chose the most similar to the mean configuration for that topology.\\
 
-As a measure of the robustness of the topology we chose the proportion of times 
-in which a perturbation resulted in a GRN with a fitness greater or equal to 
-0.95. Additionally, we considered a topology to be robust if the previous 
+As a measure of the robustness of the topology we chose the proportion of times
+in which a perturbation resulted in a GRN with a fitness greater or equal to
+0.95. Additionally, we considered a topology to be robust if the previous
 measure was greater or equal to 0.5.\\
 
 As a measure of the robustness of subgraphs (see “Classification of topologies”)
-we calculated the mean of the robustness measure of all the topologies 
+we calculated the mean of the robustness measure of all the topologies
 containing a particular subgraph.\\
 
 \subsubsection*{Robustness of topology 9 to perturbations in non-network parameters}
 
-In order to estimate the robustness of topology 9 to changes in parameters that 
-control morphogen gradient and changes in initial concentrations of gene 
-products, we generated 100 fitness values for each one of the 19 GRNs 
-belonging to topology 9; in each of these 100 assays we chose $A_0$, $h$ or 
-initial concentrations randomly from a Normal Distribution with $\mu = 1$ for 
-$A_0$, $\mu = 0.4$ for $h$ and $\mu = 1$ for initial concentrations and a 
+In order to estimate the robustness of topology 9 to changes in parameters that
+control morphogen gradient and changes in initial concentrations of gene
+products, we generated 100 fitness values for each one of the 19 GRNs
+belonging to topology 9; in each of these 100 assays we chose $A_0$, $h$ or
+initial concentrations randomly from a Normal Distribution with $\mu = 1$ for
+$A_0$, $\mu = 0.4$ for $h$ and $\mu = 1$ for initial concentrations and a
 Coefficient of Variation of 30\% in each case.
 
 \subsection*{Shannon entropy}
 
-We calculated the Shannon entropy Eq~(\ref{ec:shannon}) of the network 
-topologies distribution in order to test if this distribution could be obtained 
-by chance with a probability greater than 0.05. In order to obtain a 95\% 
-confidence interval, we generated 30 samples of a set of 2061 random matrices 
+We calculated the Shannon entropy Eq~(\ref{ec:shannon}) of the network
+topologies distribution in order to test if this distribution could be obtained
+by chance with a probability greater than 0.05. In order to obtain a 95\%
+confidence interval, we generated 30 samples of a set of 2061 random matrices
 and calculated the Shannon entropy in bits for each sample and tested these data
 for normality.
 \begin{equation}
@@ -598,44 +598,44 @@ for normality.
 
 \subsection*{Classification of GRNs phenotypes}
 
-In order to classify each GRN by its spatiotemporal expression profile (its 
-dynamics of expression), we selected expression profiles of GRNs from time step 
-0 to time step 250 each 10 time steps, for a total of 26 expression profiles 
-over time. These spatiotemporal expression profiles were represented as tensors 
+In order to classify each GRN by its spatiotemporal expression profile (its
+dynamics of expression), we selected expression profiles of GRNs from time step
+0 to time step 250 each 10 time steps, for a total of 26 expression profiles
+over time. These spatiotemporal expression profiles were represented as tensors
 $S \in \mathbb{R}^{3 \times 26 \times 30}$, in which each element ($s_{itn} \geq
 0$) is the expression level of the \emph{i}-th gene at time $t$ in cell $n$.\\
 
-Later we calculated the distance between all the pairs of tensors and we 
-performed a Neighbor Joining clustering using the package Scikit Bio 0.5.5 from 
+Later we calculated the distance between all the pairs of tensors and we
+performed a Neighbor Joining clustering using the package Scikit Bio 0.5.5 from
 Python 3.
 
 \subsection*{Classification of topologies}
 
 In order to classify each topology by its subgraph composition, we first created
-a matrix  $T = (t_{ij})$ with 714 rows corresponding to each different topology 
-and 17 columns corresponding to different subgraphs. Each element $t_{ij}$ of 
-the matrix was 1 if the \emph{j}-th subgraph was present in the \emph{i}-th 
+a matrix  $T = (t_{ij})$ with 714 rows corresponding to each different topology
+and 17 columns corresponding to different subgraphs. Each element $t_{ij}$ of
+the matrix was 1 if the \emph{j}-th subgraph was present in the \emph{i}-th
 topology or 0 if the subgraph was not present.\\
 
-With this matrix we then calculated a distance matrix in which each element 
-consisted in the Hamming distance between the row vectors in matrix $T$ between 
-each pair of topologies. We then performed a clustering of these topologies 
+With this matrix we then calculated a distance matrix in which each element
+consisted in the Hamming distance between the row vectors in matrix $T$ between
+each pair of topologies. We then performed a clustering of these topologies
 using the Neighbor Joining method in the Scikit Bio package.
 
 \subsection*{Complexity index and network descriptors}
 
-As a measure of network complexity, we used the complexity index based on 
-Shannon entropy proposed by Bonchev \& Rovray \cite{D.2005}. We calculated this 
+As a measure of network complexity, we used the complexity index based on
+Shannon entropy proposed by Bonchev \& Rovray \cite{D.2005}. We calculated this
 index using the following equation:
 \begin{equation}
  I_{vd} = \sum_{i=1}^V a_i \cdot \log_{2} a_i,
 \end{equation}
 \noindent
-being $a_i$ the degree of \emph{i}-th node and $V$ the number of nodes in the 
-network. The network descriptors were calculated using built-in functions from 
+being $a_i$ the degree of \emph{i}-th node and $V$ the number of nodes in the
+network. The network descriptors were calculated using built-in functions from
 Wolfram Mathematica software.\\
 
-We performed a Pearson’s chi-square goodness of fit test for the node degree 
+We performed a Pearson’s chi-square goodness of fit test for the node degree
 distribution using Wolfram Mathematica.
 
 % For placing video, \nameref{S1_Video} vel sagittis arcu lobortis.
@@ -650,11 +650,11 @@ distribution using Wolfram Mathematica.
 % Results and Discussion can be combined.
 \section*{Results}
 
-The classification of GRNs showed that our initial set of 2061 GRNs can be 
+The classification of GRNs showed that our initial set of 2061 GRNs can be
 grouped in a number of 714 distinct network topologies, each one of them
 containing a different number of GRNs (Fig~\ref{fig:distopol}). This abundances
 distribution was not produced by chance (Shannon entropy = 8.52963, 95\%
-confidence interval = [10.8915, 10.9275]), and instead it displays some level 
+confidence interval = [10.8915, 10.9275]), and instead it displays some level
 of structure, indicating the existence of network motifs.
 
 \begin{figure}[!h]
@@ -664,53 +664,53 @@ of structure, indicating the existence of network motifs.
  \label{fig:distopol}
 \end{figure}
 
-The most abundant network topologies are shown in Fig~\ref{fig:topol}. 
-Interestingly, among the 15 most abundant network topologies, eleven of them 
-presented the Incoherent type 3 Feed-Forward Loop (I3-FFL) network motif. In 
-addition, we found that topology number 9 could produce the striped phenotype 
+The most abundant network topologies are shown in Fig~\ref{fig:topol}.
+Interestingly, among the 15 most abundant network topologies, eleven of them
+presented the Incoherent type 3 Feed-Forward Loop (I3-FFL) network motif. In
+addition, we found that topology number 9 could produce the striped phenotype
 with only two nodes.
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/most-abu-topol}
  \caption{\bf Most frequent network topologies.}
- Most frequent network topologies contain the I3-FFL network motif. Topologies 
+ Most frequent network topologies contain the I3-FFL network motif. Topologies
  are numbered in order of decreasing abundance.
- The number of GRNs belonging to each network topology is presented below 
+ The number of GRNs belonging to each network topology is presented below
  topology number.
  Network topology number 9 produces the striped phenotype using a two-node GRN.
  \label{fig:topol}
 \end{figure}
 
-The neutral network (a metagraph in wich each node is a network topology) 
+The neutral network (a metagraph in wich each node is a network topology)
 shows that most of the network topologies are grouped into a connected graph.
 This graph is composed of 639 nodes that are accessible by one mutational step.
-The 15 most abundant network topologies, with the exception of 
-number 10, are part of this graph (Fig~\ref{fig:neutral-network}). We also 
-found nodes inside the neutral network that had more connections between them 
-than with other nodes, generating clusters of nodes, interestingly in 
-almost every cluster is present one or more of the 15 most abundant network 
-topologies. In addition, we found that the first eight most abundant network 
+The 15 most abundant network topologies, with the exception of
+number 10, are part of this graph (Fig~\ref{fig:neutral-network}). We also
+found nodes inside the neutral network that had more connections between them
+than with other nodes, generating clusters of nodes, interestingly in
+almost every cluster is present one or more of the 15 most abundant network
+topologies. In addition, we found that the first eight most abundant network
 topologies were located in the largest cluster.
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/grafo-hamming-15-nodes-inhibition-bar}
  \caption{\bf Neutral network.}
- This graph shows network topologies connected by one mutational step. Most 
- abundant network topologies are shown as black nodes. All nodes with the same 
- color belong to a cluster of nodes more connected between them than with other 
+ This graph shows network topologies connected by one mutational step. Most
+ abundant network topologies are shown as black nodes. All nodes with the same
+ color belong to a cluster of nodes more connected between them than with other
  nodes in the graph.
  \label{fig:neutral-network}
 \end{figure}
 
 The degree distribution of this network seems to follow a Poisson distribution
-(Pearson’s $\chi^2 = 12.8902$, $\text{p-value} = 0.115684$) characteristic of a 
-Erdös-Rényi network \cite{Erdos1959}. This kind of network presents a great 
-number of nodes with low degree and a few nodes with high degree 
+(Pearson’s $\chi^2 = 12.8902$, $\text{p-value} = 0.115684$) characteristic of a
+Erdös-Rényi network \cite{Erdos1959}. This kind of network presents a great
+number of nodes with low degree and a few nodes with high degree
 (Fig~\ref{fig:deg-dist}). Nodes corresponding to topologies number one and three
-showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, nodes with 
+showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, nodes with
 higher degree resulted to be also those network topologies with higher abundance
-(Fig~\ref{fig:ab-deg}). This relationship between abundance and node degree 
-was corroborated by the Spearman's rank correlation coefficient 
+(Fig~\ref{fig:ab-deg}). This relationship between abundance and node degree
+was corroborated by the Spearman's rank correlation coefficient
 ($r_S = −0.353752$, $p = 6.2933\times10^{-23} $).
 
 \begin{figure}[!h]
@@ -728,15 +728,15 @@ was corroborated by the Spearman's rank correlation coefficient
 
 We wanted to know if connecting topologies separated by two mutational steps
 would produce a connected graph, for that reason we generated another neutral
-network joining neighbors at two mutational steps and we found that only 
-topology number 420 remained unconnected from the rest of topologies in the 
+network joining neighbors at two mutational steps and we found that only
+topology number 420 remained unconnected from the rest of topologies in the
 graph (Fig~\ref{fig:2neut-net}).
 
 \begin{figure}
  \includegraphics[width=\textwidth]{figures/results/hamming-2pasos}
  \caption{\bf Network of topologies separated by two mutational steps.}
- The network shows that all the topologies are connected by two or less 
- mutational steps, except for topology number 420 (big red circle). Big black 
+ The network shows that all the topologies are connected by two or less
+ mutational steps, except for topology number 420 (big red circle). Big black
  circles correspond to the 15 topologies with higher abundance.
  \label{fig:2neut-net}
 \end{figure}
@@ -745,12 +745,12 @@ Besides topological robustness, we wanted to know if network topologies were
 robust to perturbations in the values of the parameters. After performing the
 perturbations to a GRN from each topology, we plotted the abundance of the
 topology vs. its robustness. We did not find a significant correlation between
-these two variables ($r_S = −0.0389724$, $\text{p-value} = 0.298475$) 
-(Fig~\ref{fig:ab-rob}). However, when we grouped those topologies containing 
-the same subgraph and calculated their mean robustness, we found that between 
-the most robust subgraphs is the ``Bistable'' motif reported by Cotterell \& 
-Sharpe \cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif 
-(which is a variation of the I3-FFL) also reported by Cotterell \& Sharpe (see 
+these two variables ($r_S = −0.0389724$, $\text{p-value} = 0.298475$)
+(Fig~\ref{fig:ab-rob}). However, when we grouped those topologies containing
+the same subgraph and calculated their mean robustness, we found that between
+the most robust subgraphs is the ``Bistable'' motif reported by Cotterell \&
+Sharpe \cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif
+(which is a variation of the I3-FFL) also reported by Cotterell \& Sharpe (see
 Supplementary Material).
 
 \begin{figure}[!h]
@@ -794,7 +794,7 @@ and was found to be negatively correlated with the abundance ($r_S = -0.316653$,
 $\text{p-value} = 2.25161\times10^{-18}$) (Fig~\ref{fig:ab-comp}).
 
 \begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/abundance-vs-complexity-index}
+ \includegraphics[width=\textwidth]{figures/results/abundance-vs-complexity-index-log}
  \caption{\bf Scatter plot of Abundance vs. Complexity index.}
  Each point in the plot represents one of the 714 network topologies.
  \label{fig:ab-comp}
@@ -816,8 +816,8 @@ Hierarchical clustering of spatiotemporal expression profiles showed that GRNs
 with topologies that seemed to be very different have indeed very similar
 expression dynamics. We expected to find GRNs with the same topology to group
 together but instead we found GRNs with different topologies grouped as close
-neighbors (Fig~\ref{fig:exp-tree}). More interestingly, some GRNs displaying 
-very abundant network topologies were grouped together with GRNs displaying 
+neighbors (Fig~\ref{fig:exp-tree}). More interestingly, some GRNs displaying
+very abundant network topologies were grouped together with GRNs displaying
 very infrequent network topologies.
 
 \begin{figure}[!h]
@@ -856,8 +856,8 @@ I3-FFL. Initially the expression pattern of the gene A is uniform in the
 morphogenetic field, but later it is shaped by the morphogen gradient in such a
 way that two important events occur, in first place the overall expression
 level of the gene A is decreased by the inhibition of the morphogen, releasing
-gene C from its repression by gene A; in second place, it appears a 
-non-homogeneous spatial distribution in which gene A is expressed at higher 
+gene C from its repression by gene A; in second place, it appears a
+non-homogeneous spatial distribution in which gene A is expressed at higher
 levels in the cells at the rightmost part of the morphogenetic field.\\
 
 These two events conduce to the repression of the gene C by the gene A in the
@@ -889,20 +889,20 @@ synthetic gene regulatory networks.
 
 %PLOS does not support heading levels beyond the 3rd (no 4th level headings).
 % \subsection*{\lorem\ and \ipsum\ nunc blandit a tortor}
-% \subsubsection*{3rd level heading} 
-% Sed suscipit iaculis mi at feugiat. 
-% 
+% \subsubsection*{3rd level heading}
+% Sed suscipit iaculis mi at feugiat.
+%
 % \begin{enumerate}
 % 	\item{react}
 % 	\item{diffuse free particles}
 % 	\item{increment time by dt and go to 1}
 % \end{enumerate}
-% 
-% 
+%
+%
 % \subsection*{Sed ac quam id nisi malesuada congue}
-% 
+%
 % Praesent faucibus semper libero.
-% 
+%
 % \begin{itemize}
 % 	\item First bulleted item.
 % 	\item Second bulleted item.
@@ -912,32 +912,32 @@ synthetic gene regulatory networks.
 \section*{Discussion}
 
 We found the presence of network motifs in the set of GRNs produced by the
-genetic algorithm. However, we also found a great diversity of network 
+genetic algorithm. However, we also found a great diversity of network
 topologies that could produce a striped gene expression pattern.\\
 
-That the most abundant topologies were found to be part of highly connected 
-clusters in the neutral network indicates that these topologies are both robust 
-to quantitative changes in the strength of interactions and diffusion and 
-degradation parameters as well as to qualitative changes in the topology 
+That the most abundant topologies were found to be part of highly connected
+clusters in the neutral network indicates that these topologies are both robust
+to quantitative changes in the strength of interactions and diffusion and
+degradation parameters as well as to qualitative changes in the topology
 itself.
 
 We found that the I3-FFL is one of the network motifs that appears more
 frequently in these GRNs, as has also been reported by Cotterell \& Sharpe
-\cite{Cotterell2010}, and has been found in transcriptional networks involved 
-in cell fate definition \cite{Li2019}. Moreover, our results indicate that this 
-is a robust motif that can be useful for construction of synthetic gene 
-regulatory networks that are exposed to stochastic fluctuations in the 
+\cite{Cotterell2010}, and has been found in transcriptional networks involved
+in cell fate definition \cite{Li2019}. Moreover, our results indicate that this
+is a robust motif that can be useful for construction of synthetic gene
+regulatory networks that are exposed to stochastic fluctuations in the
 environment and mutations.
 
-However, as our model was less stringent, we found a larger number of possible 
+However, as our model was less stringent, we found a larger number of possible
 topologies with the same striped phenotype.\\
 
-Although it has been experimentally demonstrated that the Incoherent Feed 
-Forward Loop type 2 (I2-FFL) is able to generate a striped gene expression 
-pattern, \cite{Schaerli2014, Basu2005}, in our study this motif was present in 
-only 10.92\% of the topologies. This fact may be because genetic algorithms 
+Although it has been experimentally demonstrated that the Incoherent Feed
+Forward Loop type 2 (I2-FFL) is able to generate a striped gene expression
+pattern, \cite{Schaerli2014, Basu2005}, in our study this motif was present in
+only 10.92\% of the topologies. This fact may be because genetic algorithms
 can not always find global minima but local minima or its surroundings, however,
-it is also possible that the I2-FFL motif is not as robust as other motifs and 
+it is also possible that the I2-FFL motif is not as robust as other motifs and
 therefore be less represented.
 
 We also found topologies with a similar topology to that of the “opposing
@@ -948,26 +948,26 @@ expression into account, we realized that the GRNs that presented the “opposin
 gradients” topology, had also commonly positive auto-regulation interactions on
 these two nodes, supplying in this way the lack of constitutive expression.
 
-The correlation between the complexity index of a topology and its abundance 
-indicates that networks with simpler designs are more robust to changes in 
-interaction parameters and that more complex networks are less robusts. For 
-example, topology number 420, which presents high complexity, was one of the 
-topologies with lower abundance and was disconnected from all other topologies 
+The correlation between the complexity index of a topology and its abundance
+indicates that networks with simpler designs are more robust to changes in
+interaction parameters and that more complex networks are less robusts. For
+example, topology number 420, which presents high complexity, was one of the
+topologies with lower abundance and was disconnected from all other topologies
 in the two-step neighbors in the neutral network.
 
-The cladogram of spatiotemporal expression profiles shows that the genetic 
-algorithm selected similar expression mechanisms that can be produced by very 
+The cladogram of spatiotemporal expression profiles shows that the genetic
+algorithm selected similar expression mechanisms that can be produced by very
 different topologies.
 
-Although GRNs that produce a band of gene expression with only two nodes have 
-been described (e.g. the I-zero motif, \cite{Schaerli2014}) this is to our 
-knowledge the first time a GRN with a topology such as that of topology nine 
-and its expression mechanism are reported, increasing our knowledge of the 
-genotype-phenotype map in this kind of system. 
+Although GRNs that produce a band of gene expression with only two nodes have
+been described (e.g. the I-zero motif, \cite{Schaerli2014}) this is to our
+knowledge the first time a GRN with a topology such as that of topology nine
+and its expression mechanism are reported, increasing our knowledge of the
+genotype-phenotype map in this kind of system.
 
-However, it is still necessary to confirm experimentally the ability of this 
-topology to generate the described pattern and it would be interesting to 
-study its feasibility and possible implementation in synthetic gene regulatory 
+However, it is still necessary to confirm experimentally the ability of this
+topology to generate the described pattern and it would be interesting to
+study its feasibility and possible implementation in synthetic gene regulatory
 networks.
 
 \section*{Conclusion}
@@ -976,7 +976,7 @@ This study can help us to understand the mechanisms by which the GRNs work in
 nature as modules that make part of genomes, and it also can provide guidance
 in the construction of new synthetic GRNs in the field of synthetic biology.
 
-%CO\textsubscript{2} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque. Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed velit. 
+%CO\textsubscript{2} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque. Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed velit.
 
 %Aliquam tincidunt, ex in facilisis elementum, libero lectus luctus est, non vulputate nisl augue at dolor. For more information, see \nameref{S1_Appendix}.
 
@@ -995,11 +995,11 @@ in the construction of new synthetic GRNs in the field of synthetic biology.
 % \paragraph*{S1 File.}
 % \label{S1_File}
 % {\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-% 
+%
 % \paragraph*{S1 Video.}
 % \label{S1_Video}
 % {\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-% 
+%
 % \paragraph*{S1 Appendix.}
 % \label{S1_Appendix}
 % {\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
@@ -1023,29 +1023,29 @@ Cras egestas velit mauris, eu mollis turpis pellentesque sit amet. Interdum et m
 %
 % Compile your BiBTeX database using our plos2015.bst
 % style file and paste the contents of your .bbl file
-% here. See http://journals.plos.org/plosone/s/latex for 
+% here. See http://journals.plos.org/plosone/s/latex for
 % step-by-step instructions.
-% 
+%
 % \begin{thebibliography}{10}
-% 
+%
 % \bibitem{bib1}
 % Conant GC, Wolfe KH.
 % \newblock {{T}urning a hobby into a job: how duplicated genes find new
 %   functions}.
 % \newblock Nat Rev Genet. 2008 Dec;9(12):938--950.
-% 
+%
 % \bibitem{bib2}
 % Ohno S.
 % \newblock Evolution by gene duplication.
 % \newblock London: George Alien \& Unwin Ltd. Berlin, Heidelberg and New York:
 %   Springer-Verlag.; 1970.
-% 
+%
 % \bibitem{bib3}
 % Magwire MM, Bayer F, Webster CL, Cao C, Jiggins FM.
 % \newblock {{S}uccessive increases in the resistance of {D}rosophila to viral
 %   infection through a transposon insertion followed by a {D}uplication}.
 % \newblock PLoS Genet. 2011 Oct;7(10):e1002337.
-% 
+%
 % \end{thebibliography}
 
 \bibliography{referencias-tesis}{}
