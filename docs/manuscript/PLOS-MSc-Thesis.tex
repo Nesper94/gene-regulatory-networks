@@ -292,10 +292,21 @@ from it. In many cases Gene Regulatory Networks (GRNs) interpret these signals
 through gene interaction and produce a particular response. This information
 processing function is of particular importance in developmental processes such
 as those in which a group of cells differentiate in response to a signalling
-molecule such as a morphogen \cite{Turing1952, Wolpert1969}. However, as
-information processing by GRNs is often a complex process, one major goal of
-developmental biology is to understand mechanistically how positional
-information is translated in spatial differentiation.\\
+molecule. Such molecules were referred to as morphogens by Turing in 1952
+\cite{Turing1952} and posterior theoretical studies on morphogens led to the
+french flag model \cite{Wolpert1969}, in which a gradient of concentration of
+the morphogen induces differentiation in a one-dimensional field of cells.
+Although the Bicoid protein (bcd), the first example of a molecule that acted
+as a morphogen, was only found in the 80's in the developing embryos of
+\textit{Drosophila melanogaster}
+\cite{driever_gradient_1988, driever_bicoid_1988}, now it is known that there
+are many other examples such as the Decapentaplegic (Dpp) protein in
+\textit{Drosophila} wing imaginal discs \cite{affolter_decapentaplegic_2007},
+as well as Hedgehog and Wnt.
+However, information processing by GRNs has proven to be a complex process, and
+a major goal of developmental biology is to understand mechanistically how
+positional information given by morphogens is translated in spatial
+differentiation.\\
 
 Our understanding of how GRNs process information has increased thanks to the
 concept and theory of network motifs, which are defined as patterns of
@@ -800,14 +811,6 @@ $\text{p-value} = 2.25161\times10^{-18}$) (Fig~\ref{fig:ab-comp}).
  \label{fig:ab-comp}
 \end{figure}
 
-\begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/GRN_660_topol_33_spatio-temp_exp_profile}
- \caption{\bf Most GRNs reach the steady state before 250 time steps.}
- GRN number 660 displaying the topology number 33 (A) and its spatiotemporal
- expression profile (B).
- \label{fig:profile}
-\end{figure}
-
 Hierarchical clustering of spatiotemporal expression profiles showed that GRNs
 with topologies that seemed to be very different have indeed very similar
 expression dynamics. We expected to find GRNs with the same topology to group
@@ -958,13 +961,12 @@ different topologies.
 Although GRNs that produce a band of gene expression with only two nodes have
 been described (e.g. the I-zero motif, \cite{Schaerli2014}) this is to our
 knowledge the first time a GRN with a topology such as that of topology nine
+(Fig \ref{fig:topol9})
 and its expression mechanism are reported, increasing our knowledge of the
-genotype-phenotype map in this kind of system.
-
-However, it is still necessary to confirm experimentally the ability of this
-topology to generate the described pattern and it would be interesting to
-study its feasibility and possible implementation in synthetic gene regulatory
-networks.
+genotype-phenotype map in this kind of system, and it would be very interesting
+to confirm experimentally the ability of this topology to generate the described
+pattern and it would be interesting to study its feasibility and possible
+implementation in synthetic gene regulatory networks.
 
 \section*{Conclusion}
 
@@ -987,6 +989,15 @@ in the construction of new synthetic GRNs in the field of synthetic biology.
 \paragraph*{S2 Fig.}
 \label{S2_Fig}
 {\bf Dynamics of expression of topology number 9.}
+
+\paragraph*{S3 Fig.}
+\begin{figure}[!h]
+ \includegraphics[width=\textwidth]{figures/supplementary-figures/GRN_660_topol_33_spatio-temp_exp_profile}
+ \caption{\bf Most GRNs reach the steady state before 250 time steps.}
+ GRN number 660 displaying the topology number 33 (A) and its spatiotemporal
+ expression profile (B).
+ \label{S3_Fig}
+\end{figure}
 
 % \paragraph*{S1 File.}
 % \label{S1_File}
