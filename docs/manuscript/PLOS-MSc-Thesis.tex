@@ -268,8 +268,7 @@ topologies that have not been previously reported and that can be useful as
 synthetic regulatory networks due to its simple design and robust morphogen
 interpretation mechanisms.
 
-\subsection*{Conclusions}
-
+% \subsection*{Conclusions}
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step.
@@ -302,25 +301,30 @@ as a morphogen, was only found in the 80's in the developing embryos of
 \cite{driever_gradient_1988, driever_bicoid_1988}, now it is known that there
 are many other examples such as the Decapentaplegic (Dpp) protein in
 \textit{Drosophila} wing imaginal discs \cite{affolter_decapentaplegic_2007},
-as well as Hedgehog and Wnt.
-However, information processing by GRNs has proven to be a complex process, and
-a major goal of developmental biology is to understand mechanistically how
-positional information given by morphogens is translated in spatial
-differentiation.\\
+as well as Sonic Hedgehog \cite{dessaud_dynamic_2010,cohen_theoretical_2014}
+and Wnt \cite{raspopovic_digit_2014}. However, information processing by GRNs
+has proven to be a complex process, and a major goal of developmental biology
+is to understand mechanistically how positional information given by morphogens
+is translated in spatial differentiation.\\
 
 Our understanding of how GRNs process information has increased thanks to the
 concept and theory of network motifs, which are defined as patterns of
 interconnections occurring in networks at numbers that are significantly higher
-than those in randomized networks \cite{Milo2002}. This novel approach, along
-with mathematical modeling and computational methods have been shown to be a
-powerful tool to study GRNs and the predictions of studies using these methods
-have been validated by experimental studies
-\cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005}, and some of them
-have even used synthetic GRNs to produce artificial cell differentiation~\cite{Basu2005}
-and circadian gene expression~\cite{atkinson_development_2003}. Moreover,
-the design and implementation of GRNs through synthetic biology is emerging as
-a promising tool to study biological phenomena as pattern formation
-\cite{santos-moreno_using_2019}.
+than those in randomized networks~\cite{Milo2002}. This novel approach, along
+with mathematical modeling and computational systems biology methods have been
+shown to be a powerful tool to study GRNs~\cite{kitano_computational_2002}, and
+the predictions of studies using these methods have been validated by
+experimental studies~\cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005}, and
+some of them have even used synthetic GRNs to produce artificial cell
+differentiation~\cite{Basu2005}, circadian gene
+expression~\cite{atkinson_development_2003}, counting
+devices~\cite{friedland_synthetic_2009} and systems that respond to light.
+Moreover, the design and implementation of GRNs through synthetic biology is
+emerging as a promising tool to study biological phenomena as pattern formation
+\cite{santos-moreno_using_2019} and as a novel therapeutic tool with amazing
+biomedical applications~\cite{karlsson_therapeutic_2012,
+higashikuni_advancing_2017,abil_synthetic_2015,healy_genetic_2019,
+kitada_programming_2018}.
 
 However, although several studies have analyzed the properties of GRNs that
 process positional information, they have focused on particular natural networks
@@ -353,40 +357,37 @@ these same gene products, with $D$ and $\delta  \in [0, 0.05]$.\\
 
 The set of interaction values was represented as adjacency matrices $W \in
 \mathbb{R}^{3\times4}$ where $i$ represents a regulated node of the GRN and $j$
-represents a regulator node of the GRN Fig \ref{fig:adjmat} with
-$w_{\textit{ij}}~\in [-10,\ 10]$. Values in these matrices can be negative, zero
-or positive and represent represion, no interaction, or activation respectively.
-The magnitude of the value is proportional to the strength of the interaction.\\
+represents a regulator node of the GRN (Fig \ref{fig:model}A and
+\ref{fig:model}B) with $w_{\textit{ij}}~\in [-10,\ 10]$. Values in these
+matrices can be negative, zero or positive and represent represion, no
+interaction, or activation respectively. The magnitude of the value is
+proportional to the strength of the interaction.\\
 
 \begin{figure}[!h]
 %  \centering
- \includegraphics[width=\textwidth]{figures/metodos/matriz-de-adyacencia}
+ \includegraphics[width=\textwidth]{figures/metodos/fig_1}
     \caption{\bf Modelling of GRNs.}
-    A: GRN represented as a directed graph with activation (blue arrows) and
+    (A) GRN represented as a directed graph with activation (blue arrows) and
     inhibition (red arrows) interactions. Black circles
     tagged with a \textbf{M} represent the morphogen; \textbf{A}, \textbf{B} and
     \textbf{C} represent genes in the network.
-    B: The same GRN represented as an adjacency matrix in which positive values
+    (B) The same GRN represented as an adjacency matrix in which positive values
     represent activation, negative ones represent inhibition and
     zeros represent no interaction.
- \label{fig:adjmat}
+    (C) Morphogenetic field. In our model the field was composed of a linear
+    array of 30 isogenic cells and a morphogen gradient concentration described
+    by an exponential decay function. Horizontal arrows between cells represent
+    diffusion of gene products between adjacent cells. Optimal gene expression
+    pattern is shown top right.
+    (D) Spatiotemporal expression profile of a GRN.
+ \label{fig:model}
 \end{figure}
 
 In our model the morphogen could interact with any of the three genes on the
 GRN, but could not be affected by them. The morphogenetic field was defined by
 an unidimensional array of 30 isogenic cells exposed to the morphogen
-concentration gradient (Fig~\ref{fig:morfgrad}). The initial concentration of
+concentration gradient (Fig~\ref{fig:model}C). The initial concentration of
 each gen product in all cells was set to 0.1 in all simulations.\\
-
-\begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/metodos/morphogen-gradient}
- \caption{\bf Morphogenetic field.}
- In our model the field was composed of a linear array of 30 isogenic cells and
- a morphogen gradient concentration described by an exponential decay function.
- Horizontal arrows between cells represent diffusion of gene products between
- adjacent cells.
- \label{fig:morfgrad}
-\end{figure}
 
 \subsection*{Mathematical model}
 
@@ -455,13 +456,7 @@ sides of the field ($n<11$ and $n>20$) displaying expression levels lower than
 10\% of the maximal level observed along the field of cells for the output gene,
 and cells at the middle of the field ($n ∈ [11,20]$) displaying expression
 levels greater than 90\% of the maximal level observed along the entire field
-for the output gene (Fig~\ref{fig:exp-pattern}).
-
-\begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/metodos/optimal-pattern}
- \caption{\bf Optimal gene expression pattern.}
- \label{fig:exp-pattern}
-\end{figure}
+for the output gene (Fig~\ref{fig:model}C).
 
 \subsection*{Genetic algorithm}
 
@@ -669,28 +664,21 @@ confidence interval = [10.8915, 10.9275]), and instead it displays some level
 of structure, indicating the existence of network motifs.
 
 \begin{figure}[!h]
- \center
- \includegraphics[width=\textwidth]{figures/results/distribution_topologies_en}
+ \includegraphics[width=\textwidth]{figures/results/distribution_most_abundant_topologies}
  \caption{\bf Distribution of abundances of network topologies.}
+ Most frequent network topologies shown in the grid contain the I3-FFL network
+ motif. Topologies are numbered in order of decreasing abundance. The number of
+ GRNs belonging to each network topology is presented below topology number.
+ Note that network topology number 9 produces the striped phenotype using a
+ two-node GRN.
  \label{fig:distopol}
 \end{figure}
 
-The most abundant network topologies are shown in Fig~\ref{fig:topol}.
+The most abundant network topologies are shown in Fig~\ref{fig:distopol}.
 Interestingly, among the 15 most abundant network topologies, eleven of them
 presented the Incoherent type 3 Feed-Forward Loop (I3-FFL) network motif. In
 addition, we found that topology number 9 could produce the striped phenotype
 with only two nodes.
-
-\begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/most-abu-topol}
- \caption{\bf Most frequent network topologies.}
- Most frequent network topologies contain the I3-FFL network motif. Topologies
- are numbered in order of decreasing abundance.
- The number of GRNs belonging to each network topology is presented below
- topology number.
- Network topology number 9 produces the striped phenotype using a two-node GRN.
- \label{fig:topol}
-\end{figure}
 
 The neutral network (a metagraph in wich each node is a network topology)
 shows that most of the network topologies are grouped into a connected graph.
@@ -717,24 +705,20 @@ The degree distribution of this network seems to follow a Poisson distribution
 (Pearson’s $\chi^2 = 12.8902$, $\text{p-value} = 0.115684$) characteristic of a
 Erdös-Rényi network \cite{Erdos1959}. This kind of network presents a great
 number of nodes with low degree and a few nodes with high degree
-(Fig~\ref{fig:deg-dist}). Nodes corresponding to topologies number one and three
-showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, nodes with
+(Fig~\ref{fig:deg-dist}A). Nodes corresponding to topologies number one and
+three showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, nodes with
 higher degree resulted to be also those network topologies with higher abundance
-(Fig~\ref{fig:ab-deg}). This relationship between abundance and node degree
+(Fig~\ref{fig:deg-dist}B). This relationship between abundance and node degree
 was corroborated by the Spearman's rank correlation coefficient
 ($r_S = −0.353752$, $p = 6.2933\times10^{-23} $).
 
 \begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/neutral-network-degree-distribution}
- \caption{\bf Histogram of vertex degree distribution in the neutral network.}
+ \includegraphics[width=\textwidth]{figures/results/vertex_degree_dist-abundance_vs_node_degree}
+ \caption{\bf Node degree in the neutral network.}
+ (A) Histogram of vertex degree distribution in the neutral network.
+ (B) Scatter plot of Topology abundance vs. Node degree in the neutral
+ network.
  \label{fig:deg-dist}
-\end{figure}
-
-\begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/abundance-vs-node-degree}
- \caption{\bf Scatter plot of Topology abundance vs. Node degree in the neutral
- network.}
- \label{fig:ab-deg}
 \end{figure}
 
 We wanted to know if connecting topologies separated by two mutational steps
@@ -757,7 +741,7 @@ robust to perturbations in the values of the parameters. After performing the
 perturbations to a GRN from each topology, we plotted the abundance of the
 topology vs. its robustness. We did not find a significant correlation between
 these two variables ($r_S = −0.0389724$, $\text{p-value} = 0.298475$)
-(Fig~\ref{fig:ab-rob}). However, when we grouped those topologies containing
+(Fig~\ref{fig:ab-rob}A). However, when we grouped those topologies containing
 the same subgraph and calculated their mean robustness, we found that between
 the most robust subgraphs is the ``Bistable'' motif reported by Cotterell \&
 Sharpe \cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif
@@ -765,11 +749,13 @@ Sharpe \cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif
 Supplementary Material).
 
 \begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/abundance-vs-robustness}
- \caption{\bf Scatter plot of Abundance vs. robustness.}
- The robustness of each topology was calculated as the number of perturbations
- in which the fitness was greater or equal to 0.95 with respect to the total of
- perturbations performed.
+ \includegraphics[width=\textwidth]{figures/results/abundance-robustness-complexity-index}
+ \caption{\bf Relationship between Abundance and robustness and complexity
+ index.} (A) Abundance vs. Robustness. The robustness of each topology was
+ calculated as the number of perturbations in which the fitness was greater or
+ equal to 0.95 with respect to the total of perturbations performed.
+ (B) Abundance vs. Complexity index. Each point in the plot represents one of
+ the 714 network topologies.
  \label{fig:ab-rob}
 \end{figure}
 
@@ -802,39 +788,27 @@ most network topologies (Table~\ref{table1}).
 
 The average complexity index of network topologies was 39.2435 ($\pm 11.6768$)
 and was found to be negatively correlated with the abundance ($r_S = -0.316653$,
-$\text{p-value} = 2.25161\times10^{-18}$) (Fig~\ref{fig:ab-comp}).
-
-\begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/abundance-vs-complexity-index-log}
- \caption{\bf Scatter plot of Abundance vs. Complexity index.}
- Each point in the plot represents one of the 714 network topologies.
- \label{fig:ab-comp}
-\end{figure}
+$\text{p-value} = 2.25161\times10^{-18}$) (Fig~\ref{fig:ab-rob}B).
 
 Hierarchical clustering of spatiotemporal expression profiles showed that GRNs
 with topologies that seemed to be very different have indeed very similar
 expression dynamics. We expected to find GRNs with the same topology to group
 together but instead we found GRNs with different topologies grouped as close
-neighbors (Fig~\ref{fig:exp-tree}). More interestingly, some GRNs displaying
+neighbors (Fig~\ref{fig:clustering}A). More interestingly, some GRNs displaying
 very abundant network topologies were grouped together with GRNs displaying
 very infrequent network topologies.
 
 \begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/spatio-temporal-profile-clustering-i3-ffl}
- \caption{\bf Clustering of spatiotemporal expression profiles obtained by
- neighbor joining showing the presence of I3-FFL network motif.}
- \label{fig:exp-tree}
+ \includegraphics[width=\textwidth]{figures/results/clustering_of_grns_and_topologies}
+ \caption{\bf Clustering of expression profiles and topologies.}
+ (A) Clustering of spatiotemporal expression profiles obtained by
+ neighbor joining. (B) Clustering of network topologies. Blue circles
+ correspond to topologies that contain the I3-FFL network motif.
+ \label{fig:clustering}
 \end{figure}
 
 Clustering of topologies revealed that there are six main groups of topologies
-in our set of 2061 GRNs (Fig~\ref{fig:subg-tree}).
-
-\begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/results/subgraph-profile-clustering-i3-ffl}
- \caption{\bf Clustering of network topologies.}
- Blue circles correspond to topologies that contain the I3-FFL network motif.
- \label{fig:subg-tree}
-\end{figure}
+in our set of 2061 GRNs (Fig~\ref{fig:clustering}B).
 
 Among the new network topologies we report here, perhaps the most interesting
 is the topology number 9, which is able to express the striped gene expression
@@ -886,41 +860,28 @@ This is a complex mechanism described by the first time in this study, and it
 would be interesting to study its feasibility and possible implementation in
 synthetic gene regulatory networks.
 
-%PLOS does not support heading levels beyond the 3rd (no 4th level headings).
-% \subsection*{\lorem\ and \ipsum\ nunc blandit a tortor}
-% \subsubsection*{3rd level heading}
-% Sed suscipit iaculis mi at feugiat.
-%
-% \begin{enumerate}
-% 	\item{react}
-% 	\item{diffuse free particles}
-% 	\item{increment time by dt and go to 1}
-% \end{enumerate}
-%
-%
-% \subsection*{Sed ac quam id nisi malesuada congue}
-%
-% Praesent faucibus semper libero.
-%
-% \begin{itemize}
-% 	\item First bulleted item.
-% 	\item Second bulleted item.
-% 	\item Third bulleted item.
-% \end{itemize}
-
 \section*{Discussion}
+
+This study can help us to understand the mechanisms by which the GRNs work in
+nature as modules that make part of genomes, and it also can provide guidance
+in the construction of new synthetic GRNs in the field of synthetic biology.
 
 We found the presence of network motifs in the set of GRNs produced by the
 genetic algorithm. However, we also found a great diversity of network
 topologies that could produce a striped gene expression pattern.\\
 
-That the most abundant topologies were found to be part of highly connected
-clusters in the neutral network indicates that these topologies are both robust
-to quantitative changes in the strength of interactions and diffusion and
-degradation parameters as well as to qualitative changes in the topology
-itself.
+Robustness is an important feature of patterning mediated by morphogens
+\cite{lo_robust_2015}. In our study, the most abundant topologies were found to
+be part of highly connected clusters in the neutral network, and this fact
+indicates that these topologies are both robust to quantitative changes in the
+strength of interactions and diffusion and degradation parameters as well as to
+qualitative changes in the topology itself. As robustness and evolvability are
+not mutually exclusive properties \cite{wagner_robustness_2008}, it is likely
+that these topologies are also evolvable.
 
-We found that the I3-FFL is one of the network motifs that appears more
+Other studies have shown that Incoherent Feed Forward Loops are able to form
+spatial stripes of gene expression \cite{ishihara_cross_2005}. In particular,
+we found that the I3-FFL is one of the network motifs that appears more
 frequently in these GRNs, as has also been reported by Cotterell \& Sharpe
 \cite{Cotterell2010}, and has been found in transcriptional networks involved
 in cell fate definition \cite{Li2019}. Moreover, our results indicate that this
@@ -968,13 +929,7 @@ to confirm experimentally the ability of this topology to generate the described
 pattern and it would be interesting to study its feasibility and possible
 implementation in synthetic gene regulatory networks.
 
-\section*{Conclusion}
-
-This study can help us to understand the mechanisms by which the GRNs work in
-nature as modules that make part of genomes, and it also can provide guidance
-in the construction of new synthetic GRNs in the field of synthetic biology.
-
-%CO\textsubscript{2} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque. Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed velit.
+%\section*{Conclusion}
 
 %Aliquam tincidunt, ex in facilisis elementum, libero lectus luctus est, non vulputate nisl augue at dolor. For more information, see \nameref{S1_Appendix}.
 
@@ -991,17 +946,14 @@ in the construction of new synthetic GRNs in the field of synthetic biology.
 {\bf Dynamics of expression of topology number 9.}
 
 \paragraph*{S3 Fig.}
-\begin{figure}[!h]
- \includegraphics[width=\textwidth]{figures/supplementary-figures/GRN_660_topol_33_spatio-temp_exp_profile}
- \caption{\bf Most GRNs reach the steady state before 250 time steps.}
- GRN number 660 displaying the topology number 33 (A) and its spatiotemporal
- expression profile (B).
- \label{S3_Fig}
-\end{figure}
+\label{S3_Fig}
+{\bf Most GRNs reach the steady state before 250 time steps.}
+GRN number 660 displaying the topology number 33 (A) and its spatiotemporal
+expression profile (B).
 
-% \paragraph*{S1 File.}
-% \label{S1_File}
-% {\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+\paragraph*{S4 Fig.}
+\label{S4_Fig}
+{\bf Bridge topologies in the neutral network.}
 %
 % \paragraph*{S1 Video.}
 % \label{S1_Video}
