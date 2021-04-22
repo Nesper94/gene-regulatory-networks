@@ -1,23 +1,19 @@
 (* ::Package:: *)
 
-(*Paquete para analizar la dinámica de expresión de cada genotipo.
+(*Package to analyze the expression dynamics of each genotype.
 This package depends on EvolAlgorithm4PatternFormingGRCModel2MathPackageV9*)
 <<EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`
 
-videoExp::usage = "videoExp[ genotipo ] crea un video de la dinámica de
-expresión de un genotipo, acepta como argumentos 'gen', con las opciones 'a','b'
- y 'c', tamaño del gráfico y 'fps' (cuadros por segundo)."
+videoExp::usage = "videoExp[ genotipo ] create a video of the expression dynamics of a GRN, it takes as argument 'gen', with options 'a','b' and 'c', image size and 'fps' (frames per second)."
 
-(*Esta línea importa la lista de motivos clasificados, ordenados no isomorfos*)
+(*Import list of classified, ordered, non isomorphic motifs*)
 motivosClasificadosOrdenadosNoIsomorfos = Flatten[ToExpression[#],1] &/@
-Import["/home/nesper94/Documentos/biologia-de-sistemas/RobustnessModularityProject/RobustnessModularityProject/motivos_clasificados_ordenados_no_isomorfos.txt","TSV"];
+Import["../data/ordered-non-isomorph-grns.txt","TSV"];
 
-(*Esta función me permite saber en qué posiciones están los genotipos que pertenecen a determinado motivo de red*)
-posiciónMotivos[motivo_Integer]:=Flatten[{First[#],Last[#]}&/@{Position[motivosClasificadosOrdenadosNoIsomorfos[[All,2]],motivo]}]
+(*This function shows the positions of GRNs with some topology*)
+posici\[OAcute]nMotivos[topology_Integer]:=Flatten[{First[#],Last[#]}&/@{Position[motivosClasificadosOrdenadosNoIsomorfos[[All,2]],topology]}]
 
-(*Aquí redefino la función "SpaceTimeFeats4StripeFormingGRCs4SSMorpGradientWithSumAndFilterModel0" de tal manera que acepte los genotipos sin necesidad de usar como argumento el input de morfógeno*)
-(*Nota [2018.11.08]: Esta función no concuerda totalmente con los resultados de "SolveGRCDynsBeforeAfterMorphInput", por lo tanto debe ser revisada y modificada*)
-(*Nota [2018.11.16]: La función fue modificada y ahora concuerda con los resultados de "SolveGRCDynsBeforeAfterMorphInput"*)
+(*Here the function "SpaceTimeFeats4StripeFormingGRCs4SSMorpGradientWithSumAndFilterModel0" is redefined so that it takes GRNs as input without need to supply the morphogen input*)
 expEspacioTemporal[{Wmatrix_List, DiffParams_List, DegParams_List},ti_:0,tf_:300,step_:6] :=
   Module[
   {Prot, ProtStateVariab, ProtInitExpStat, DynSyst, Sol, GRCPhenotReadout},
@@ -35,7 +31,7 @@ expEspacioTemporal[{Wmatrix_List, DiffParams_List, DegParams_List},ti_:0,tf_:300
 
   AdditiveRegContributionF[a_,n_,t_,W_List,Morph_] := Total[W[[a]]*Prepend[Table[Prot[b, n, t], {b,1,GRNSize}], Morph]];
   (*## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##*)
-  MorphInput = SSInputMorphogen[1];  (*Esta es la línea de código que agregué yo (J.C.A.R)*)
+  MorphInput = SSInputMorphogen[1];  (*Line added by J.C.A.R*)
 
   GRNSize = Length[Wmatrix];
   (*As set in the paper referenced above*)
@@ -46,16 +42,8 @@ expEspacioTemporal[{Wmatrix_List, DiffParams_List, DegParams_List},ti_:0,tf_:300
   IntTime = 500.;
   (*Initial conditions for all variables, including boundary conditions set = 0*)
 
-  (*Línea original de este código*)
-  (*ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];*)
-
-  (*Línea proveniente de 'StripeFormingGRCs4SSMorpGradientSFGRM'*)
   ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
 
-  (*Línea original de este código*)
-  (*ProtInitExpStat=Flatten[{Table[Table[Prot[a,n,0]== 0.1, {a, 1, GRNSize}], {n, NumNuclei}],Flatten[Table[Table[Prot[a, n, 0] == 0.00, {a, 1, GRNSize}], {n, {0,   NumNuclei + 1}}]]}];*)
-
-  (*Línea proveniente de 'StripeFormingGRCs4SSMorpGradientSFGRM'*)
   ProtInitExpStat=Flatten[{Thread[Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,NumNuclei}]]==SSExpValuesPreMorpInput],Flatten[Table[Table[Prot[a,n,0]==0.0,{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
 
   DynSyst=Flatten[
@@ -71,53 +59,42 @@ expEspacioTemporal[{Wmatrix_List, DiffParams_List, DegParams_List},ti_:0,tf_:300
   Sol = NDSolve[Flatten[{DynSyst,ProtInitExpStat}],ProtStateVariab,
   {t,0.,IntTime},Method->{"EquationSimplification"->"Residual"}];
 
-  (*La siguiente es la línea sacada de 'StripeFormingGRCs4SSMorpGradientSFGRM'*)
-  (*GRCPhenotReadout= Table[Flatten[Table[Flatten[Evaluate[Prot[i,n,t]/.Sol/.t->#]],{n,NumNuclei}]]&/@Table[x,{x,IntTime-100,IntTime,2}],{i,3}]*)
-
-  (*Esta es la línea original de este código*)
   GRCPhenotReadout= Transpose[Thread[Table[Flatten[Table[Flatten[Evaluate[Prot[i,n,t]/.Sol/.t->#]],{n,NumNuclei}]]&/@Table[x,{x,Range[ti,tf,step]}], {i, 3}]]]
   ]
 
 (******************************************************************************)
 
-(*Aquí defino la función que me crea los videos de la dinámica de expresión*)
+(*Function that creates videos of expression dynamics*)
 videoExp[ genotipo_List, OptionsPattern[]] := Module[{patron},
-  Options[videoExp] = {gen -> 0, tamaño -> UpTo[300], PlotRange -> {0,25}, fps -> Automatic};
+  Options[videoExp] = {gen -> 0, tama\[NTilde]o -> UpTo[300], PlotRange -> {0,25}, fps -> Automatic};
     patron = expEspacioTemporal[ genotipo[[1]] ];
   If[ SubsetQ[ {a, b, c}, Flatten[{ OptionValue[gen] }] ],
    ListAnimate[
     Table[ ListPlot[ Table[
        Prepend[{patron[[ # /. {a -> 1, b -> 2, c -> 3} ]] [[n]] [[i]]}, i]
        , {i, 30}], Joined -> True, PlotRange -> OptionValue[PlotRange],
-      ImageSize -> OptionValue[tamaño] ], {n, 30}], OptionValue[fps] ] &/@
+      ImageSize -> OptionValue[tama\[NTilde]o] ], {n, 30}], OptionValue[fps] ] &/@
       Flatten[{OptionValue[gen]} ],
    Table[
     ListAnimate[
      Table[ ListPlot[ Table[ Prepend[ {patron[[k]][[n]][[i]]}, i]
         , {i, 30}], Joined -> True, PlotRange -> OptionValue[PlotRange],
-        ImageSize -> OptionValue[tamaño] ], {n, 30}], OptionValue[fps] ]
+        ImageSize -> OptionValue[tama\[NTilde]o] ], {n, 30}], OptionValue[fps] ]
     , {k, 3} ] ] ]
 
-generarIsomorfos::usage = "generarIsomorfos[ genotipo(matriz) ] Esta función
-genera los diferentes isomorfos de una matriz en forma de matrices signo que
-indican las interacciones entre los nodos en las matrices de adyacencia."
+generarIsomorfos::usage = "generarIsomorfos[ genotype(matrix) ] This function generates the different isomorphs of a matrix as adjacency matrices"
 
 generarIsomorfos[genotipo_List]:= Module[{ordfilas,ordcolumnas,isomorfos},
-  (*Definimos las matrices que nos indican el orden de las filas y las columnas
-  de las matrices*)
+  (*Define matrices indicating the order of rows and columns in the matrices*)
   ordfilas = Permutations[{1, 2, 3}];
-  (*ordcolumnas debe ser igual a ordfilas pero con la columna del morfógeno
-  siempre como primera columna*)
+  (*ordcolumnas must be equal to ordfilas but with the morphogen always as the first column*)
   ordcolumnas = Table[ Prepend[ordfilas[[i]] + 1, 1] , {i, Length[ordfilas]}];
-  (*Generamos los isomorfos topológicos de la matriz*)
+  (*Generate isomorphs for the matrix*)
   isomorfos = Table[
     Sign[genotipo][[ ordfilas[[i]], ordcolumnas[[i]] ]]
     , {i, Length[ordfilas]}] ]
 
-isSubgraphQ::usage = "isSubgraphQ[ lista_1, lista_2 ] Da Verdadero si lista_1
-es un subgrafo de lista_2 y Falso si lo contrario, i.e. dice si un patrón de
-interconexiones entre nodos determinado se encuentra en una topología de red.
-Las listas deben ser matrices de adyacencia."
+isSubgraphQ::usage = "isSubgraphQ[ list_1, list_2 ] Gives True if list_1 is subgraph of list_2 and False in other case. Both lists must be adjacency matrices."
 
 isSubgraphQ[subgraph_List,graph_List]:= Module[{isomorfos},
   isomorfos = generarIsomorfos[subgraph];
@@ -130,11 +107,11 @@ isSubgraphQ[subgraph_List,graph_List]:= Module[{isomorfos},
 
 (********************************************************************************************************************)
 
-(*Aquí quiero redefinir la función "AssessFitnessScoreStripeFormingGRCs4SSMorpGradient"
-para que sea posible usarla sin necesidad de especificar el input de morfógeno*)
+(*Redefine function "AssessFitnessScoreStripeFormingGRCs4SSMorpGradient"
+to use it without specifying the morphogen input*)
 AssessFitnessScoreStripeFormingGRCs4SSMorpGradientJCAR[{Wmatrix_List,DiffParams_List,DegParams_List}]:=Block[
 {GRCPhenotReadout},
-MorphInput = SSInputMorphogen[1];  (*Esta es la línea de código que agregué yo (J.C.A.R)*)
+MorphInput = SSInputMorphogen[1];  (*Line added by J.C.A.R*)
 GRCPhenotReadout = StripeFormingGRCs4SSMorpGradientWithSumAndFilterGeneRegModel[{Wmatrix,MorphInput,DiffParams,DegParams}];
 
 (*This condition here is to check if there is any negative gene expression
