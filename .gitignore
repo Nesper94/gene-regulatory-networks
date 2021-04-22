@@ -9,7 +9,6 @@ np-notebooks/
 *.blg
 *.zip
 *.dat
-*.nb
 *.kate-swp
 .ipynb_checkpoints/
 *.odt
