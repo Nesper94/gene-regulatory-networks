@@ -1,0 +1,273 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11166,        265]
+NotebookOptionsPosition[     10411,        247]
+NotebookOutlinePosition[     10744,        262]
+CellTagsIndexPosition[     10701,        259]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", " ", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "\"\<../modules/importData.m\>\""}]}], "Input",
+ CellChangeTimes->{{3.8162893242550097`*^9, 3.81628938562998*^9}, {
+  3.8162894193436413`*^9, 3.816289431112215*^9}, {3.816289720217841*^9, 
+  3.816289750577484*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"19f2be19-5e57-4449-9408-337b4c44b69e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Import", " ", "genotypes"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"matrices", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"ToExpression", "[", "#", "]"}], ",", "1"}], "]"}], "&"}], "/@", 
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\<../data/raw-grns.txt\>\"", ",", "\"\<TSV\>\""}], "]"}]}]}],
+    ";"}]}]], "Input",
+ CellChangeTimes->{{3.816289856767332*^9, 3.816289864746752*^9}, {
+  3.816290021423484*^9, 3.8162900270942593`*^9}, {3.816290752619596*^9, 
+  3.816290847801746*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"e3999ca2-5717-4ec8-93b4-0c89e6c9c78c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Define", " ", "matrices", " ", "indicating", " ", "row", " ", "and", " ", 
+    "column", " ", "order"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"rowOrder", "=", 
+     RowBox[{"Permutations", "[", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "3"}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "columnOrder", " ", "must", " ", "be", " ", "equal", " ", "to", " ", 
+     "rowOrder", " ", "but", " ", "with", " ", 
+     RowBox[{"morphogen", "'"}], "s", " ", "column", " ", "always", " ", "as",
+      " ", "first", " ", "column"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"columnOrder", "=", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Prepend", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"rowOrder", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "+", "1"}], ",", "1"}], "]"}], 
+       "\[IndentingNewLine]", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "[", "rowOrder", "]"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Get", " ", "Sign", " ", "for", " ", "each", " ", "one", " ", "of", " ", 
+     "the", " ", "matrices", " ", "generating", " ", "a", " ", "new", " ", 
+     "list"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"elimination", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sign", "[", 
+        RowBox[{"First", "[", "#", "]"}], "]"}], "&"}], "/@", "matrices"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Create", " ", "empty", " ", "list", " ", "that", " ", "will", " ", 
+     "contain", " ", "the", " ", "topologies", " ", "and", " ", "its", " ", 
+     "frequency"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"motifs", "=", 
+     RowBox[{"{", "}"}]}], " ", ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.721786096110815*^9, 3.721786127450914*^9}, {
+   3.726945788978364*^9, 3.726945795257493*^9}, {3.726946341169838*^9, 
+   3.726946503704473*^9}, {3.726946660856058*^9, 3.726946667173134*^9}, {
+   3.7269467179629803`*^9, 3.7269467209527082`*^9}, {3.7269471882509947`*^9, 
+   3.726947272092561*^9}, {3.726947384919176*^9, 3.726947437077485*^9}, 
+   3.816286546867713*^9, {3.816286676778472*^9, 3.816286739567971*^9}, {
+   3.816287732514839*^9, 3.816287828890986*^9}, {3.816288512950964*^9, 
+   3.81628859432909*^9}, {3.816288923403016*^9, 3.816288949919146*^9}, {
+   3.81628977776589*^9, 3.8162897942036257`*^9}, {3.8162910102213783`*^9, 
+   3.8162910137729588`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"1aca3b95-54f2-4c7b-9854-07a90d6f9438"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Length", "[", "elimination", "]"}], ">", "0"}], ",", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Choose", " ", "one", " ", "of", " ", "the", " ", "matrices"}], 
+      "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"randomMatrix", "=", 
+       RowBox[{"elimination", "[", 
+        RowBox[{"[", "   ", 
+         RowBox[{"RandomInteger", "[", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", 
+            RowBox[{"Length", "[", "elimination", "]"}]}], "}"}], "]"}], 
+         "   ", "]"}], "]"}]}], " ", ",", "\n", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{"Generate", " ", 
+        RowBox[{"matrix", "'"}], "s", " ", "isomorphs"}], "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"isomorphs", "=", 
+       RowBox[{"Table", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"randomMatrix", "[", 
+          RowBox[{"[", " ", 
+           RowBox[{
+            RowBox[{"rowOrder", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], ",", 
+            RowBox[{"columnOrder", "[", 
+             RowBox[{"[", "i", "]"}], "]"}]}], " ", "]"}], "]"}], 
+         "\[IndentingNewLine]", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", 
+           RowBox[{"Length", "[", "rowOrder", "]"}]}], "}"}]}], "]"}]}], " ", 
+      ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "Count", " ", "the", " ", "number", " ", "of", " ", "time", " ", "a", 
+        " ", "matrix", " ", "or", " ", "its", " ", "isomorphs", " ", 
+        "appears", " ", "in", " ", "the", " ", "list", " ", "of", " ", 
+        "matrices"}], "*)"}], "\n", 
+      RowBox[{"frecMatriz", "=", 
+       RowBox[{"Count", "[", 
+        RowBox[{"elimination", ",", "  ", 
+         RowBox[{"Alternatives", "@@", "isomorphs"}]}], "]"}]}], ",", "\n", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "Delete", " ", "the", " ", "matrix", " ", "and", " ", "its", " ", 
+        "isomorphs", " ", "from", " ", "the", " ", "list", " ", "of", " ", 
+        "matrices"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"elimination", "=", 
+       RowBox[{"DeleteCases", "[", 
+        RowBox[{"elimination", ",", 
+         RowBox[{"Alternatives", " ", "@@", "isomorphs"}]}], "]"}]}], " ", 
+      ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "Add", " ", "the", " ", "matrix", " ", "and", " ", "its", " ", 
+        "frequency", " ", "to", " ", "the", " ", "list", " ", 
+        "\"\<motifs\>\""}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"motifs", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"isomorphs", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ",", "frecMatriz"}], "}"}]}], " ", 
+       "]"}]}], "\[IndentingNewLine]", "}"}]}], "   ", "]"}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.721786121147805*^9, 3.721786122349112*^9}, 
+   3.721786193177924*^9, {3.7217869222286463`*^9, 3.7217869234502163`*^9}, {
+   3.7217901575499287`*^9, 3.721790370462772*^9}, {3.726945458874284*^9, 
+   3.726945572212667*^9}, {3.726945615160074*^9, 3.726945628082068*^9}, {
+   3.7269456743366117`*^9, 3.72694568708538*^9}, {3.726945936287446*^9, 
+   3.726945942871921*^9}, {3.726945979336831*^9, 3.726946084779516*^9}, {
+   3.726946754681869*^9, 3.726946775882513*^9}, {3.726946951984064*^9, 
+   3.7269470243753023`*^9}, {3.7269470913611603`*^9, 3.726947105800671*^9}, {
+   3.726947499767764*^9, 3.7269475113238173`*^9}, {3.7269475775698338`*^9, 
+   3.726947648141529*^9}, {3.7269490863690357`*^9, 3.7269491169124203`*^9}, {
+   3.726950987574706*^9, 3.726950997126371*^9}, {3.726952600481361*^9, 
+   3.7269526147918262`*^9}, {3.72695287669494*^9, 3.726952880139615*^9}, {
+   3.726952925421062*^9, 3.726952956011641*^9}, {3.816286548784494*^9, 
+   3.816286606397971*^9}, {3.816286688291329*^9, 3.8162867103468647`*^9}, {
+   3.81628674355929*^9, 3.8162867451451693`*^9}, {3.816288609153433*^9, 
+   3.8162887579407988`*^9}, {3.8280979884886837`*^9, 3.82809799330466*^9}, {
+   3.828098029010664*^9, 3.82809805611699*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"197b757f-f23a-43a1-8c22-94dd9119521e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Sort", " ", "list", " ", "by", " ", "frequency"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"motifs", "=", 
+    RowBox[{"Sort", "[", 
+     RowBox[{"motifs", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#1", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ">", 
+        RowBox[{"#2", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], "&"}]}], "]"}]}], ";"}]}]], "Input",\
+
+ CellChangeTimes->{{3.7271140435625477`*^9, 3.7271141385009727`*^9}, {
+   3.7271144085867243`*^9, 3.727114440178679*^9}, {3.727114767702271*^9, 
+   3.727114777583539*^9}, {3.727114919133493*^9, 3.727114953824293*^9}, 
+   3.727114994808362*^9, {3.8162910842374773`*^9, 3.816291115835724*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"f31af7d4-c932-4b3c-8cde-b84f48cc12c0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Export", " ", "results", " ", "in", " ", "\"\<motifs\>\"", " ", "to", " ",
+     "a", " ", "text", " ", 
+    RowBox[{"file", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<../data/topologies-with-abundances.txt\>\"", ",", "motifs"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7269461456304913`*^9, 3.7269461520232773`*^9}, {
+   3.726946189174159*^9, 3.72694620047156*^9}, 3.726948722988257*^9, 
+   3.72694915408813*^9, {3.8162867532528048`*^9, 3.816286754447957*^9}, 
+   3.816288834796343*^9, {3.816288875978827*^9, 3.8162889012270803`*^9}, {
+   3.816290892538011*^9, 3.816290908984663*^9}, {3.822509868533288*^9, 
+   3.822509868962677*^9}, {3.828098710364129*^9, 
+   3.8280987121567497`*^9}},ExpressionUUID->"e278ecf5-58b0-4fde-abcd-\
+0bf512a46d3f"]
+},
+WindowSize->{1440, 849},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 454, 9, 55, "Input",ExpressionUUID->"19f2be19-5e57-4449-9408-337b4c44b69e"],
+Cell[1015, 31, 684, 17, 55, "Input",ExpressionUUID->"e3999ca2-5717-4ec8-93b4-0c89e6c9c78c"],
+Cell[1702, 50, 2759, 63, 285, "Input",ExpressionUUID->"1aca3b95-54f2-4c7b-9854-07a90d6f9438"],
+Cell[4464, 115, 4275, 89, 423, "Input",ExpressionUUID->"197b757f-f23a-43a1-8c22-94dd9119521e"],
+Cell[8742, 206, 817, 20, 55, "Input",ExpressionUUID->"f31af7d4-c932-4b3c-8cde-b84f48cc12c0"],
+Cell[9562, 228, 845, 17, 55, "Input",ExpressionUUID->"e278ecf5-58b0-4fde-abcd-0bf512a46d3f"]
+}
+]
+*)
+
