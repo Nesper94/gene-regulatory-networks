@@ -29,32 +29,32 @@ SpaceTimeFeats4StripeFormingGRCs4SSMorpGradientWithSumAndFilterModel0::usage = "
 
 CreatSpaceTimePlots4GRC::usage="Function to create the spatio-temporal expression portraits of the GRCs";
 
-EquilibFilter::usage = "This function is to assess whether the expression profile of the output node in the GRC models 
-						reaches a quasi-steady state. GRC dynamics are simulated over 500 time steps, and the spatial 
-						profile over the total number of nuclei considered attained at time step = 500 is compared to 
-						that attained previously at time step = 250. The difference between expression profiles is 
-						assessed based of the normalized Euclidean Distance. We focus on GRCs capable of achieving a 
-						relatively fast developmental patterning task (single stripe formation) because: 
-						1) computing time restrictions; and 2) the speed of developmental patterning is likely to be 
-						critical during embryogenesis (potential fitness correlate). 
-						Ideally, the value of this score should be \[LessEqual] 0.001, which is indicative that the expression 
+EquilibFilter::usage = "This function is to assess whether the expression profile of the output node in the GRC models
+						reaches a quasi-steady state. GRC dynamics are simulated over 500 time steps, and the spatial
+						profile over the total number of nuclei considered attained at time step = 500 is compared to
+						that attained previously at time step = 250. The difference between expression profiles is
+						assessed based of the normalized Euclidean Distance. We focus on GRCs capable of achieving a
+						relatively fast developmental patterning task (single stripe formation) because:
+						1) computing time restrictions; and 2) the speed of developmental patterning is likely to be
+						critical during embryogenesis (potential fitness correlate).
+						Ideally, the value of this score should be \[LessEqual] 0.001, which is indicative that the expression
 						profile at time tfinal has reached steady state";
 
-PatternFilter::usage = "A patterning score describes how much \[OpenCurlyQuote]pattern\[CloseCurlyQuote] or spatial heterogeneity there is. Ideally, a value 
-						for this score should be \[GreaterEqual] 6, so that one can assure that there is sufficient spatial heterogeneity, 
-						and that the expression profiles are appreciably high across the field of nuclei considered so that 
+PatternFilter::usage = "A patterning score describes how much \[OpenCurlyQuote]pattern\[CloseCurlyQuote] or spatial heterogeneity there is. Ideally, a value
+						for this score should be \[GreaterEqual] 6, so that one can assure that there is sufficient spatial heterogeneity,
+						and that the expression profiles are appreciably high across the field of nuclei considered so that
 						genes can exert effective regulatory control on their targets";
 
 Q1::usage = "Function to assess the quality of a given phenotypic function based on the pattern filter score ";
 
 Q2::usage = "Function to assess the quality of a given phenotypic function based on the stability filter score";
 
-AssessExpPattern4Stripe::usage = "In this function: the end point expression profile for the output gene is normalized 
-								  and then each expression value within a cell i is discretized so that it is assigned 
-								  a value on [1,10]. Based on this discretized list of expression values we compare 
-								  this with the ideal target pattern where the expression level of the output gene 
-								  within each cell lying in the middle part of the morphogen gradient (i=11 to i=20) 
-								  must attain > 90% of the maximal expression level observed along the 1D field of 
+AssessExpPattern4Stripe::usage = "In this function: the end point expression profile for the output gene is normalized
+								  and then each expression value within a cell i is discretized so that it is assigned
+								  a value on [1,10]. Based on this discretized list of expression values we compare
+								  this with the ideal target pattern where the expression level of the output gene
+								  within each cell lying in the middle part of the morphogen gradient (i=11 to i=20)
+								  must attain > 90% of the maximal expression level observed along the 1D field of
 								  cells";
 
 FitnessF2::usage = "Same as FitnessF, but in this case the pattern filter is scored just for the output node";
@@ -80,11 +80,11 @@ MutatorF::usage = "Use this function to mutate a thermodynamically-grounded CRIF
 
 MutatorF2::usage = "Use this function to mutate a Sum & Filter GRC model in any one of its component parameter settings";
 
-RunRndWalk4GRCModelWithBiophyGroundedCRIF::usage = "Use the function below to perform an evolutionary exploration of parameter space of the GRC model implementing the thermodynamic state ensemble 
-													modeling approach. This algorithm performs a constrained mutational walk across parameter space (for one single configuration/GRC genotype) in 
-													search for a viable path along which the fitness landscape of GRC models will be climbed up stochastically (with neutral mutations being allowed 
-													over the course of evolution). The walk is performed via most frequently single changes in the parameter setting of the GRC, with double and triple 
-													mutations per step taken being allowed with a small probability. In this algorithm we implement the Metropolis rule to sporadically accept solutions 
+RunRndWalk4GRCModelWithBiophyGroundedCRIF::usage = "Use the function below to perform an evolutionary exploration of parameter space of the GRC model implementing the thermodynamic state ensemble
+													modeling approach. This algorithm performs a constrained mutational walk across parameter space (for one single configuration/GRC genotype) in
+													search for a viable path along which the fitness landscape of GRC models will be climbed up stochastically (with neutral mutations being allowed
+													over the course of evolution). The walk is performed via most frequently single changes in the parameter setting of the GRC, with double and triple
+													mutations per step taken being allowed with a small probability. In this algorithm we implement the Metropolis rule to sporadically accept solutions
 													where DeltaF < 0, with a given prob which is proportional to Exp[DeltaF/0.0001]";
 
 (**************************************************************************************************************)
@@ -92,6 +92,9 @@ RunRndWalk4GRCModelWithBiophyGroundedCRIF::usage = "Use the function below to pe
 Begin["`Private`"]
 
 (**************************************************************************************************************)
+
+(*Load Viridis ColorMap*)
+ClearAll[MPLColorMap] << "http://pastebin.com/raw/pFsb4ZBS";
 
 ColorF01[Node_] := Switch[Node,"A",Darker[Gray,0.2],"B",Darker[Gray,0.2],"C",Darker[Gray,0.2],"\!\(\*SubscriptBox[\(M\), \(\!\(\*
 StyleBox[\"A\",\nFontSize->0]\)\)]\)",Black,"\!\(\*SubscriptBox[\(M\), \(\!\(\*
@@ -174,7 +177,7 @@ Method->{"Automatic","Rotation"->2 Pi},VertexRenderingFunction->({EdgeForm[Color
 SpaceTimeFeats4StripeFormingGRCs4SSMorpGradientWithBiophyGroundedCRIF0[LeakTerm_,HillCoeff_,{Params1_,Params2_,Params3_,Params4_}]:=Module[
 {Prot,ProtStateVariab,ProtInitExpStat,Sol,DynSyst,GRCPhenotReadout},
 
-GRNSize = Length[Params1]; 
+GRNSize = Length[Params1];
 (*RNApConc = 5.5; KRNAp=7.5;*)
 NumNuclei=30;
 IntTime = 500.;
@@ -237,9 +240,9 @@ GRCPhenotReadout= Transpose[Thread[Table[Flatten[Table[Flatten[Evaluate[Prot[i,n
 
 (**************************************************************************************************************)
 
-colorbar[{min_,max_},divs_: 150]:=DensityPlot[y,{x,0,0.1},{y,min,max},AspectRatio->12,PlotRangePadding->0,PlotPoints->{2,divs},MaxRecursion->0,FrameTicks->{None,Automatic,None,None},ColorFunction->ColorData["TemperatureMap"]]
+colorbar[{min_,max_},divs_: 150]:=DensityPlot[y,{x,0,0.1},{y,min,max},AspectRatio->12,PlotRangePadding->0,PlotPoints->{2,divs},MaxRecursion->0,FrameTicks->{None,Automatic,None,None},ColorFunction->MPLColorMap["Viridis"]]
 
-CreatSpaceTimePlots4GRC[TimeSeries_List]:=GraphicsRow[MapIndexed[With[{opts={ImageSize->{Automatic,130},ImagePadding->5}},ArrayPlot[#,ColorFunction->ColorData["TemperatureMap"],FrameTicks->None,opts]]&,((#/Max[Flatten[#]])&/@TimeSeries)],Spacings->{-10,0}]
+CreatSpaceTimePlots4GRC[TimeSeries_List]:=GraphicsRow[MapIndexed[With[{opts={ImageSize->{Automatic,130},ImagePadding->5}},ArrayPlot[#,ColorFunction->MPLColorMap["Viridis"],FrameTicks->None,opts]]&,((#/Max[Flatten[#]])&/@TimeSeries)],Spacings->{-10,0}]
 
 (**************************************************************************************************************)
 (**************************************************************************************************************)
@@ -400,7 +403,7 @@ GRCPhenotReadout= Table[Flatten[Table[Flatten[Evaluate[Prot[i,n,t]/.Sol/.t->#]],
 StripeFormingGRCs4SSMorpGradientWithBiophyGroundedCRIF0[LeakTerm_,HillCoeff_,{Params1_,Params2_,Params3_,Params4_}]:=Module[
 {Prot,ProtStateVariab,ProtInitExpStat,Sol,DynSyst,GRCPhenotReadout},
 
-GRNSize = Length[Params1]; 
+GRNSize = Length[Params1];
 (*RNApConc = 5.5; KRNAp=7.5;*)
 NumNuclei=30;
 IntTime = 500.;
@@ -555,7 +558,7 @@ InputParamSettingAllin=Insert[InputParamSetting,MorphogenInput,2];
 
 Fa=AssessFitnessScoreStripeFormingGRCs4SSMorpGradient[InputParamSettingAllin];
 
-DeltaF = Fa-Fb; 
+DeltaF = Fa-Fb;
 
 (*If[DeltaF> 0.001,Print[{Fa,iter}]];*)
 
@@ -578,7 +581,7 @@ BoolWMatrix=Sign/@RefInputParamSetting[[1]];
 (*Checking sampling times*)
 ParamsSamplingCond = MemberQ[SamplingPointsList,iter];
 
-(*Save current parameter setting if the following 3 conditions are met: 
+(*Save current parameter setting if the following 3 conditions are met:
 1)not previously seen BoolW, 2) Fitness >= thresholdFitness, 3) Sampling time*)
 If[
     (MemberQ[WContainer,BoolWMatrix]==False),
@@ -652,7 +655,7 @@ InputParamSettingAllin=Insert[InputParamSetting,MorphogenInput,2];
 
 Fa=AssessFitnessScoreStripeFormingGRCs4SSMorpGradient[InputParamSettingAllin];
 
-DeltaF = Fa-Fb; 
+DeltaF = Fa-Fb;
 
 If[DeltaF> 0.001,Print[{Fa,iter}]];
 
@@ -675,7 +678,7 @@ BoolWMatrix=Sign/@RefInputParamSetting[[1]];
 (*Checking sampling times*)
 ParamsSamplingCond = MemberQ[SamplingPointsList,iter];
 
-(*Save current parameter setting if the following 3 conditions are met: 
+(*Save current parameter setting if the following 3 conditions are met:
 1)not previously seen BoolW, 2) Fitness >= thresholdFitness, 3) Sampling time*)
 If[
     (MemberQ[WContainer,BoolWMatrix]==False),
@@ -747,7 +750,7 @@ Fa=If[Count[Flatten[GRCDyns],x_/;x<=0]>0,0,
 	  FitnessF3[GRCDyns]
 	];
 
-DeltaF = Fa-Fb; 
+DeltaF = Fa-Fb;
 
 If[Fb>=thresholdFitness && DeltaF>= 0.001,PutAppend[InputParamSettingAllin,OutputFileName]];
 

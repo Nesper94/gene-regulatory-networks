@@ -74,6 +74,9 @@ Begin["`Private`"]
 
 (**************************************************************************************************************)
 
+(*Load Viridis ColorMap*)
+ClearAll[MPLColorMap] << "http://pastebin.com/raw/pFsb4ZBS";
+
 ColorF01[Node_] := Switch[Node,"A",Darker[Gray,0.2],"B",Darker[Gray,0.2],"C",Darker[Gray,0.2],"\!\(\*SubscriptBox[\(M\), \(\!\(\*
 StyleBox[\"A\",\nFontSize->0]\)\)]\)",Black,"\!\(\*SubscriptBox[\(M\), \(\!\(\*
 StyleBox[\"B\",\nFontSize->0]\)\)]\)",Black,"\!\(\*SubscriptBox[\(M\), \(\!\(\*
@@ -221,9 +224,9 @@ GRCPhenotReadout= Transpose[Thread[Table[Flatten[Table[Flatten[Evaluate[Prot[i,n
 
 (**************************************************************************************************************)
 
-colorbar[{min_,max_},divs_: 150]:=DensityPlot[y,{x,0,0.1},{y,min,max},AspectRatio->12,PlotRangePadding->0,PlotPoints->{2,divs},MaxRecursion->0,FrameTicks->{None,Automatic,None,None},ColorFunction->ColorData["TemperatureMap"]]
+colorbar[{min_,max_},divs_: 150]:=DensityPlot[y,{x,0,0.1},{y,min,max},AspectRatio->12,PlotRangePadding->0,PlotPoints->{2,divs},MaxRecursion->0,FrameTicks->{None,Automatic,None,None},ColorFunction->MPLColorMap["Viridis"]]
 
-CreatSpaceTimePlots4GRC[TimeSeries_List]:=GraphicsRow[MapIndexed[With[{opts={ImageSize->{Automatic,130},ImagePadding->5}},ArrayPlot[#,ColorFunction->ColorData["TemperatureMap"],FrameTicks->None,opts]]&,((#/Max[Flatten[#]])&/@TimeSeries)],Spacings->{-10,0}]
+CreatSpaceTimePlots4GRC[TimeSeries_List]:=GraphicsRow[MapIndexed[With[{opts={ImageSize->{Automatic,130},ImagePadding->5}},ArrayPlot[#,ColorFunction->MPLColorMap["Viridis"],FrameTicks->None,opts]]&,((#/Max[Flatten[#]])&/@TimeSeries)],Spacings->{-10,0}]
 
 (**************************************************************************************************************)
 (**************************************************************************************************************)
