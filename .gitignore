@@ -12,3 +12,4 @@ np-notebooks/
 *.kate-swp
 .ipynb_checkpoints/
 *.odt
+ignore/
