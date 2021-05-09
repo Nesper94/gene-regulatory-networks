@@ -169,6 +169,11 @@
 %\newcommand{\lorem}{{\bf LOREM}}
 %\newcommand{\ipsum}{{\bf IPSUM}}
 
+% Highlight changes
+\usepackage{color,soul}
+\newcommand{\hil}[1]{\hl{#1}} % Highlight changes
+% \newcommand{\hil}[1]{#1} % Do nothing, clean version
+
 %% END MACROS SECTION
 
 
@@ -292,10 +297,10 @@ through gene interaction and produce a particular response. This information
 processing function is of particular importance in developmental processes such
 as those in which a group of cells differentiate in response to a signalling
 molecule. Such molecules were referred to as morphogens by Turing in 1952
-\cite{Turing1952} and posterior theoretical studies on patterning led to the
+\cite{Turing1952} \hil{and posterior theoretical studies on patterning led to the
 conceptualization of the French Flag Problem by Wolpert, who also stated
 in this respect that a gradient of concentration of a morphogen could
-trigger cell differentiation in a one-dimensional field of cells
+trigger cell differentiation in a one-dimensional field of cells}
 \cite{Wolpert1969, sharpe_2019}.
 Although the Bicoid protein (bcd), the first example of a molecule that acted
 as a morphogen, was only found in the 80's in the developing embryos of
@@ -328,11 +333,11 @@ biomedical applications~\cite{karlsson_therapeutic_2012,
 higashikuni_advancing_2017,abil_synthetic_2015,healy_genetic_2019,
 kitada_programming_2018}.
 
-Cotterell and Sharpe studied what kind of 3-node network topologies could
+\hil{Cotterell and Sharpe studied what kind of 3-node network topologies could
 interact with a morphogen gradient and produce a stripe of gene expression
 in a one-dimensional field of cells and found a variety of networks that
 implemented at least 7 different mechanisms and had different levels of
-complexity \cite{Cotterell2010}.
+complexity} \cite{Cotterell2010}.
 
 However, although several studies have analyzed the properties of GRNs that
 process positional information, they have focused on particular natural networks
@@ -718,7 +723,7 @@ three showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, nodes with
 higher degree resulted to be also those network topologies with higher abundance
 (Fig~\ref{fig:deg-dist}B). This relationship between abundance and node degree
 was corroborated by the Spearman's rank correlation coefficient
-($r_S = 0.353752$, $p = 6.2933\times10^{-23} $).
+(\hil{$r_S = 0.353752$}, $p = 6.2933\times10^{-23} $).
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig4}
