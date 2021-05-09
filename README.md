@@ -9,6 +9,9 @@ Mathematica.
 to visualize data.
 - `data/` folder contains data such as the 2061 Gene Regulatory Networks
 (GRNs) and the topologies they belong to.
+- `notebooks/` contains Mathematica notebooks with different steps of the
+data analysis.
+- `scripts/` contains additional code for data analysis.
 
 Universidad de Antioquia, Colombia.
 
