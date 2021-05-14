@@ -169,11 +169,6 @@
 %\newcommand{\lorem}{{\bf LOREM}}
 %\newcommand{\ipsum}{{\bf IPSUM}}
 
-% Highlight changes
-\usepackage{color,soul}
-\newcommand{\hil}[1]{\hl{#1}} % Highlight changes
-% \newcommand{\hil}[1]{#1} % Do nothing, clean version
-
 %% END MACROS SECTION
 
 
@@ -297,10 +292,10 @@ through gene interaction and produce a particular response. This information
 processing function is of particular importance in developmental processes such
 as those in which a group of cells differentiate in response to a signalling
 molecule. Such molecules were referred to as morphogens by Turing in 1952
-\cite{Turing1952} \hil{and posterior theoretical studies on patterning led to the
+\cite{Turing1952} and posterior theoretical studies on patterning led to the
 conceptualization of the French Flag Problem by Wolpert, who also stated
 in this respect that a gradient of concentration of a morphogen could
-trigger cell differentiation in a one-dimensional field of cells}
+trigger cell differentiation in a one-dimensional field of cells
 \cite{Wolpert1969, sharpe_2019}.
 Although the Bicoid protein (bcd), the first example of a molecule that acted
 as a morphogen, was only found in the 80's in the developing embryos of
@@ -333,11 +328,11 @@ biomedical applications~\cite{karlsson_therapeutic_2012,
 higashikuni_advancing_2017,abil_synthetic_2015,healy_genetic_2019,
 kitada_programming_2018}.
 
-\hil{Cotterell and Sharpe studied what kind of 3-node network topologies could
+Cotterell and Sharpe studied what kind of 3-node network topologies could
 interact with a morphogen gradient and produce a stripe of gene expression
 in a one-dimensional field of cells and found a variety of networks that
 implemented at least 7 different mechanisms and had different levels of
-complexity} \cite{Cotterell2010}.
+complexity \cite{Cotterell2010}.
 
 However, although several studies have analyzed the properties of GRNs that
 process positional information, they have focused on particular natural networks
@@ -374,9 +369,9 @@ represents a regulator node of the GRN (Fig \ref{fig:model}A and
 \ref{fig:model}B) with $w_{\textit{ij}}~\in [-10,\ 10]$. Values in these
 matrices can be negative, zero or positive and represent represion, no
 interaction, or activation respectively. The magnitude of the value is
-proportional to the strength of the interaction. \hil{In this study we define
+proportional to the strength of the interaction. In this study we define
 a 'genotype' as the set of interaction, diffusion and degradation values that
-represent a GRN.}\\
+represent a GRN.\\
 
 \begin{figure}[!h]
 %  \centering
@@ -394,9 +389,9 @@ represent a GRN.}\\
     by an exponential decay function. Horizontal arrows between cells represent
     diffusion of gene products between adjacent cells. Optimal gene expression
     pattern is shown top right.
-    \hil{(D) Heatmap of spatiotemporal expression profile of a GRN where blue
+    (D) Heatmap of spatiotemporal expression profile of a GRN where blue
     colors represent lower expression and red colors represent higher
-    expression.}
+    expression.
  \label{fig:model}
 \end{figure}
 
@@ -684,14 +679,14 @@ of structure, indicating the existence of network motifs.
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig2}
  \caption{\bf Distribution of abundances of network topologies.}
- \hil{Some of the most} frequent network topologies shown in the grid
- contain the I3-FFL network motif \hil{(shown on the left). In this network
+ Some of the most frequent network topologies shown in the grid
+ contain the I3-FFL network motif (shown on the left). In this network
  motif the gene B is activated in an indirect way by the morphogen through
  the activation of A (positive interactions), and at the same time, it
- is inactivated in a direct way by the morphogen (negative interaction).}
- Topologies are numbered in order of decreasing abundance, \hil{being the
- Topology 1 the most abundant with a number of 95 genotypes}. The number of
- \hil{genotypes} belonging to each network topology is presented below
+ is inactivated in a direct way by the morphogen (negative interaction).
+ Topologies are numbered in order of decreasing abundance, being the
+ Topology 1 the most abundant with a number of 95 genotypes. The number of
+ genotypes belonging to each network topology is presented below
  topology number.
  Note that network topology number 9 produces the striped phenotype using a
  two-node GRN.
@@ -718,14 +713,14 @@ topologies were located in the largest cluster.
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig3}
  \caption{\bf Neutral network.}
- \hil{This graph shows network topologies connected by one mutational step, where
+ This graph shows network topologies connected by one mutational step, where
  each node represents a single topology. Black nodes represent the most
- abundant topologies. All nodes with the same}
+ abundant topologies. All nodes with the same
  color belong to a cluster of nodes more connected between them than with other
- nodes in the graph. \hil{The most abundant topologies are represented as
- directed graphs in the same way as in Fig}~\ref{fig:model}A, \hil{except for
+ nodes in the graph. The most abundant topologies are represented as
+ directed graphs in the same way as in Fig~\ref{fig:model}A, except for
  the topologies 1 to 8 and 15 (orange and red clusters), in which only
- topology 1 is depicted.}
+ topology 1 is depicted.
  \label{fig:neutral-network}
 \end{figure}
 
@@ -738,7 +733,7 @@ three showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, nodes with
 higher degree resulted to be also those network topologies with higher abundance
 (Fig~\ref{fig:deg-dist}B). This relationship between abundance and node degree
 was corroborated by the Spearman's rank correlation coefficient
-(\hil{$r_S = 0.353752$}, $p = 6.2933\times10^{-23} $).
+($r_S = 0.353752$, $p = 6.2933\times10^{-23} $).
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig4}
@@ -758,11 +753,11 @@ graph (Fig~\ref{fig:2neut-net}).
 \begin{figure}
  \includegraphics[width=\textwidth]{figures/results/Fig5}
  \caption{\bf Network of topologies separated by two mutational steps.}
- \hil{The network shows that almost all the topologies are connected by two or less
+ The network shows that almost all the topologies are connected by two or less
  mutational steps. Big red circle represents topology 420 that remains
  unconnected from the main graph. Big black circles correspond to the 15
- most abundant topologies described in} Fig~\ref{fig:neutral-network}.
- \hil{Different colors in the graph represent different clusters of topologies.}
+ most abundant topologies described in Fig~\ref{fig:neutral-network}.
+ Different colors in the graph represent different clusters of topologies.
  \label{fig:2neut-net}
 \end{figure}
 
@@ -782,12 +777,12 @@ Supplementary Material).
  \includegraphics[width=\textwidth]{figures/results/Fig6}
  \caption{\bf Relationship between Abundance and robustness and complexity
  index.} (A) Abundance vs. Robustness. The robustness of each topology was
- calculated as the \hil{ratio} of perturbations in which the fitness was greater or
+ calculated as the ratio of perturbations in which the fitness was greater or
  equal to 0.95 with respect to the total of perturbations performed.
  (B) Abundance vs. Complexity index. Each point in the plot represents one of
- the 714 network topologies. \hil{More complex topologies tend to be less abundant
+ the 714 network topologies. More complex topologies tend to be less abundant
  than simple topologies
- ($r_S = -0.316653$, $\text{p-value} = 2.25161\times10^{-18}$).}
+ ($r_S = -0.316653$, $\text{p-value} = 2.25161\times10^{-18}$).
  \label{fig:ab-rob}
 \end{figure}
 
@@ -850,11 +845,11 @@ pattern with only two genes and indeed expresses this pattern in both genes
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig8}
  \caption{\bf Expression dynamics of topology 9.}
- \hil{(A) Network topology number 9. Although this topology consists only of two
+ (A) Network topology number 9. Although this topology consists only of two
  genes, it display a striped pattern of gene expression for both of them as
  can be observed in (B). (B) Spatiotemporal expression profile of a GRN
  with topology 9. Gene \textbf{B} is not shown as it was lost in this topology
- in the evolutionary process simulated by the genetic algorithm.}
+ in the evolutionary process simulated by the genetic algorithm.
  \label{fig:topol9}
 \end{figure}
 
@@ -946,7 +941,7 @@ these two nodes, supplying in this way the lack of constitutive expression.
 The correlation between the complexity index of a topology and its abundance
 indicates that networks with simpler designs are more robust to changes in
 interaction parameters and that more complex networks are less robusts. For
-example, topology number 420 \hil{(Fig}~\ref{fig:2neut-net}), which
+example, topology number 420 (Fig~\ref{fig:2neut-net}), which
 presents high complexity, was one of the
 topologies with lower abundance and was disconnected from all other topologies
 in the two-step neighbors in the neutral network.
