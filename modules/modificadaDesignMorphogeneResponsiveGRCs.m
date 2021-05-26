@@ -120,7 +120,7 @@ GRCPhenotReadout= Table[Flatten[Table[Flatten[Evaluate[Prot[i,n,t]/.Sol/.t->#]],
 AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM[EvalGRCParamGenotype_List]:=Block[{ICs,NullMorpInput,MorpInputProfile,PreMorpInputFS,SSExpValuesPreMorpInput,FS4GRCInResponse2MorpInput},
 (*Set ICs for all genes in all nuclei and run system without Morphogene input*)
 ICs=ConstantArray[1,90];
-NullMorpInput=ConstantArray[0,30];
+NullMorpInput=ConstantArray[0, NumNuclei];
 MorpInputProfile=SSInputMorphogen[1.0];
 
 {PreMorpInputFS,SSExpValuesPreMorpInput}=AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,NullMorpInput,EvalGRCParamGenotype];
@@ -138,7 +138,7 @@ AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[SSExpValuesPreMorpInput,Mo
 Sol4StripeFormingGRCs4SSMorpGradientSFGRM[EvalGRCParamGenotype_List]:=Block[{ICs,NullMorpInput,MorpInputProfile,EndPointExpPatterns,SSExpValues,TimeSeriesSpatialExpOutput},
 
 ICs=ConstantArray[1,90];
-NullMorpInput=ConstantArray[0,30];
+NullMorpInput=ConstantArray[0, NumNuclei];
 MorpInputProfile=SSInputMorphogen[1.0];
 
 EndPointExpPatterns=Last/@StripeFormingGRCs4SSMorpGradientSFGRM[ICs,NullMorpInput,EvalGRCParamGenotype];
@@ -221,7 +221,7 @@ AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM2[
   (*Set ICs for all genes in all nuclei and run system without \
 Morphogene input*)
   ICs = ConstantArray[RandomChoice[Range[0,1,0.001]], 90];
-  NullMorpInput = ConstantArray[0, 30];
+  NullMorpInput = ConstantArray[0, NumNuclei];
   MorpInputProfile = SSInputMorphogen[1.0];
 
   {PreMorpInputFS, SSExpValuesPreMorpInput} =
@@ -400,7 +400,7 @@ If[
 SolveGRCDynsBeforeAfterMorphInput[TestGRCParamGenotype_]:=Block[{ICs,NullMorpInput,PreMorpInputFS,SSExpValuesPreMorpInput,PatternExpBeforeMorpInput,GRCW,P1,P2,MorpInducedExpPattern},
 (*Set ICs to 1 for all genes in all nuclei and run system without Morphogene input*)
 ICs=ConstantArray[1,90];
-NullMorpInput=ConstantArray[0,30];
+NullMorpInput=ConstantArray[0, NumNuclei];
 
 {PreMorpInputFS,SSExpValuesPreMorpInput} = AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,NullMorpInput,TestGRCParamGenotype];
 (*Set the pre-Morphogen SS expression levels as ICs for simulating the dynamics of the system in the presence of the Morphogene*)
@@ -459,7 +459,7 @@ GRCPhenotReadout= Table[Flatten[Table[Flatten[Evaluate[Prot[i,n,t]/.Sol/.t->#]],
 InspectGRCExpressionDynamics4SSMorpGradientSFGRM[EvalGRCParamGenotype_List]:=Block[{ICs,NullMorpInput,MorpInputProfile,PreMorpInputFS,SSExpValuesPreMorpInput,FS4GRCInResponse2MorpInput},
 (*Set ICs for all genes in all nuclei and run system without Morphogene input*)
 ICs=ConstantArray[1,90];
-NullMorpInput=ConstantArray[0,30];
+NullMorpInput=ConstantArray[0, NumNuclei];
 MorpInputProfile=SSInputMorphogen[1.0];
 
 {PreMorpInputFS,SSExpValuesPreMorpInput}=AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,NullMorpInput,EvalGRCParamGenotype];

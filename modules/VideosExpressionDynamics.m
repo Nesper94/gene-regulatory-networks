@@ -23,7 +23,7 @@ expEspacioTemporal[{Wmatrix_List, DiffParams_List, DegParams_List},ti_:0,tf_:300
   outputs. In this model the SigmoidSteepness = alpha = 5, while the parameter b,
   which gives the location of the threshold value, is set to 1 *)
   ICs=ConstantArray[1,90];
-  NullMorpInput=ConstantArray[0,30];
+  NullMorpInput=ConstantArray[0, NumNuclei];
   {PreMorpInputFS,SSExpValuesPreMorpInput} = AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,NullMorpInput,{Wmatrix, DiffParams, DegParams}];
 
   SumAndFilterF[SigmoidSteepness_, Threshold_, IntegratedRegInput_] := 1./(1. + Exp[(SigmoidSteepness - (Threshold*IntegratedRegInput))]);
@@ -72,14 +72,14 @@ videoExp[ genotipo_List, OptionsPattern[]] := Module[{patron},
    ListAnimate[
     Table[ ListPlot[ Table[
        Prepend[{patron[[ # /. {a -> 1, b -> 2, c -> 3} ]] [[n]] [[i]]}, i]
-       , {i, 30}], Joined -> True, PlotRange -> OptionValue[PlotRange],
-      ImageSize -> OptionValue[tama\[NTilde]o] ], {n, 30}], OptionValue[fps] ] &/@
+       , {i, NumNuclei}], Joined -> True, PlotRange -> OptionValue[PlotRange],
+      ImageSize -> OptionValue[tama\[NTilde]o] ], {n, NumNuclei}], OptionValue[fps] ] &/@
       Flatten[{OptionValue[gen]} ],
    Table[
     ListAnimate[
      Table[ ListPlot[ Table[ Prepend[ {patron[[k]][[n]][[i]]}, i]
-        , {i, 30}], Joined -> True, PlotRange -> OptionValue[PlotRange],
-        ImageSize -> OptionValue[tama\[NTilde]o] ], {n, 30}], OptionValue[fps] ]
+        , {i, NumNuclei}], Joined -> True, PlotRange -> OptionValue[PlotRange],
+        ImageSize -> OptionValue[tama\[NTilde]o] ], {n, NumNuclei}], OptionValue[fps] ]
     , {k, 3} ] ] ]
 
 generarIsomorfos::usage = "generarIsomorfos[ genotype(matrix) ] This function generates the different isomorphs of a matrix as adjacency matrices"

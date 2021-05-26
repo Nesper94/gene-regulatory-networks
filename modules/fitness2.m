@@ -18,7 +18,7 @@ fitness[GRN_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ] :=
  Block[{NullMorpInput, MorpInputProfile, PreMorpInputFS,
    SSExpValuesPreMorpInput, FS4GRCInResponse2MorpInput, NumNuclei},
   (*Set ICs for all genes in all nuclei and run system without Morphogene input*)
-  NullMorpInput = ConstantArray[0, 30];
+  NullMorpInput = ConstantArray[0, NumNuclei];
   MorpInputProfile = SSInputMorphogen[A0,h];
 
   {PreMorpInputFS, SSExpValuesPreMorpInput} =
