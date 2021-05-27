@@ -1,5 +1,7 @@
 (* ::Package:: *)
 
+Needs["parameters`"]
+
 (*Package to analyze the expression dynamics of each genotype.
 This package depends on EvolAlgorithm4PatternFormingGRCModel2MathPackageV9*)
 <<EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`
@@ -34,12 +36,7 @@ expEspacioTemporal[{Wmatrix_List, DiffParams_List, DegParams_List},ti_:0,tf_:300
   MorphInput = SSInputMorphogen[1];  (*Line added by J.C.A.R*)
 
   GRNSize = Length[Wmatrix];
-  (*As set in the paper referenced above*)
-  NumNuclei = 30;
-  (*As set in the paper referenced above*)
-  alpha = 5.;
-  sigmoidThreshold = 1;
-  IntTime = 500.;
+
   (*Initial conditions for all variables, including boundary conditions set = 0*)
 
   ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];

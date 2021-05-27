@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`",{"ErrorBarPlots`"}]
+BeginPackage["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`",{"ErrorBarPlots`", "parameters`"}]
 
 (*
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,8 +158,6 @@ SpaceTimeFeats4StripeFormingGRCs4SSMorpGradientWithBiophyGroundedCRIF0[LeakTerm_
 
 GRNSize = Length[Params1];
 (*RNApConc = 5.5; KRNAp=7.5;*)
-NumNuclei=30;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
@@ -195,12 +193,6 @@ AdditiveRegContributionF[a_,n_,t_,W_List,Morph_]:=Total[W[[a]]*Prepend[Table[Pro
 (*## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##*)
 
 GRNSize = Length[Wmatrix];
-(*As set in the paper referenced above*)
-NumNuclei=30;
-(*As set in the paper referenced above*)
-alpha=5.;
-sigmoidThreshold=1;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
@@ -289,7 +281,7 @@ FitnessF4SingleStripe[GRCPhenotReadout_]:=Block[{},
 
 (*Modeling a steady state (exponentially decaying from the anterior-to-posterior axis) morphogen gradient. This morphogen distribution profile is similar to that exhibited by Bicoid in the Drosophila developing embryo*)
 MGradientF[A0_,CellIndex_,DecayRate_]:=A0*Exp[-CellIndex/DecayRate]
-NumNuclei=30;
+
 SSInputMorphogen[A0_, h_:calculateMorphDecay[NumNuclei, A0]]:=MGradientF[A0,#,h]&/@Drop[Range[0,1,1/NumNuclei],-1];
 
 GenerateComposedWiringMatrixTemplate:=Block[{},
@@ -357,12 +349,6 @@ AdditiveRegContributionF[a_,n_,t_,W_List,Morph_]:=Total[W[[a]]*Prepend[Table[Pro
 (*## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##*)
 
 GRNSize = Length[Wmatrix];
-(*As set in the paper referenced above*)
-NumNuclei=30;
-(*As set in the paper referenced above*)
-alpha=5.;
-sigmoidThreshold=1;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
@@ -387,9 +373,6 @@ StripeFormingGRCs4SSMorpGradientWithBiophyGroundedCRIF0[LeakTerm_,HillCoeff_,{Pa
 {Prot,ProtStateVariab,ProtInitExpStat,Sol,DynSyst,GRCPhenotReadout},
 
 GRNSize = Length[Params1];
-(*RNApConc = 5.5; KRNAp=7.5;*)
-NumNuclei=30;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];

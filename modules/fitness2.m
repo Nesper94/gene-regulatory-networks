@@ -1,6 +1,8 @@
 (* ::Package:: *)
 (* Author: Juan Camilo Arboleda Rivera based on code by Jayson Gutiérrez*)
 
+Needs["parameters`"]
+
 (*This module depends on DesignMorphogeneResponsiveGRCs.m and
 EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m*)
 << EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`

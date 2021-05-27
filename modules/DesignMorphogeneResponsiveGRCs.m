@@ -1,5 +1,7 @@
 (* ::Package:: *)
 
+Needs["parameters`"]
+
 (*USE THE FOLLOWING METHODS TO PROBE THE DESIGN SPACE OF 3-NODE MORPHOGENE RESPONSIVE GRCs*)
 (************************************************************************************************************************)
 (************************************************************************************************************************)
@@ -92,12 +94,6 @@ AdditiveRegContributionF[a_,n_,t_,W_List,Morph_]:=Total[W[[a]]*Prepend[Table[Pro
 (*## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##*)
 
 GRNSize = Length[Wmatrix];
-(*As set in the paper referenced above*)
-NumNuclei=30;
-(*As set in the paper referenced above*)
-alpha=5.;
-sigmoidThreshold=1;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
@@ -429,12 +425,6 @@ AdditiveRegContributionF[a_,n_,t_,W_List,Morph_]:=Total[W[[a]]*Prepend[Table[Pro
 (*## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##*)
 
 GRNSize = Length[Wmatrix];
-(*As set in the paper referenced above*)
-NumNuclei=30;
-(*As set in the paper referenced above*)
-alpha=5.;
-sigmoidThreshold=1;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
