@@ -22,7 +22,7 @@ expEspacioTemporal[{Wmatrix_List, DiffParams_List, DegParams_List},ti_:0,tf_:300
   (*Transfer function for mapping integrated regulatory inputs to transcriptional
   outputs. In this model the SigmoidSteepness = alpha = 5, while the parameter b,
   which gives the location of the threshold value, is set to 1 *)
-  ICs=ConstantArray[1,90];
+  ICs=ConstantArray[1, 3*NumNuclei];
   NullMorpInput=ConstantArray[0, NumNuclei];
   {PreMorpInputFS,SSExpValuesPreMorpInput} = AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,NullMorpInput,{Wmatrix, DiffParams, DegParams}];
 

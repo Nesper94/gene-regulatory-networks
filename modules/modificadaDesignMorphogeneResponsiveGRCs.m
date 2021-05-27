@@ -119,7 +119,7 @@ GRCPhenotReadout= Table[Flatten[Table[Flatten[Evaluate[Prot[i,n,t]/.Sol/.t->#]],
 
 AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM[EvalGRCParamGenotype_List]:=Block[{ICs,NullMorpInput,MorpInputProfile,PreMorpInputFS,SSExpValuesPreMorpInput,FS4GRCInResponse2MorpInput},
 (*Set ICs for all genes in all nuclei and run system without Morphogene input*)
-ICs=ConstantArray[1,90];
+ICs=ConstantArray[1, 3*NumNuclei];
 NullMorpInput=ConstantArray[0, NumNuclei];
 MorpInputProfile=SSInputMorphogen[1.0];
 
@@ -137,7 +137,7 @@ AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[SSExpValuesPreMorpInput,Mo
 
 Sol4StripeFormingGRCs4SSMorpGradientSFGRM[EvalGRCParamGenotype_List]:=Block[{ICs,NullMorpInput,MorpInputProfile,EndPointExpPatterns,SSExpValues,TimeSeriesSpatialExpOutput},
 
-ICs=ConstantArray[1,90];
+ICs=ConstantArray[1, 3*NumNuclei];
 NullMorpInput=ConstantArray[0, NumNuclei];
 MorpInputProfile=SSInputMorphogen[1.0];
 
@@ -220,7 +220,7 @@ AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM2[
    SSExpValuesPreMorpInput, FS4GRCInResponse2MorpInput},
   (*Set ICs for all genes in all nuclei and run system without \
 Morphogene input*)
-  ICs = ConstantArray[RandomChoice[Range[0,1,0.001]], 90];
+  ICs = ConstantArray[RandomChoice[Range[0,1,0.001]], 3*NumNuclei];
   NullMorpInput = ConstantArray[0, NumNuclei];
   MorpInputProfile = SSInputMorphogen[1.0];
 
@@ -399,7 +399,7 @@ If[
 (*Use this function to inspect the dynamics of an engineered GRC before and after applying the morphogene input*)
 SolveGRCDynsBeforeAfterMorphInput[TestGRCParamGenotype_]:=Block[{ICs,NullMorpInput,PreMorpInputFS,SSExpValuesPreMorpInput,PatternExpBeforeMorpInput,GRCW,P1,P2,MorpInducedExpPattern},
 (*Set ICs to 1 for all genes in all nuclei and run system without Morphogene input*)
-ICs=ConstantArray[1,90];
+ICs=ConstantArray[1, 3*NumNuclei];
 NullMorpInput=ConstantArray[0, NumNuclei];
 
 {PreMorpInputFS,SSExpValuesPreMorpInput} = AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,NullMorpInput,TestGRCParamGenotype];
@@ -458,7 +458,7 @@ GRCPhenotReadout= Table[Flatten[Table[Flatten[Evaluate[Prot[i,n,t]/.Sol/.t->#]],
 (*Use this function to inspect the dynamics of a GRC genotype when perturbed*)
 InspectGRCExpressionDynamics4SSMorpGradientSFGRM[EvalGRCParamGenotype_List]:=Block[{ICs,NullMorpInput,MorpInputProfile,PreMorpInputFS,SSExpValuesPreMorpInput,FS4GRCInResponse2MorpInput},
 (*Set ICs for all genes in all nuclei and run system without Morphogene input*)
-ICs=ConstantArray[1,90];
+ICs=ConstantArray[1, 3*NumNuclei];
 NullMorpInput=ConstantArray[0, NumNuclei];
 MorpInputProfile=SSInputMorphogen[1.0];
 
