@@ -290,7 +290,7 @@ FitnessF4SingleStripe[GRCPhenotReadout_]:=Block[{},
 (*Modeling a steady state (exponentially decaying from the anterior-to-posterior axis) morphogen gradient. This morphogen distribution profile is similar to that exhibited by Bicoid in the Drosophila developing embryo*)
 MGradientF[A0_,CellIndex_,DecayRate_]:=A0*Exp[-CellIndex/DecayRate]
 NumNuclei=30;
-SSInputMorphogen[A0_, h_:0.4]:=MGradientF[A0,#,h]&/@Drop[Range[0,1,1/NumNuclei],-1];
+SSInputMorphogen[A0_, h_:calculateMorphDecay[NumNuclei, A0]]:=MGradientF[A0,#,h]&/@Drop[Range[0,1,1/NumNuclei],-1];
 
 GenerateComposedWiringMatrixTemplate:=Block[{},
 RndWiring=Partition[RandomChoice[{-1,0,1},12],{4}];
