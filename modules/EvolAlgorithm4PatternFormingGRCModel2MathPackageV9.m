@@ -67,6 +67,7 @@ RunRndWalk4SumAndFilterGRCModel::usage = "Use this function to carry out an evol
 
 RunRndWalk4SumAndFilterGRCModel2::usage = "Use this function to carry out an evolutionary exploration of the parameter space for the Sum & Filter GRC model from randomly chosen points"
 
+calculateMorphDecay::usage="calculateMorphDecay[NumNuclei_:30, A0_:1] calculates the value of the morphogen decay parameter (h) for morphogenetic fields with different numbers of nuclei given by NumNuclei so that the concentration in the last cell is equal to A0*Exp[-29/(30*0.4)]"
 
 (**************************************************************************************************************)
 
@@ -149,7 +150,17 @@ EdgeRenderingFunction->({Edge2ColorMap[[Flatten[Position[EdgeComponents,#2]][[1]
 Method->{"Automatic","Rotation"->2 Pi},VertexRenderingFunction->({EdgeForm[ColorF01[#2]],ColorF01[#2],Disk[#1,0.15],Darker[Gray,0.009],Text[Style[#2,13,Bold,White],#1]}&),ImageSize->300]
 ]
 
+(******************************************************************************)
 
+calculateMorphDecay[NumNuclei_:30, A0_:1] := Block[
+    {rightEndConcentration, h},
+
+  rightEndConcentration = A0*Exp[-29/(30*0.4)];
+
+  h = -(NumNuclei - 1)/(NumNuclei*Log[(rightEndConcentration/A0)]);
+
+  Return[h]
+]
 
 (**************************************************************************************************************)
 
