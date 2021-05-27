@@ -14,11 +14,6 @@ Q1[x_]:=(x^5)/( (x^5) + (0.1^5) )
 
 AssessExpPattern4SingleStripeFeat[ExpProfiles_List]:=Block[{},
 
-(*Optimal expression pattern represented in a scale between 1-10 in expression level, being 10 an expression level which is > 90% of the maximal level observed along the 1D field of cells for the output genes*)
-OptimalPattern=Flatten[{ConstantArray[1,10],ConstantArray[10,10],ConstantArray[1,10]}];
-(*Maximal discrepancy achievable for a given pattern w.r.t to the optimal pattern above*)
-Dmax=9*30;
-
 ThresholdedExpValues={{0.`,0.1`},{0.1`,0.2`},{0.2`,0.3`},{0.3`,0.4`},{0.4`,0.5`},{0.5`,0.6`},{0.6`,0.7`},{0.7`,0.8`},{0.8`,0.9`},{0.9`,1.001`}};
 
 testInt[Rng_,Value_]:= Rng[[1]]<=Value< Rng[[2]];
