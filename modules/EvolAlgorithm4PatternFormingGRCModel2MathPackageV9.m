@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`",{"ErrorBarPlots`", "parameters`"}]
+BeginPackage["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`",{"ErrorBarPlots`"}]
 
 (*
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,6 +72,8 @@ calculateMorphDecay::usage="calculateMorphDecay[NumNuclei_:30, A0_:1] calculates
 (**************************************************************************************************************)
 
 Begin["`Private`"]
+
+Needs["parameters`"]
 
 (**************************************************************************************************************)
 

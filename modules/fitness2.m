@@ -1,12 +1,11 @@
 (* ::Package:: *)
 (* Author: Juan Camilo Arboleda Rivera based on code by Jayson Gutiérrez*)
+BeginPackage["fitness2`"]
 
+Begin[ "`Private`"]
 Needs["parameters`"]
-
-(*This module depends on DesignMorphogeneResponsiveGRCs.m and
-EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m*)
-<< EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`
-<< DesignMorphogeneResponsiveGRCs`
+Needs["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`"]
+Needs["DesignMorphogeneResponsiveGRCs`"]
 
 (*The following is basically the function
 AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM2*)
@@ -88,3 +87,6 @@ modifiedAssessFitnessScore4StripePattern4SSMorpGradient4SFGRM2[ICs_List,
 
           FS = MapIndexed[(AssessExpPattern4SingleStripeFeat[#]*
                   Q1[PF[[#2[[1]]]]]*SSCondition) &, EndPointExpPatterns]]
+
+End[]
+EndPackage[]

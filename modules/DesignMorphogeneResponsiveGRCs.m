@@ -1,12 +1,35 @@
-(* ::Package:: *)
+BeginPackage["DesignMorphogeneResponsiveGRCs`"]
 
+PatternFilterChecking::usage="";
+AssessExpPattern4SingleStripeFeat::usage="";
+FitnessScore4StripePattern::usage="";
+AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM::usage="";
+AssessExpDistance::usage="";
+AssessTargetGeneExpVarianceAcrossLastTimeWindow::usage="";
+StripeFormingGRCs4SSMorpGradientSFGRM::usage="";
+AdditiveRegContributionF::usage="";
+AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM::usage="";
+Sol4StripeFormingGRCs4SSMorpGradientSFGRM::usage="";
+AssessDegenerateStruc4EngineeredMorpResponsiveGRC::usage="";
+AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM2::usage="";
+AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM2::usage="";
+FitnessScore4StripePattern2::usage="";
+EngineerMorphInducibleGRCGenotypes4SFGRM::usage="";
+SolveGRCDynsBeforeAfterMorphInput::usage="";
+ReturnTimeSeriesStripeFormingGRCs4SSMorpGradientSFGRM::usage="";
+SumAndFilterF::usage="";
+AdditiveRegContributionF::usage="";
+InspectGRCExpressionDynamics4SSMorpGradientSFGRM::usage="";
+
+Begin[ "`Private`"]
 Needs["parameters`"]
 
 (*USE THE FOLLOWING METHODS TO PROBE THE DESIGN SPACE OF 3-NODE MORPHOGENE RESPONSIVE GRCs*)
 (************************************************************************************************************************)
 (************************************************************************************************************************)
 
-PatternFilterChecking[ExpProfiles_List]:=(1/Length[ExpProfiles])(EuclideanDistance[ExpProfiles,ConstantArray[Mean[ExpProfiles],Length[ExpProfiles]]])
+PatternFilterChecking[ExpProfiles_List]:=
+  (1/Length[ExpProfiles])(EuclideanDistance[ExpProfiles,ConstantArray[Mean[ExpProfiles],Length[ExpProfiles]]])
 
 Q1[x_]:=(x^5)/( (x^5) + (0.1^5) )
 
@@ -14,55 +37,55 @@ Q1[x_]:=(x^5)/( (x^5) + (0.1^5) )
 
 AssessExpPattern4SingleStripeFeat[ExpProfiles_List]:=Block[{},
 
-ThresholdedExpValues={{0.`,0.1`},{0.1`,0.2`},{0.2`,0.3`},{0.3`,0.4`},{0.4`,0.5`},{0.5`,0.6`},{0.6`,0.7`},{0.7`,0.8`},{0.8`,0.9`},{0.9`,1.001`}};
+  ThresholdedExpValues={{0.`,0.1`},{0.1`,0.2`},{0.2`,0.3`},{0.3`,0.4`},{0.4`,0.5`},{0.5`,0.6`},{0.6`,0.7`},{0.7`,0.8`},{0.8`,0.9`},{0.9`,1.001`}};
 
-testInt[Rng_,Value_]:= Rng[[1]]<=Value< Rng[[2]];
+  testInt[Rng_,Value_]:= Rng[[1]]<=Value< Rng[[2]];
 
-NormEquilbPattern=ExpProfiles/Max[ExpProfiles];
+  NormEquilbPattern=ExpProfiles/Max[ExpProfiles];
 
-DiscretizedPattern=Table[Position[testInt[#,NormEquilbPattern[[x]]]&/@ThresholdedExpValues,True][[1,1]],{x,Length[NormEquilbPattern]}];
+  DiscretizedPattern=Table[Position[testInt[#,NormEquilbPattern[[x]]]&/@ThresholdedExpValues,True][[1,1]],{x,Length[NormEquilbPattern]}];
 
-PFeff = 1-(ManhattanDistance[OptimalPattern,DiscretizedPattern]/Dmax)
+  PFeff = 1-(ManhattanDistance[OptimalPattern,DiscretizedPattern]/Dmax)
 ]
 
 (************************************************************************************************************************)
 
-FitnessScore4StripePattern[TimeSeriesSpatialExpOutput_,EndPointExpPatterns_]:=Block[{MaxGeneExpVarianceAcrossLastTimeWindow,SSThrValue,SSCondition,PF,FS},
+FitnessScore4StripePattern[TimeSeriesSpatialExpOutput_,EndPointExpPatterns_]:=Block[
+  {MaxGeneExpVarianceAcrossLastTimeWindow, SSThrValue, SSCondition, PF, FS},
 
-(*Testing GRC dynamics for stationarity. Threshold value <= 10^-6*)
-MaxGeneExpVarianceAcrossLastTimeWindow=Max[AssessTargetGeneExpVarianceAcrossLastTimeWindow/@TimeSeriesSpatialExpOutput];
+  (*Testing GRC dynamics for stationarity. Threshold value <= 10^-6*)
+  MaxGeneExpVarianceAcrossLastTimeWindow=Max[AssessTargetGeneExpVarianceAcrossLastTimeWindow/@TimeSeriesSpatialExpOutput];
 
-SSThrValue=10^-6;
-SSCondition=If[MaxGeneExpVarianceAcrossLastTimeWindow<= SSThrValue,1,0];
+  SSThrValue=10^-6;
+  SSCondition=If[MaxGeneExpVarianceAcrossLastTimeWindow<= SSThrValue,1,0];
 
-(*Testing for spatial heterogeneity in the steady state expression pattern, which is also an indicative of whether the expression profiles are sufficiently high so that the cross regulatory interactions can be effective in controlling the expression putput.*)
-PF=PatternFilterChecking/@EndPointExpPatterns;
+  (*Testing for spatial heterogeneity in the steady state expression pattern, which is also an indicative of whether the expression profiles are sufficiently high so that the cross regulatory interactions can be effective in controlling the expression putput.*)
+  PF=PatternFilterChecking/@EndPointExpPatterns;
 
-FS=Max[(AssessExpPattern4SingleStripeFeat[#]*Q1[Min[PF]]*SSCondition)&/@EndPointExpPatterns]
+  FS=Max[(AssessExpPattern4SingleStripeFeat[#]*Q1[Min[PF]]*SSCondition)&/@EndPointExpPatterns]
 ]
 
 (************************************************************************************************************************)
 (*2019.03.07: En la siguiente función modifiqué los argumentos ICs y MorphInput de tal manera que tuvieran valores por defecto*)
-AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs_List:ConstantArray[1, 3*NumNuclei],MorphInput_List:SSInputMorphogen[1],{Wmatrix_List,DiffParams_List,DegParams_List}]:=Block[
-{TimeSeriesSpatialExpOutput,EndPointExpPatterns,SSExpValues,MaxFS},
+AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs_List:ConstantArray[1, 3*NumNuclei], MorphInput_List:SSInputMorphogen[1],
+{Wmatrix_List, DiffParams_List, DegParams_List}]:=Block[
+  {TimeSeriesSpatialExpOutput,EndPointExpPatterns,SSExpValues,MaxFS},
 
-TimeSeriesSpatialExpOutput = StripeFormingGRCs4SSMorpGradientSFGRM[ICs,MorphInput,{Wmatrix,DiffParams,DegParams}];
+  TimeSeriesSpatialExpOutput = StripeFormingGRCs4SSMorpGradientSFGRM[ICs,MorphInput,{Wmatrix,DiffParams,DegParams}];
 
+  EndPointExpPatterns=Last/@TimeSeriesSpatialExpOutput;
 
+  SSExpValues = Flatten[Thread[EndPointExpPatterns]];
 
-EndPointExpPatterns=Last/@TimeSeriesSpatialExpOutput;
+  (*Check if there is any negative gene expression value, which is not biologically realistic. If there is, then Fitness must be 0. *)
 
-SSExpValues=Flatten[Thread[EndPointExpPatterns]];
-
-(*Check if there is any negative gene expression value, which is not biologically realistic. If there is, then Fitness must be 0. *)
-
-MaxFS=If[
-	Count[Flatten[TimeSeriesSpatialExpOutput],x_/;x<=0]>0,0,
-	FitnessScore4StripePattern[TimeSeriesSpatialExpOutput,EndPointExpPatterns]
+  MaxFS=If[
+	  Count[Flatten[TimeSeriesSpatialExpOutput], x_/; x<=0] > 0, 0,
+	  FitnessScore4StripePattern[TimeSeriesSpatialExpOutput, EndPointExpPatterns]
 	];
 
-{MaxFS,SSExpValues}
-		]
+  {MaxFS,SSExpValues}
+]
 
 (************************************************************************************************************************)
 
@@ -79,7 +102,7 @@ Mean[AssessExpDistance[#,NucleiWiseAvgGeneExpAcrossInterval]&/@NormalizedTimeSer
 (************************************************************************************************************************)
 
 StripeFormingGRCs4SSMorpGradientSFGRM[ICs_List,MorphInput_List,{Wmatrix_List,DiffParams_List,DegParams_List}]:=Module[
-{Prot,ProtStateVariab,ProtInitExpStat,DynSyst,Sol,GRCPhenotReadout,IntTime,sigmoidThreshold,alpha,NumNuclei,GRNSize},
+{Prot,ProtStateVariab,ProtInitExpStat,DynSyst,Sol,GRCPhenotReadout,GRNSize},
 
 (*## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##*)
 (*Transfer function for mapping integrated regulatory inputs to transcriptional outputs. In this model the SigmoidSteepness = alpha = 5, while the parameter b, which gives the location of the threshold value, is set to 1 *)
@@ -410,7 +433,7 @@ GRCW=Show[DisplayNonWeightedHaploidGraphWithMorphInputs@First[TestGRCParamGenoty
 
 (*return a long series spatial expression profiles for each gene at different time points*)
 ReturnTimeSeriesStripeFormingGRCs4SSMorpGradientSFGRM[ICs_List,MorphInput_List,{Wmatrix_List,DiffParams_List,DegParams_List}]:=Module[
-{Prot,ProtStateVariab,ProtInitExpStat,DynSyst,Sol,GRCPhenotReadout,IntTime,sigmoidThreshold,alpha,NumNuclei,GRNSize},
+{Prot,ProtStateVariab,ProtInitExpStat,DynSyst,Sol,GRCPhenotReadout,GRNSize},
 
 (*## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##*)
 (*Transfer function for mapping integrated regulatory inputs to transcriptional outputs. In this model the SigmoidSteepness = alpha = 5, while the parameter b, which gives the location of the threshold value, is set to 1 *)
@@ -454,3 +477,6 @@ ReturnTimeSeriesStripeFormingGRCs4SSMorpGradientSFGRM[SSExpValuesPreMorpInput,Mo
 0
 	]
 ]
+
+End[]
+EndPackage[]
