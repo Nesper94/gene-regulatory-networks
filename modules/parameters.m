@@ -24,7 +24,7 @@ OptimalPattern =
    ConstantArray[1, Quotient[NumNuclei, 3]]}];
 
 (*Maximal discrepancy achievable for a given pattern w.r.t to the optimal pattern above*)
-Dmax=9*30;
+Dmax=9*NumNuclei;
 
 End[]
 EndPackage[]
