@@ -154,7 +154,7 @@ Method->{"Automatic","Rotation"->2 Pi},VertexRenderingFunction->({EdgeForm[Color
 
 (******************************************************************************)
 
-calculateMorphDecay[NumNuclei_:30, A0_:1] := Block[
+calculateMorphDecay[NumNuclei_:30, A0_:1] := Module[
     {rightEndConcentration, h},
 
   rightEndConcentration = A0*Exp[-29/(30*0.4)];
