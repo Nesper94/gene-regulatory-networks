@@ -310,12 +310,12 @@ interactions can be effective in controlling the expression putput.*)
 (************************************************************************************************************************)
 
 (*Engineer morphogene responsive GRCs using a MCMC-like algorithm*)
-EngineerMorphInducibleGRCGenotypes4SFGRM[Repl_,PSR_,ThrFS_]:=Block[{EvolSteps,thresholdFitness,ParamSettingSamplingRate,
+EngineerMorphInducibleGRCGenotypes4SFGRM[Repl_,EvSteps_,PSR_,ThrFS_]:=Module[{EvolSteps,thresholdFitness,ParamSettingSamplingRate,
 MutaProbList,GRCWiring,MorphogenInput,DiffRates,ProtDegRates,GetInputParamSet,GRCDyns,RefInputParamSetting,Fb,
 Fa,DeltaF,ThisMutId,InputParamSetting,InputParamSettingAllin,OutputFileName,PatternFormingSeeds,DestinationFolder,
 ParamsSamplingCond,SamplingPointsList,BoolWMatrix,WContainer},
 
-EvolSteps=5000000;
+EvolSteps=EvSteps;(*5000000; *)
 ParamSettingSamplingRate=PSR;(*e.g. PSR = 500*)
 thresholdFitness=ThrFS;(*e.g. ThrFS = 0.925*)
 SamplingPointsList=Drop[Range[0,EvolSteps,ParamSettingSamplingRate],{1}];
