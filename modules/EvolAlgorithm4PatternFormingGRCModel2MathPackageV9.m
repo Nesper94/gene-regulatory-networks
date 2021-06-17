@@ -72,8 +72,8 @@ calculateMorphDecay::usage="calculateMorphDecay[NumNuclei_:30, A0_:1] calculates
 (**************************************************************************************************************)
 
 Begin["`Private`"]
-
 Needs["parameters`"]
+Needs["DesignMorphogeneResponsiveGRCs`"]
 
 (**************************************************************************************************************)
 
