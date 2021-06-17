@@ -1,3 +1,4 @@
+(* ::Package:: *)
 BeginPackage["VideosExpressionDynamics`"]
 
 (*Package to analyze the expression dynamics of each genotype.

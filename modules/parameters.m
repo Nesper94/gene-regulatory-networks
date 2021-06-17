@@ -1,3 +1,4 @@
+(* ::Package:: *)
 BeginPackage["parameters`"]
 
 NumNuclei::usage="";

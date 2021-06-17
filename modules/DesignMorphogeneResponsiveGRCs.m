@@ -1,3 +1,4 @@
+(* ::Package:: *)
 BeginPackage["DesignMorphogeneResponsiveGRCs`"]
 
 PatternFilterChecking::usage="";
