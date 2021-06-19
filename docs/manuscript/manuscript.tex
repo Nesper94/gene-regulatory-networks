@@ -278,8 +278,8 @@ Systems biology is a very fast growing field thanks to the advances in computing
 mathematical modeling of biological systems, and has proven to be a powerful tool that
 can help us to understand complex biological processes such as pattern formation in
 development. In this article we use an \textit{in silico} approach in order to find and study
-the design space of three node Gene Regulatory Networks that are able to produce a
-striped pattern of gene expression.
+the design space of multiple input three node Gene Regulatory Networks that are able
+to produce a striped pattern of gene expression.
 
 \linenumbers
 
@@ -291,20 +291,20 @@ from it. In many cases Gene Regulatory Networks (GRNs) interpret these signals
 through gene interaction and produce a particular response. This information
 processing function is of particular importance in developmental processes such
 as those in which a group of cells differentiate in response to a signalling
-molecule. Such molecules were referred to as morphogens by Turing in 1952
-\cite{Turing1952} and posterior theoretical studies on patterning led to the
+molecule. Such molecules were referred to as morphogens by Turing in
+1952~\cite{Turing1952} and posterior theoretical studies on patterning led to the
 conceptualization of the French Flag Problem by Wolpert, who also stated
 in this respect that a gradient of concentration of a morphogen could
-trigger cell differentiation in a one-dimensional field of cells
-\cite{Wolpert1969, sharpe_2019}.
+trigger cell differentiation in a one-dimensional field of cells~\cite{Wolpert1969,
+sharpe_2019}.
 Although the Bicoid protein (bcd), the first example of a molecule that acted
 as a morphogen, was only found in the 80's in the developing embryos of
-\textit{Drosophila melanogaster}
-\cite{driever_gradient_1988, driever_bicoid_1988}, now it is known that there
+\textit{Drosophila melanogaster}~\cite{driever_gradient_1988,
+driever_bicoid_1988}, now it is known that there
 are many other examples such as the Decapentaplegic (Dpp) protein in
-\textit{Drosophila} wing imaginal discs \cite{affolter_decapentaplegic_2007},
-as well as Sonic Hedgehog \cite{dessaud_dynamic_2010,cohen_theoretical_2014}
-and Wnt \cite{raspopovic_digit_2014}. However, information processing by GRNs
+\textit{Drosophila} wing imaginal discs~\cite{affolter_decapentaplegic_2007},
+as well as Sonic Hedgehog~\cite{dessaud_dynamic_2010,cohen_theoretical_2014}
+and Wnt~\cite{raspopovic_digit_2014}. However, information processing by GRNs
 has proven to be a complex process, and a major goal of developmental biology
 is to understand mechanistically how positional information given by morphogens
 is translated in spatial differentiation.\\
@@ -322,31 +322,36 @@ differentiation~\cite{Basu2005}, circadian gene
 expression~\cite{atkinson_development_2003}, counting
 devices~\cite{friedland_synthetic_2009} and systems that respond to light.
 Moreover, the design and implementation of GRNs through synthetic biology is
-emerging as a promising tool to study biological phenomena as pattern formation
-\cite{santos-moreno_using_2019} and as a novel therapeutic tool with amazing
-biomedical applications~\cite{karlsson_therapeutic_2012,
+emerging as a promising tool to study biological phenomena as pattern
+formation~\cite{santos-moreno_using_2019} and as a novel therapeutic tool with
+interesting biomedical applications~\cite{karlsson_therapeutic_2012,
 higashikuni_advancing_2017,abil_synthetic_2015,healy_genetic_2019,
 kitada_programming_2018}.
 
 Producing a stripe of gene expression is a fundamental patterning function
 in development, and it has been shown that feed-forward motifs are minimal
-networks capable of performing this function \cite{munteanu_2014}. For example,
+networks capable of performing this function~\cite{munteanu_2014}. For example,
 Cotterell and Sharpe studied what kind of 3-node network topologies could
 interact with a morphogen gradient and produce a stripe of gene expression
 in a one-dimensional field of cells and found a variety of networks that
 implemented at least 7 different mechanisms and had different levels of
-complexity, being most of them variations of feed-forward motifs \cite{Cotterell2010}.
+complexity, being most of them variations of feed-forward motifs~\cite{Cotterell2010}.
 
 However, although several studies have analyzed the properties of GRNs that
-process positional information, they have focused on particular natural networks
-\cite{Schaerli2014,Jaeger2004}, in synthetic networks
-\cite{Basu2005,Reinitz1995,Schaerli2018}, or have constrained the design of the
-GRNs \cite{Elowitz2000}.
+process positional information, they have focused on particular natural
+networks~\cite{Schaerli2014,Jaeger2004}, in synthetic networks~\cite{Basu2005,
+Reinitz1995,Schaerli2018,Elowitz2000}, or have constrained the
+design of the GRNs to accept an input signal from only one of its nodes, which is
+not always biologically realistic as multiple input systems can exist~\cite{Cotterell2010,
+munteanu_2014, Schaerli2014}. For example, the neural subtypes specification
+system in the vertebrate neural tube is a two-input network in which
+Sonic Hedgehog acts as a morphogen and Olig2 and Nkx2.2 act as the receiver
+nodes~\cite{dessaud_dynamic_2010, balaskas2012, exelby_2021}.
 
-In this study, we used a set of 2061 three-node GRNs selected by a genetic
-algorithm to interpret a morphogen signal and respond to it generating a
-striped pattern of gene expression in order to analyse the role of network
-motifs in this process and its dynamic properties.
+In this study, we used a genetic algorithm to generate a set of 2061 three-node GRNs
+including single and multiple input topologies that were able to interpret a morphogen
+signal and respond to it generating a striped pattern of gene expression in order to
+analyse the role of network motifs in this process and its dynamic properties.
 
 % Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Nullam Eq~(\ref{eq:schemeP}) sapien tellus, commodo id velit id, eleifend volutpat quam. Nunc pellentesque pretium diam, quis maximus dolor faucibus id.~\cite{bib2} Nunc convallis sodales ante, ut ullamcorper est egestas vitae.
 
@@ -364,12 +369,14 @@ In order to study three-node GRNs we represented them by three sets of real
 numbers, the first set was composed of the interaction values
 between genes in the network; the second of the diffusion rates (D) of each of
 the three gene products; and the third of the degradation rates ($\delta$) of
-these same gene products, with $D$ and $\delta  \in [0, 0.05]$.\\
+these same gene products, with $D \in [0, 0.1]$ and $\delta \in [0, 0.05]$.\\
 
 The set of interaction values was represented as adjacency matrices $W \in
 \mathbb{R}^{3\times4}$ where $i$ represents a regulated node of the GRN and $j$
 represents a regulator node of the GRN (Fig \ref{fig:model}A and
-\ref{fig:model}B) with $w_{\textit{ij}}~\in [-10,\ 10]$. Values in these
+\ref{fig:model}B) with $w_{\textit{ij}}~\in [-10,\ 10]$ (this interval was arbitrarily
+chosen and it is inherited from the model of Munteanu~et~al.~\cite{munteanu_2014}
+and Cotterell~\&~Sharpe\cite{Cotterell2010}). Values in these
 matrices can be negative, zero or positive and represent represion, no
 interaction, or activation respectively. The magnitude of the value is
 proportional to the strength of the interaction. In this study we define
@@ -406,8 +413,8 @@ each gen product in all cells was set to 0.1 in all simulations.\\
 
 \subsection*{Mathematical model}
 
-Our model is a modification of the model used by Cotterell \& Sharpe
-\cite{Cotterell2010} and proposed by Reinitz et al. \cite{Reinitz1995}. The
+Our model is a modification of the model used by Cotterell \& Sharpe~\cite{Cotterell2010}
+and proposed by Reinitz et al.~\cite{Reinitz1995}. The
 model is a dynamical system that describes the change in concentration of gene
 product \emph{i} in time, as shown in Eq~\ref{ec:modelo-gral}.
 
@@ -462,7 +469,7 @@ was set to 0.4.
 The phenotype of a GRN was defined as the expression pattern of each gene along
 the morphogenetic field after 500 time steps of integration of the dynamical
 system. We chose that number of time steps because numerical experiments showed
-that GRNs reached the steady state in approximately 300 steps.
+that GRNs reached the steady state in approximately 300 steps (\nameref{S2_Fig}).
 
 \subsection*{Optimal pattern definition}
 
@@ -572,8 +579,8 @@ topologies was calculated using the following equation:
  D_H(W^A, W^B) = \sum_{ij} \mid sgn(w_{ij}^A) - sgn(w^B_{ij}) \mid .
 \end{equation}
 
-We adopted the same definition of neighborhood as Cotterell \& Sharpe
-\cite{Cotterell2010}, in which two topologies were neighbors if the gain or
+We adopted the same definition of neighborhood as Cotterell \&
+Sharpe~\cite{Cotterell2010}, in which two topologies were neighbors if the gain or
 removal of any one interaction can transform one of the topologies into the
 other.
 
@@ -647,7 +654,7 @@ using the Neighbor Joining method in the Scikit Bio package.
 \subsection*{Complexity index and network descriptors}
 
 As a measure of network complexity, we used the complexity index based on
-Shannon entropy proposed by Bonchev \& Rovray \cite{D.2005}. We calculated this
+Shannon entropy proposed by Bonchev \& Rovray~\cite{D.2005}. We calculated this
 index using the following equation:
 \begin{equation}
  I_{vd} = \sum_{i=1}^V a_i \cdot \log_{2} a_i,
@@ -729,7 +736,7 @@ topologies were located in the largest cluster.
 
 The degree distribution of this network seems to follow a Poisson distribution
 (Pearson’s $\chi^2 = 12.8902$, $\text{p-value} = 0.115684$) characteristic of a
-Erdös-Rényi network \cite{Erdos1959}. This kind of network presents a great
+Erdös-Rényi network~\cite{Erdos1959}. This kind of network presents a great
 number of nodes with low degree and a few nodes with high degree
 (Fig~\ref{fig:deg-dist}A). Nodes corresponding to topologies number one and
 three showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, nodes with
@@ -772,9 +779,9 @@ these two variables ($r_S = −0.0389724$, $\text{p-value} = 0.298475$)
 (Fig~\ref{fig:ab-rob}A). However, when we grouped those topologies containing
 the same subgraph and calculated their mean robustness, we found that between
 the most robust subgraphs is the ``Bistable'' motif reported by Cotterell \&
-Sharpe \cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif
-(which is a variation of the I3-FFL) also reported by Cotterell \& Sharpe (see
-Supplementary Material).
+Sharpe~\cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif
+(which is a variation of the I3-FFL) also reported by Cotterell \& Sharpe
+(see \nameref{S4_Fig} and \nameref{S1_Table}).
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig6}
@@ -803,7 +810,7 @@ most network topologies (Table~\ref{table1}).
  \hline
  {\bf Network descriptor} & {\bf Value}\\ \thickhline
  Average vertex degree  & 3.85714 \\ \hline
- Clustering coefficient \cite{Watts1998} & 0.117097 \\ \hline
+ Clustering coefficient~\cite{Watts1998} & 0.117097 \\ \hline
  Average path length    & 7.25261       \\ \hline
  Graph connectedness    & 0.00540974    \\ \hline
  Graph diameter*        & 25            \\ \hline
@@ -903,43 +910,50 @@ We found the presence of network motifs in the set of GRNs produced by the
 genetic algorithm. However, we also found a great diversity of network
 topologies that could produce a striped gene expression pattern.\\
 
-Robustness is an important feature of patterning mediated by morphogens
-\cite{lo_robust_2015}. In our study, the most abundant topologies were found to
-be part of highly connected clusters in the neutral network, and this fact
+Robustness is an important feature of patterning mediated by morphogens, and
+the GRNs involved can be selected in an evolutionary process not only by its final
+steady state but also by its ability to buffer noise~\cite{lo_robust_2015, exelby_2021}.
+In our study, the most abundant topologies were
+found to be part of highly connected clusters in the neutral network, and this fact
 indicates that these topologies are both robust to quantitative changes in the
 strength of interactions and diffusion and degradation parameters as well as to
 qualitative changes in the topology itself. As robustness and evolvability are
-not mutually exclusive properties \cite{wagner_robustness_2008}, it is likely
+not mutually exclusive properties~\cite{wagner_robustness_2008}, it is likely
 that these topologies are also evolvable.
 
 Other studies have shown that Incoherent Feed Forward Loops are able to form
-spatial stripes of gene expression \cite{ishihara_cross_2005}. In particular,
+spatial stripes of gene expression~\cite{ishihara_cross_2005}. In particular,
 we found that the I3-FFL is one of the network motifs that appears more
-frequently in these GRNs, as has also been reported by Cotterell \& Sharpe
-\cite{Cotterell2010}, and has been found in transcriptional networks involved
-in cell fate definition \cite{Li2019}. Moreover, our results indicate that this
+frequently in these GRNs, as has also been reported by Cotterell \&
+Sharpe~\cite{Cotterell2010}, and has been found in transcriptional networks involved
+in cell fate definition~\cite{Li2019}. Moreover, our results indicate that this
 is a robust motif that can be useful for construction of synthetic gene
 regulatory networks that are exposed to stochastic fluctuations in the
 environment and mutations.
 
-However, as our model was less stringent, we found a larger number of possible
-topologies with the same striped phenotype.\\
+However, as our model was less stringent and allowed the morphogen input to
+interact with any gene, we found a larger number of possible topologies with the
+same striped phenotype. For example, in a single input model the I4-FFL could
+not produce a stripe of gene expression~\cite{munteanu_2014}, whereas in our
+experimental setup 20.17\% of the topologies presented this motif as a
+subgraph~(\nameref{S1_Table}).
 
 Although it has been experimentally demonstrated that the Incoherent Feed
 Forward Loop type 2 (I2-FFL) is able to generate a striped gene expression
-pattern, \cite{Schaerli2014, Basu2005}, in our study this motif was present in
+pattern,~\cite{Schaerli2014, Basu2005}, in our study this motif was present in
 only 10.92\% of the topologies. This fact may be because genetic algorithms
 can not always find global minima but local minima or its surroundings, however,
 it is also possible that the I2-FFL motif is not as robust as other motifs and
 therefore be less represented.
 
 We also found topologies with a similar topology to that of the “opposing
-gradients” reported by Schaerli et al. \cite{Schaerli2018,Schaerli2014}.
+gradients” reported by Schaerli et al.~\cite{Schaerli2018,Schaerli2014}.
 Although the “opposing gradients” mechanism requires the constitutive expression
 of two of the genes in the GRN, and our model does not take constitutive
 expression into account, we realized that the GRNs that presented the “opposing
 gradients” topology, had also commonly positive auto-regulation interactions on
-these two nodes, supplying in this way the lack of constitutive expression.
+these two nodes, supplying in this way the lack of constitutive
+expression as found in previous studies~\cite{munteanu_2014}.
 
 The correlation between the complexity index of a topology and its abundance
 indicates that networks with simpler designs are more robust to changes in
@@ -954,7 +968,7 @@ algorithm selected similar expression mechanisms that can be produced by very
 different topologies.
 
 Although GRNs that produce a band of gene expression with only two nodes have
-been described (e.g. the I-zero motif, \cite{Schaerli2014}) this is to our
+been described (e.g. the I-zero motif,~\cite{Schaerli2014}) this is to our
 knowledge the first time a GRN with a topology such as that of topology nine
 (Fig \ref{fig:topol9})
 and its expression mechanism are reported, increasing our knowledge of the
@@ -998,7 +1012,7 @@ topology 9, as in this topology nodes B and C are not connected.
 \label{S4_Fig}
 {\bf Relevant subgraphs present in the set of GRNs.}
 These are subgraphs that have been reported in previous studies as networks
-involved in morphogenesis and development \cite{Cotterell2010, Schaerli2014,
+involved in morphogenesis and development~\cite{Cotterell2010, Schaerli2014,
 Schaerli2018}. These were used to calculate the subgraph profile and the results
 reported in \nameref{S1_Table}.
 
