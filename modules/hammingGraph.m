@@ -9,10 +9,10 @@ importClassifiedTopologies[]:= {
 
 isomorfos::usage = "isomorfos[matriz] genera los isomorfos de una matriz dada."
 (*Definimos la función que presenta los isomorfos de cada topología*)
-isomorfos[matriz_] := Module[{ordfilas, ordcolumnas},
-  ordfilas = Permutations[{1, 2, 3}];
-  ordcolumnas = Table[Prepend[ordfilas[[i]] + 1, 1], {i, Length[ordfilas]}];
-  Table[ matriz[[ordfilas[[i]], ordcolumnas[[i]] ]], {i, Length[ordfilas]}] ]
+isomorfos[matriz_] := Module[{rowOrder, columnOrder},
+  rowOrder = Permutations[{1, 2, 3}];
+  columnOrder = Table[Prepend[rowOrder[[i]] + 1, 1], {i, Length[rowOrder]}];
+  Table[ matriz[[rowOrder[[i]], columnOrder[[i]] ]], {i, Length[rowOrder]}] ]
 
 (*La siguiente es la misma función de antes que calcula la menor distancia de Hamming entre dos matrices, pero con la nueva parte del código*)
 jaminnn::usage = "jaminnn[list1, list2] compara los isomorfos de las dos listas y arroja la menor distancia de Hamming entre ellas."
