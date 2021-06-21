@@ -82,29 +82,6 @@ videoExp[ genotipo_List, OptionsPattern[]] := Module[{patron},
         ImageSize -> OptionValue[tama\[NTilde]o] ], {n, 30}], OptionValue[fps] ]
     , {k, 3} ] ] ]
 
-generarIsomorfos::usage = "generarIsomorfos[ genotype(matrix) ] This function generates the different isomorphs of a matrix as adjacency matrices"
-
-generarIsomorfos[genotipo_List]:= Module[{ordfilas,ordcolumnas,isomorfos},
-  (*Define matrices indicating the order of rows and columns in the matrices*)
-  ordfilas = Permutations[{1, 2, 3}];
-  (*ordcolumnas must be equal to ordfilas but with the morphogen always as the first column*)
-  ordcolumnas = Table[ Prepend[ordfilas[[i]] + 1, 1] , {i, Length[ordfilas]}];
-  (*Generate isomorphs for the matrix*)
-  isomorfos = Table[
-    Sign[genotipo][[ ordfilas[[i]], ordcolumnas[[i]] ]]
-    , {i, Length[ordfilas]}] ]
-
-isSubgraphQ::usage = "isSubgraphQ[ list_1, list_2 ] Gives True if list_1 is subgraph of list_2 and False in other case. Both lists must be adjacency matrices."
-
-isSubgraphQ[subgraph_List,graph_List]:= Module[{isomorfos},
-  isomorfos = generarIsomorfos[subgraph];
-  Do[ If[ i > Length[isomorfos], Break[False] ];
-      If[
-    SubsetQ[ Position[ Sign[graph],1], Position[isomorfos[[i]],1] ] &&
-    SubsetQ[ Position[ Sign[graph],-1], Position[isomorfos[[i]],-1] ], Break[True] ];
-    ,{i, Length[isomorfos]+1}
-    ]]
-
 (********************************************************************************************************************)
 
 (*Redefine function "AssessFitnessScoreStripeFormingGRCs4SSMorpGradient"
