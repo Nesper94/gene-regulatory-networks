@@ -1,25 +1,22 @@
 (* ::Package:: *)
 (* Author: Juan Camilo Arboleda Rivera based on code by Jayson Gutiérrez*)
+BeginPackage["fitness2`"]
 
-(*This module depends on DesignMorphogeneResponsiveGRCs.m and
-EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m*)
-<< EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`
-<< DesignMorphogeneResponsiveGRCs`
+Begin[ "`Private`"]
+Needs["parameters`"]
+Needs["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`"]
+Needs["DesignMorphogeneResponsiveGRCs`"]
 
 (*The following is basically the function
 AssessFS4GRC2GenerateStripedPatternInducedBySSMorpGradient4SFGRM2*)
-fitness::usage="fitness[ GRN_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ]
-calculates the fitness of the Gene Regulatory Network (GRN) using A0 as the max
-morphogen concentration, h as the morphogen decay parameter and ICs as the
-initial concentrations of the gene products in each one of the cells of the
-morphogenetic field."
+fitness::usage="fitness[ GRN_List, A0_:1, h_:calculateMorphDecay[NumNuclei, A0], ICs_:ConstantArray[1, 3*NumNuclei] ] calculates the fitness of the Gene Regulatory Network (GRN) using A0 as the max morphogen concentration, h as the morphogen decay parameter and ICs as the initial concentrations of the gene products in each one of the cells of the morphogenetic field."
 
-fitness[GRN_List, A0_:1, h_:0.4, ICs_:ConstantArray[1, 90] ] :=
+fitness[GRN_List, A0_:1, h_:calculateMorphDecay[NumNuclei, A0], ICs_:ConstantArray[1, 3*NumNuclei] ] :=
  Block[{NullMorpInput, MorpInputProfile, PreMorpInputFS,
    SSExpValuesPreMorpInput, FS4GRCInResponse2MorpInput, NumNuclei},
   (*Set ICs for all genes in all nuclei and run system without Morphogene input*)
-  NullMorpInput = ConstantArray[0, 30];
-  MorpInputProfile = SSInputMorphogen[A0,h];
+  NullMorpInput = ConstantArray[0, NumNuclei];
+  MorpInputProfile = SSInputMorphogen[A0, h];
 
   {PreMorpInputFS, SSExpValuesPreMorpInput} =
    AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,
@@ -90,3 +87,6 @@ modifiedAssessFitnessScore4StripePattern4SSMorpGradient4SFGRM2[ICs_List,
 
           FS = MapIndexed[(AssessExpPattern4SingleStripeFeat[#]*
                   Q1[PF[[#2[[1]]]]]*SSCondition) &, EndPointExpPatterns]]
+
+End[]
+EndPackage[]

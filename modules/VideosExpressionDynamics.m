@@ -1,10 +1,18 @@
 (* ::Package:: *)
+BeginPackage["VideosExpressionDynamics`"]
 
 (*Package to analyze the expression dynamics of each genotype.
 This package depends on EvolAlgorithm4PatternFormingGRCModel2MathPackageV9*)
-<<EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`
 
-videoExp::usage = "videoExp[ genotipo ] create a video of the expression dynamics of a GRN, it takes as argument 'gen', with options 'a','b' and 'c', image size and 'fps' (frames per second)."
+expEspacioTemporal::usage = "Create expression profile.";
+videoExp::usage = "videoExp[ genotipo ] create a video of the expression \
+dynamics of a GRN, it takes as argument 'gen', with options 'a','b' and 'c', \
+image size and 'fps' (frames per second).";
+
+Begin[ "`Private`"]
+Needs["parameters`"]
+Needs["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`"]
+Needs["DesignMorphogeneResponsiveGRCs`"]
 
 (*Import list of classified, ordered, non isomorphic motifs*)
 motivosClasificadosOrdenadosNoIsomorfos = Flatten[ToExpression[#],1] &/@
@@ -22,8 +30,8 @@ expEspacioTemporal[{Wmatrix_List, DiffParams_List, DegParams_List},ti_:0,tf_:300
   (*Transfer function for mapping integrated regulatory inputs to transcriptional
   outputs. In this model the SigmoidSteepness = alpha = 5, while the parameter b,
   which gives the location of the threshold value, is set to 1 *)
-  ICs=ConstantArray[1,90];
-  NullMorpInput=ConstantArray[0,30];
+  ICs=ConstantArray[1, 3*NumNuclei];
+  NullMorpInput=ConstantArray[0, NumNuclei];
   {PreMorpInputFS,SSExpValuesPreMorpInput} = AssessFitnessScore4StripePattern4SSMorpGradient4SFGRM[ICs,NullMorpInput,{Wmatrix, DiffParams, DegParams}];
 
   SumAndFilterF[SigmoidSteepness_, Threshold_, IntegratedRegInput_] := 1./(1. + Exp[(SigmoidSteepness - (Threshold*IntegratedRegInput))]);
@@ -34,12 +42,7 @@ expEspacioTemporal[{Wmatrix_List, DiffParams_List, DegParams_List},ti_:0,tf_:300
   MorphInput = SSInputMorphogen[1];  (*Line added by J.C.A.R*)
 
   GRNSize = Length[Wmatrix];
-  (*As set in the paper referenced above*)
-  NumNuclei = 30;
-  (*As set in the paper referenced above*)
-  alpha = 5.;
-  sigmoidThreshold = 1;
-  IntTime = 500.;
+
   (*Initial conditions for all variables, including boundary conditions set = 0*)
 
   ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
@@ -72,14 +75,14 @@ videoExp[ genotipo_List, OptionsPattern[]] := Module[{patron},
    ListAnimate[
     Table[ ListPlot[ Table[
        Prepend[{patron[[ # /. {a -> 1, b -> 2, c -> 3} ]] [[n]] [[i]]}, i]
-       , {i, 30}], Joined -> True, PlotRange -> OptionValue[PlotRange],
-      ImageSize -> OptionValue[tama\[NTilde]o] ], {n, 30}], OptionValue[fps] ] &/@
+       , {i, NumNuclei}], Joined -> True, PlotRange -> OptionValue[PlotRange],
+      ImageSize -> OptionValue[tama\[NTilde]o] ], {n, NumNuclei}], OptionValue[fps] ] &/@
       Flatten[{OptionValue[gen]} ],
    Table[
     ListAnimate[
      Table[ ListPlot[ Table[ Prepend[ {patron[[k]][[n]][[i]]}, i]
-        , {i, 30}], Joined -> True, PlotRange -> OptionValue[PlotRange],
-        ImageSize -> OptionValue[tama\[NTilde]o] ], {n, 30}], OptionValue[fps] ]
+        , {i, NumNuclei}], Joined -> True, PlotRange -> OptionValue[PlotRange],
+        ImageSize -> OptionValue[tama\[NTilde]o] ], {n, NumNuclei}], OptionValue[fps] ]
     , {k, 3} ] ] ]
 
 (********************************************************************************************************************)
@@ -99,3 +102,6 @@ If[
 	FitnessF4SingleStripe[GRCPhenotReadout]
 	]
 		]
+
+End[]
+EndPackage[]

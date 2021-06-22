@@ -67,10 +67,13 @@ RunRndWalk4SumAndFilterGRCModel::usage = "Use this function to carry out an evol
 
 RunRndWalk4SumAndFilterGRCModel2::usage = "Use this function to carry out an evolutionary exploration of the parameter space for the Sum & Filter GRC model from randomly chosen points"
 
+calculateMorphDecay::usage="calculateMorphDecay[NumNuclei_:30, A0_:1] calculates the value of the morphogen decay parameter (h) for morphogenetic fields with different numbers of nuclei given by NumNuclei so that the concentration in the last cell is equal to A0*Exp[-29/(30*0.4)]"
 
 (**************************************************************************************************************)
 
 Begin["`Private`"]
+Needs["parameters`"]
+Needs["DesignMorphogeneResponsiveGRCs`"]
 
 (**************************************************************************************************************)
 
@@ -149,7 +152,17 @@ EdgeRenderingFunction->({Edge2ColorMap[[Flatten[Position[EdgeComponents,#2]][[1]
 Method->{"Automatic","Rotation"->2 Pi},VertexRenderingFunction->({EdgeForm[ColorF01[#2]],ColorF01[#2],Disk[#1,0.15],Darker[Gray,0.009],Text[Style[#2,13,Bold,White],#1]}&),ImageSize->300]
 ]
 
+(******************************************************************************)
 
+calculateMorphDecay[NumNuclei_:30, A0_:1] := Module[
+    {rightEndConcentration, h},
+
+  rightEndConcentration = A0*Exp[-29/(30*0.4)];
+
+  h = -(NumNuclei - 1)/(NumNuclei*Log[(rightEndConcentration/A0)]);
+
+  Return[h]
+]
 
 (**************************************************************************************************************)
 
@@ -158,8 +171,6 @@ SpaceTimeFeats4StripeFormingGRCs4SSMorpGradientWithBiophyGroundedCRIF0[LeakTerm_
 
 GRNSize = Length[Params1];
 (*RNApConc = 5.5; KRNAp=7.5;*)
-NumNuclei=30;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
@@ -195,12 +206,6 @@ AdditiveRegContributionF[a_,n_,t_,W_List,Morph_]:=Total[W[[a]]*Prepend[Table[Pro
 (*## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##*)
 
 GRNSize = Length[Wmatrix];
-(*As set in the paper referenced above*)
-NumNuclei=30;
-(*As set in the paper referenced above*)
-alpha=5.;
-sigmoidThreshold=1;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
@@ -249,11 +254,6 @@ If[
 (**************************************************************************************************************)
 AssessExpPattern4SingleStripe[ExpProfiles_List]:=Block[{},
 
-(*Optimal expression pattern represented in a scale between 1-10 in expression level, being 10 an expression level which is > 90% of the maximal level observed along the 1D field of cells for the output genes*)
-OptimalPattern=Flatten[{ConstantArray[1,10],ConstantArray[10,10],ConstantArray[1,10]}];
-(*Maximal discrepancy achievable for a given pattern w.r.t to the optimal pattern above*)
-Dmax=9*30;
-
 ThresholdedExpValues={{0.`,0.1`},{0.1`,0.2`},{0.2`,0.3`},{0.3`,0.4`},{0.4`,0.5`},{0.5`,0.6`},{0.6`,0.7`},{0.7`,0.8`},{0.8`,0.9`},{0.9`,1.001`}};
 
 testInt[Rng_,Value_]:= Rng[[1]]<=Value< Rng[[2]];
@@ -289,8 +289,8 @@ FitnessF4SingleStripe[GRCPhenotReadout_]:=Block[{},
 
 (*Modeling a steady state (exponentially decaying from the anterior-to-posterior axis) morphogen gradient. This morphogen distribution profile is similar to that exhibited by Bicoid in the Drosophila developing embryo*)
 MGradientF[A0_,CellIndex_,DecayRate_]:=A0*Exp[-CellIndex/DecayRate]
-NumNuclei=30;
-SSInputMorphogen[A0_, h_:0.4]:=MGradientF[A0,#,h]&/@Drop[Range[0,1,1/NumNuclei],-1];
+
+SSInputMorphogen[A0_, h_:calculateMorphDecay[NumNuclei, A0]]:=MGradientF[A0,#,h]&/@Drop[Range[0,1,1/NumNuclei],-1];
 
 GenerateComposedWiringMatrixTemplate:=Block[{},
 RndWiring=Partition[RandomChoice[{-1,0,1},12],{4}];
@@ -357,12 +357,6 @@ AdditiveRegContributionF[a_,n_,t_,W_List,Morph_]:=Total[W[[a]]*Prepend[Table[Pro
 (*## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##*)
 
 GRNSize = Length[Wmatrix];
-(*As set in the paper referenced above*)
-NumNuclei=30;
-(*As set in the paper referenced above*)
-alpha=5.;
-sigmoidThreshold=1;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];
@@ -387,9 +381,6 @@ StripeFormingGRCs4SSMorpGradientWithBiophyGroundedCRIF0[LeakTerm_,HillCoeff_,{Pa
 {Prot,ProtStateVariab,ProtInitExpStat,Sol,DynSyst,GRCPhenotReadout},
 
 GRNSize = Length[Params1];
-(*RNApConc = 5.5; KRNAp=7.5;*)
-NumNuclei=30;
-IntTime = 500.;
 
 (*Initial conditions for all variables, including boundary conditions set = 0*)
 ProtStateVariab=Flatten[{Table[Table[Prot[a,n,t],{a,1,GRNSize}],{n,NumNuclei}],Flatten[Table[Table[Prot[a,n,0],{a,1,GRNSize}],{n,{0,NumNuclei+1}}]]}];

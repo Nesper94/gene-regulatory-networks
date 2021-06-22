@@ -2,8 +2,8 @@ SetDirectory[DirectoryName[$InputFileName]];
 
 SeedRandom[RandomInteger[10^7, 1][[1]]]
 
-<<EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`
-<< DesignMorphogeneResponsiveGRCs`
+<< "../modules/EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m"
+<< "../modules/DesignMorphogeneResponsiveGRCs.m"
 
 EngineerMorphInducibleGRCGenotypes4SFGRM[ToExpression[Repl],ToExpression[EvolSteps],ToExpression[ParamSettingSamplingRate],ToExpression[thresholdFitness]]
 
