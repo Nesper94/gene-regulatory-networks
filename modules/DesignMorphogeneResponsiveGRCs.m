@@ -341,7 +341,7 @@ If[
 	];
 
 (*To read in within mathematica these files do: ReadList[FitnessFeaturesFile]*)
-OutputFileName = DestinationFolder<>"/ParamGenotypeGRC_Repl_"<>ToString[Repl]<>".dat";
+OutputFileName = DestinationFolder<>"/ParamGenotypeGRC_Repl_"<>ToString[Repl]<>"_NumNuclei_"<>ToString[NumNuclei]<>".dat";
 (***********************************************************************)
 (***********************************************************************)
 
