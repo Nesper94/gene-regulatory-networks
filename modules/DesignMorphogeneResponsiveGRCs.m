@@ -332,7 +332,7 @@ NumMutants:= RandomSample[MutaProbList-> Range[10],1][[1]];
 
 (***********************************************************************)
 (***********************************************************************)
-DestinationFolder = "GRCModelWithSumAndFilterCRIF/SampledMorphInducibleGRCGenotypes";
+DestinationFolder = "GRCModelWithSumAndFilterCRIF";
 (*To ensure that the destination folders exist, if don't then create them!*)
 
 If[
