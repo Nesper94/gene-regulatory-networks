@@ -2,7 +2,6 @@
 
 # To run application locally
 
-arg1=2
 arg2=5000
 arg3=500
 arg4=0.95
