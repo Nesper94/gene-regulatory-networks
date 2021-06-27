@@ -4,7 +4,7 @@
 inhibición se represente como una flecha con cabeza plana, según la convención
 general. Este módulo es básicamente la función
 DisplayNonWeightedHaploidGraphWithMorphInputs del módulo
-EvolAlgorithm4PatternFormingGRCModel2MathPackageV9 pero con las modificaciones
+EvolAlgorithm pero con las modificaciones
 necesarias para la nueva representación.*)
 ColorF01[Node_] := Switch[Node,"A",Darker[Gray,0.2],"B",Darker[Gray,0.2],
     "C",Darker[Gray,0.2],"\!\(\*SubscriptBox[\(M\), \(\!\(\*

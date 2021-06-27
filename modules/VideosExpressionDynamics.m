@@ -2,7 +2,7 @@
 BeginPackage["VideosExpressionDynamics`"]
 
 (*Package to analyze the expression dynamics of each genotype.
-This package depends on EvolAlgorithm4PatternFormingGRCModel2MathPackageV9*)
+This package depends on EvolAlgorithm*)
 
 expEspacioTemporal::usage = "Create expression profile.";
 videoExp::usage = "videoExp[ genotipo ] create a video of the expression \
@@ -11,7 +11,7 @@ image size and 'fps' (frames per second).";
 
 Begin[ "`Private`"]
 Needs["parameters`"]
-Needs["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`"]
+Needs["EvolAlgorithm`"]
 Needs["DesignMorphogeneResponsiveGRCs`"]
 
 (*Import list of classified, ordered, non isomorphic motifs*)

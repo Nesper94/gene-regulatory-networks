@@ -3,7 +3,7 @@
 
 (* ::Input:: *)
 SetDirectory["/home/nesper/docs/biologia-de-sistemas/source"];
-<<EvolAlgorithm4PatternFormingGRCModel2MathPackageV9.m
+<<EvolAlgorithm.m
 <<DesignMorphogeneResponsiveGRCs.m
 (*<<graphGRN.m*)
 (*<<ExpressionDynamics.m*)

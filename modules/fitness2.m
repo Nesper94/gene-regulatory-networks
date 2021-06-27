@@ -4,7 +4,7 @@ BeginPackage["fitness2`"]
 
 Begin[ "`Private`"]
 Needs["parameters`"]
-Needs["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`"]
+Needs["EvolAlgorithm`"]
 Needs["DesignMorphogeneResponsiveGRCs`"]
 
 (*The following is basically the function

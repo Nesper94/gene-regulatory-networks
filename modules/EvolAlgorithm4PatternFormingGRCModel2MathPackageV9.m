@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`",{"ErrorBarPlots`"}]
+BeginPackage["EvolAlgorithm`",{"ErrorBarPlots`"}]
 
 (*
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -24,7 +24,7 @@ InspectGRCExpressionDynamics4SSMorpGradientSFGRM::usage="";
 
 Begin[ "`Private`"]
 Needs["parameters`"]
-Needs["EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`"]
+Needs["EvolAlgorithm`"]
 
 (*USE THE FOLLOWING METHODS TO PROBE THE DESIGN SPACE OF 3-NODE MORPHOGENE RESPONSIVE GRCs*)
 (************************************************************************************************************************)

@@ -1,6 +1,6 @@
 (*Package to visualize the expression dynamics of GRNs.
-This package depends on EvolAlgorithm4PatternFormingGRCModel2MathPackageV9*)
-<<EvolAlgorithm4PatternFormingGRCModel2MathPackageV9`
+This package depends on EvolAlgorithm*)
+<<EvolAlgorithm`
 
 videoExp::usage = "videoExp[ genotype ] creates a video showing the expression dynamics of the specified genotype, it takes 'gen' as argument with options 'a', 'b' and 'c', graph size and 'fps' (frames per second)."
 
