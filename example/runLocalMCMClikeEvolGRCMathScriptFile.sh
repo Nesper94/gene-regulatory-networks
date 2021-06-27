@@ -7,6 +7,11 @@ arg2=5000
 arg3=500
 arg4=0.95
 
+echo "Running with values:"
+echo "  EvolSteps = $arg2"
+echo "  ParamSettingSamplingRate = $arg3"
+echo "  thresholdFitness = $arg4"
+
 for NUM_NUCLEI in 10 20 40 50; do
 
 echo "Running algorithm with NumNuclei = $NUM_NUCLEI"
