@@ -14,7 +14,7 @@ echo "  thresholdFitness = $arg4"
 for NUM_NUCLEI in 10 20 40 50; do
 
   for arg1 in {1..20}; do # Run 20 replicates
-    echo "Running algorithm with NumNuclei = $NUM_NUCLEI"
+    echo "Running algorithm with NumNuclei = $NUM_NUCLEI, Repl=$arg1"
 
     #/Applications/Mathematica2.app/Contents/MacOS/MathKernel math -noprompt -run "Repl=$arg1;EvolSteps=$arg2;ParamSettingSamplingRate=$arg3;thresholdFitness=$arg4;<<runMCMClikeEvolGRCMathScriptFile.m"
     math -noprompt -run "uNumNuclei=$NUM_NUCLEI;Repl=$arg1;EvolSteps=$arg2;ParamSettingSamplingRate=$arg3;thresholdFitness=$arg4;<<runMCMClikeEvolGRCMathScriptFile.m"
