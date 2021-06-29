@@ -4,10 +4,16 @@ BeginPackage["VideosExpressionDynamics`"]
 (*Package to analyze the expression dynamics of each genotype.
 This package depends on EvolAlgorithm*)
 
-expEspacioTemporal::usage = "Create expression profile.";
-videoExp::usage = "videoExp[ genotipo ] create a video of the expression \
+expEspacioTemporal::usage =
+    "Create expression profile. Returns a list of lists.";
+
+videoExp::usage =
+    "videoExp[ genotipo ] create a video of the expression \
 dynamics of a GRN, it takes as argument 'gen', with options 'a','b' and 'c', \
 image size and 'fps' (frames per second).";
+
+expressionDynamics::usage =
+    "Returns a plot of the expression dynamics of the given GRN."
 
 Begin[ "`Private`"]
 Needs["parameters`"]
@@ -102,6 +108,12 @@ If[
 	FitnessF4SingleStripe[GRCPhenotReadout]
 	]
 		]
+
+(******************************************************************************)
+
+expressionDynamics[grn_List]:=Module[{},
+  CreatSpaceTimePlots4GRC[expEspacioTemporal[grn]]
+]
 
 End[]
 EndPackage[]
