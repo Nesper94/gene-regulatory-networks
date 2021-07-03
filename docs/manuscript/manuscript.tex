@@ -675,7 +675,7 @@ field size of 30 cells could produce the desired pattern in morphogenetic fields
 with a different number of cells. For this reason, we calculated the fitness of
 each GRN in morphogenetic fields with 10, 20, 40, and 50 cells. In these
 simulations we redefined the morphogen gradient in such a way that the initial
-and final concentration were constant in all the fields (\nameref{S5_Fig}).
+and final concentration were constant in all the fields (\nameref{S5_Fig}A).
 In order to know if topologies with the same topology had a similar fitness
 in the different fields, we performed a Principal Component Analysis in
 Scikit-learn~0.24.2~\cite{sklearn} using the fitness values of each GRN in
@@ -930,15 +930,23 @@ genetic algorithm. However, we also found a great diversity of network
 topologies that could produce a striped gene expression pattern.\\
 
 Robustness is an important feature of patterning mediated by morphogens, and
-the GRNs involved can be selected in an evolutionary process not only by its final
-steady state but also by its ability to buffer noise~\cite{lo_robust_2015, exelby_2021}.
+the GRNs involved can be selected in an evolutionary process not only by their final
+steady state but also by their ability to buffer noise~\cite{lo_robust_2015, exelby_2021}.
 In our study, the most abundant topologies were
 found to be part of highly connected clusters in the neutral network, and this fact
 indicates that these topologies are both robust to quantitative changes in the
 strength of interactions and diffusion and degradation parameters as well as to
 qualitative changes in the topology itself. As robustness and evolvability are
 not mutually exclusive properties~\cite{wagner_robustness_2008}, it is likely
-that these topologies are also evolvable.
+that these topologies are also evolvable.\\
+
+In contrast to this robustness to
+qualitative and quantitative changes, we found that many GRNs were susceptible
+to changes in morphogenetic field size, but interestingly, GRNs with the same
+topology behave in different ways for each field size (\nameref{S5_Fig}C),
+indicating that the specific values of network parameters are more important
+than the network topology when it comes to producing the same pattern at
+different scales.
 
 Other studies have shown that Incoherent Feed Forward Loops are able to form
 spatial stripes of gene expression~\cite{ishihara_cross_2005}. In particular,
