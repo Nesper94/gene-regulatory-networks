@@ -369,7 +369,8 @@ In order to study three-node GRNs we represented them by three sets of real
 numbers, the first set was composed of the interaction values
 between genes in the network; the second of the diffusion rates (D) of each of
 the three gene products; and the third of the degradation rates ($\delta$) of
-these same gene products, with $D \in [0, 0.1]$ and $\delta \in [0, 0.05]$.\\
+these same gene products, with $D \in [0, 0.1]$ and $\delta = \log_{2}phl$, where
+$phl \in [5, 50]$ is the gene product half-life.\\
 
 The set of interaction values was represented as adjacency matrices $W \in
 \mathbb{R}^{3\times4}$ where $i$ represents a regulated node of the GRN and $j$
