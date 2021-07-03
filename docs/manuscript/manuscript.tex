@@ -669,6 +669,18 @@ Wolfram Mathematica software.\\
 We performed a Pearson’s chi-square goodness of fit test for the node degree
 distribution using Wolfram Mathematica.
 
+\subsection*{Change in morphogenetic field size}
+We wanted to evaluate if the GRNs evolved in our model with a morphogenetic
+field size of 30 cells could produce the desired pattern in morphogenetic fields
+with a different number of cells. For this reason, we calculated the fitness of
+each GRN in morphogenetic fields with 10, 20, 40, and 50 cells. In these
+simulations we redefined the morphogen gradient in such a way that the initial
+and final concentration were constant in all the fields (\nameref{S5_Fig}).
+In order to know if topologies with the same topology had a similar fitness
+in the different fields, we performed a Principal Component Analysis in
+Scikit-learn~0.24.2~\cite{sklearn} using the fitness values of each GRN in
+the four different fields.
+
 % For placing video, \nameref{S1_Video} vel sagittis arcu lobortis.
 
 % Place figure captions after the first paragraph in which they are cited.
@@ -1018,6 +1030,16 @@ These are subgraphs that have been reported in previous studies as networks
 involved in morphogenesis and development~\cite{Cotterell2010, Schaerli2014,
 Schaerli2018}. These were used to calculate the subgraph profile and the results
 reported in \nameref{S1_Table}.
+
+\paragraph*{S5 Fig.}
+\label{S5_Fig}
+{\bf Response of GRNs to changes in morphogenetic field size.}
+(A) Morphogen gradients of fields with 10, 20, 40 and 50 cells. (B) Fitness of the
+GRNs in each one of the morphogenetic fields. (C) Principal Component Analysis
+of fitness by morphogenetic field size. Although principal components separate
+GRNs in clusters, not all the GRNs with the same topology are located in the
+same group. (D) Average fitness of GRNs evolved in different morphogenetic
+field sizes.
 
 \paragraph*{S1 Table.}
 \label{S1_Table}
