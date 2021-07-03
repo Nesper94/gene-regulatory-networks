@@ -472,7 +472,7 @@ gradient.
 The phenotype of a GRN was defined as the expression pattern of each gene along
 the morphogenetic field after 500 time steps of integration of the dynamical
 system. We chose that number of time steps because numerical experiments showed
-that GRNs reached the steady state in approximately 300 steps (\nameref{S2_Fig}).
+that GRNs reached the steady state in approximately 300 steps (\nameref{S1_Fig}).
 
 \subsection*{Optimal pattern definition}
 
@@ -647,7 +647,7 @@ Python 3.
 
 In order to classify each topology by its subgraph composition, we first created
 a matrix  $T = (t_{ij})$ with each row corresponding to a different topology
-and 17 columns corresponding to subgraphs shown in \nameref{S4_Fig}.
+and 17 columns corresponding to subgraphs shown in \nameref{S2_Fig}.
 Each element $t_{ij}$ of
 the matrix was 1 if the \emph{j}-th subgraph was present in the \emph{i}-th
 topology or 0 if the subgraph was not present.\\
@@ -679,7 +679,7 @@ field size of 30 cells could produce the desired pattern in morphogenetic fields
 with a different number of cells. For this reason, we calculated the fitness of
 each GRN in morphogenetic fields with 10, 20, 40, and 50 cells. In these
 simulations we redefined the morphogen gradient in such a way that the initial
-and final concentration were constant in all the fields (\nameref{S5_Fig}A).
+and final concentration were constant in all the fields (\nameref{S3_Fig}A).
 In order to know if topologies with the same topology had a similar fitness
 in the different fields, we performed a Principal Component Analysis in
 Scikit-learn~0.24.2~\cite{sklearn} using the fitness values of each GRN in
@@ -800,7 +800,7 @@ the same subgraph and calculated their mean robustness, we found that between
 the most robust subgraphs is the ``Bistable'' motif reported by Cotterell \&
 Sharpe~\cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif
 (which is a variation of the I3-FFL) also reported by Cotterell \& Sharpe
-(see \nameref{S4_Fig} and \nameref{S1_Table}).
+(see \nameref{S2_Fig} and \nameref{S1_Table}).
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig6}
@@ -823,7 +823,7 @@ most network topologies (Table~\ref{table1}). Although the GRNs in this modellin
 framework are robust to changes in its topology, they are sensitive to changes in
 the morphogenetic field size, especially when this size is reduced, as only
 4.66, 56.82, 56.14 and 41.05 percent of the GRNs had a fitness greater than 0.9
-in fields with 10, 20, 40 and 50 cells, respectively (\nameref{S5_Fig}B).
+in fields with 10, 20, 40 and 50 cells, respectively (\nameref{S3_Fig}B).
 
 \begin{table}[!ht]
 % \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
@@ -859,7 +859,7 @@ very abundant network topologies were grouped together with GRNs displaying
 very infrequent network topologies, indicating that additional interactions
 in the networks have often the function of fine tunning gene expression, instead
 of drastically changing the expression mechanism. This can be seen in the
-expression dynamics of networks with different topologies (\nameref{S7_Fig}).
+expression dynamics of networks with different topologies (\nameref{S4_Fig}).
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig7}
@@ -912,7 +912,7 @@ part of the morphogenetic field, thus generating a slightly higher level of
 expression of gene C in the center of the field. Because gene C activates its
 own expression, a band of expression begins to form. This band of expression
 then begins to activate the gene A also in the center of the field
-(\nameref{S1_Fig}).
+(\nameref{S5_Fig}).
 % (Fig~\ref{fig:topol9-dyn}).
 
 % \begin{figure}[!h]
@@ -952,7 +952,8 @@ indicates that these topologies are both robust to quantitative changes in the
 strength of interactions and diffusion and degradation parameters as well as to
 qualitative changes in the topology itself. This, in principle, means that many
 mechanisms for producing striped patterns are available and accessible to each
-other, i.e., an organism can change between different GRNs (for example between
+other through bridge topologies (\nameref{S6_Fig}), i.e.,
+an organism can change between different GRNs (for example between
 a Gierer-Meinhardt-like network to an Incoherent Feed-Forward Loop) without losing its
 fitness, which allows to fine-tune the regulatory system according to its specific
 needs. As robustness and evolvability are
@@ -963,7 +964,7 @@ heritable variation of the expression pattern.\\
 In contrast to this robustness to
 qualitative and quantitative changes, we found that many GRNs were susceptible
 to changes in morphogenetic field size, but interestingly, GRNs with the same
-topology behave in different ways for each field size (\nameref{S5_Fig}C),
+topology behave in different ways for each field size (\nameref{S3_Fig}C),
 indicating that the specific values of network parameters are more important
 than the network topology when it comes to producing the same pattern at
 different scales.
@@ -981,7 +982,7 @@ environment and mutations.
 However, as our model was less stringent and allowed the morphogen input to
 interact with any gene, we found a larger number of possible topologies with the
 same striped phenotype and a diverse combination of diffusion and degradation
-parameters (\nameref{S6_Fig}).
+parameters (\nameref{S7_Fig}).
 For example, in a single input model the I4-FFL could
 not produce a stripe of gene expression~\cite{munteanu_2014}, whereas in our
 experimental setup 20.17\% of the topologies presented this motif as a
@@ -1040,37 +1041,20 @@ regulatory networks or to identify new ones existing in nature.
 
 \paragraph*{S1 Fig.}
 \label{S1_Fig}
-{\bf Dynamics of expression of topology number 9.}
-The dynamics of expression is shown from $t = 5$ to $t = 150$. The red line
-represents the expression level of the gene C along the morphogenetic field,
-whereas the dotted line represents the expression level of gene A. The
-striped pattern of gene expression can be seen for both genes since $t = 80$.
-
-\paragraph*{S2 Fig.}
-\label{S2_Fig}
 {\bf Most GRNs reach the steady state before 250 time steps.}
 (A) Gene regulatory network displaying the topology number 33. (B) Spatiotemporal
 expression profile of the gene regulatory network shown in (A).
 
-\paragraph*{S3 Fig.}
-\label{S3_Fig}
-{\bf Bridge topologies in the neutral network.}
-``Bridge topologies'' are those topologies that connect two clusters in the neutral
-network (Fig~\ref{fig:neutral-network}), and as such can be interpreted as
-intermediary steps in the evolution from a cluster of related topologies into
-another cluster. For example the topology 441 could be an initial step to reach the
-topology 9, as in this topology nodes B and C are not connected.
-
-\paragraph*{S4 Fig.}
-\label{S4_Fig}
+\paragraph*{S2 Fig.}
+\label{S2_Fig}
 {\bf Relevant subgraphs present in the set of GRNs.}
 These are subgraphs that have been reported in previous studies as networks
 involved in morphogenesis and development~\cite{Cotterell2010, Schaerli2014,
 Schaerli2018}. These were used to calculate the subgraph profile and the results
 reported in \nameref{S1_Table}.
 
-\paragraph*{S5 Fig.}
-\label{S5_Fig}
+\paragraph*{S3 Fig.}
+\label{S3_Fig}
 {\bf Response of GRNs to changes in morphogenetic field size.}
 (A) Morphogen gradients of fields with 10, 20, 40 and 50 cells. (B) Fitness of the
 GRNs in each one of the morphogenetic fields. (C) Principal Component Analysis
@@ -1079,21 +1063,38 @@ GRNs in clusters, not all the GRNs with the same topology are located in the
 same group. (D) Average fitness of GRNs evolved in different morphogenetic
 field sizes.
 
+\paragraph*{S4 Fig.}
+\label{S4_Fig}
+{\bf Expression dynamics of main networks.}
+
+\paragraph*{S5 Fig.}
+\label{S5_Fig}
+{\bf Dynamics of expression of topology number 9.}
+The dynamics of expression is shown from $t = 5$ to $t = 150$. The red line
+represents the expression level of the gene C along the morphogenetic field,
+whereas the dotted line represents the expression level of gene A. The
+striped pattern of gene expression can be seen for both genes since $t = 80$.
+
 \paragraph*{S6 Fig.}
 \label{S6_Fig}
+{\bf Bridge topologies in the neutral network.}
+``Bridge topologies'' are those topologies that connect two clusters in the neutral
+network (Fig~\ref{fig:neutral-network}), and as such can be interpreted as
+intermediary steps in the evolution from a cluster of related topologies into
+another cluster. For example the topology 441 could be an initial step to reach the
+topology 9, as in this topology nodes B and C are not connected.
+
+\paragraph*{S7 Fig.}
+\label{S7_Fig}
 {\bf Diffusion and degradation parameters.}
 (A) Ternary plot showing the combination of diffusion parameters for genes A,
 B and C. (B) Ternary plot showing the combination of degradation parameters
 for genes A, B and C.
 
-\paragraph*{S7 Fig.}
-\label{S7_Fig}
-{\bf Expression dynamics of main networks.}
-
 \paragraph*{S1 Table.}
 \label{S1_Table}
 {\bf Proportion of relevant subgraphs in the set of GRNs.}
-The 19 subgraphs presented in this table are those presented in \nameref{S4_Fig}.
+The 19 subgraphs presented in this table are those presented in \nameref{S2_Fig}.
 Most of the topologies presented at least one negative feedback loop (70.73\%),
 and 62.46\% of them presented the I3-FFL network motif. The robustness of each
 subgraph was calculated as the mean robustness of the topologies presenting that
