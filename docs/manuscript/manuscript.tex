@@ -898,7 +898,15 @@ the expression band to a precise location.
 
 Although the topology 9 consists of only two genes, its mechanism of expression
 is dynamically more complex than that of other topologies such as the simple
-I3-FFL. Initially the expression pattern of the gene A is uniform in the
+I3-FFL; however, and despite the fact that the Gierer-Meinhardt model form
+patterns that scale with tissue size~\cite{shoaf1984}, we found that topology 9
+was more sensible to changes in the morphogenetic field size than those
+topologies based on I3-FFL (\nameref{S2_Table}),
+indicating that the additional regulatory interactions need to be fine-tuned
+depending on the number of cells in the field.\\
+
+In the mechanism of expression of topology 9 the expression pattern of the
+gene A is initially uniform in the
 morphogenetic field, but later it is shaped by the morphogen gradient in such a
 way that two important events occur, in first place the overall expression
 level of the gene A is decreased by the inhibition of the morphogen, releasing
@@ -929,9 +937,10 @@ latter to extend out of the middle of the field. In turn, the band of
 expression of gene A can only exist in the middle of the field because its
 expression depends on gene C.
 
-This is a complex mechanism described by the first time in this study, and it
-would be interesting to study its feasibility and possible implementation in
-synthetic gene regulatory networks.
+This is a complex mechanism remindful of the Gierer-Meinhardt model, but
+described by the first time in this study in the context of multiple morphogen
+inputs, and it would be interesting to study its feasibility and possible
+implementation in synthetic gene regulatory networks.
 
 \section*{Discussion}
 
@@ -1102,6 +1111,12 @@ Most of the topologies presented at least one negative feedback loop (70.73\%),
 and 62.46\% of them presented the I3-FFL network motif. The robustness of each
 subgraph was calculated as the mean robustness of the topologies presenting that
 subgraph.
+
+\paragraph*{S2 Table.}
+\label{S2_Table}
+{\bf Average fitness of each topology in different morphogenetic fields.}
+The average fitness by topology is reported for morphogenetic fields with 10, 20,
+40 and 50 cells.
 
 \section*{Aknowledgements}
 The computational resources (Stevin Supercomputer Infrastructure) and
