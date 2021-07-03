@@ -12,6 +12,7 @@ to visualize data.
 - `notebooks/` contains Mathematica notebooks with different steps of the
 data analysis.
 - `scripts/` contains additional code for data analysis.
+- `example/` contains example code to run the evolutionary algorithm.
 
 Universidad de Antioquia, Colombia.
 
