@@ -254,10 +254,15 @@ in systems biology as a tractable system to investigate the emergent properties
 of complex genotype-phenotype maps.
 
 \subsection*{Methods}
-In this study we used a genetic algorithm in order to explore the genotypic
-space of three-node GRNs capable of producing a band expression pattern in a
-group of cells. In contrast to previous studies, we explore multiple input
-network designs that enable more morphogen interpretation mechanisms to arise.
+In this study we apply a Markov chain Monte Carlo (MCMC)-like algorithm to probe
+the design space of three-node GRNs with the ability to generate a band-like
+expression pattern (target phenotype) in the middle of an arrangement of 30
+cells, which resemble a simple (1-D) morphogenetic field in a developing embryo.
+Unlike the majority of modeling studies published so far, here we explore the
+space of GRN topologies with nodes having the potential to perceive differently
+the same input signal. This allows for a lot more flexibility during the search
+space process, and thus enables us to identify a larger set of potentially
+interesting and realizable morphogen interpretation mechanisms.
 
 \subsection*{Results}
 Out of 2061 GRNs selected using the genetic algorithm, we found 714 groups of
