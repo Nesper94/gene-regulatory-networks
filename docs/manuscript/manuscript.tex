@@ -286,9 +286,11 @@ to produce a striped pattern of gene expression.
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
 
-Cells interact continuously with their environment and they must detect signals
-from it. In many cases Gene Regulatory Networks (GRNs) interpret these signals
-through gene interaction and produce a particular response. This information
+Cells interact continuously with their environment, which requires very specific
+regulatory strategies to avoid potential detrimental responses. Arguably, most
+cellular functions arise from the dynamic activity of Gene Regulatory Networks
+(GRNs), which play a central role in the interpretation of external and internal
+signals. This information
 processing function is of particular importance in developmental processes such
 as those in which a group of cells differentiate in response to a signalling
 molecule. Such molecules were referred to as morphogens by Turing in
@@ -306,8 +308,8 @@ are many other examples such as the Decapentaplegic (Dpp) protein in
 as well as Sonic Hedgehog~\cite{dessaud_dynamic_2010,cohen_theoretical_2014}
 and Wnt~\cite{raspopovic_digit_2014}. However, information processing by GRNs
 has proven to be a complex process, and a major goal of developmental biology
-is to understand mechanistically how positional information given by morphogens
-is translated in spatial differentiation.\\
+is to understand mechanistically how positional information conveyed by morphogens
+is translated into spatial differentiation.\\
 
 Our understanding of how GRNs process information has increased thanks to the
 concept and theory of network motifs, which are defined as patterns of
@@ -476,8 +478,8 @@ that GRNs reached the steady state in approximately 300 steps (\nameref{S1_Fig})
 
 \subsection*{Optimal pattern definition}
 
-The optimal pattern of gene expression defined by us, consisted in cells at the
-sides of the field ($n<11$ and $n>20$) displaying expression levels lower than
+The optimal pattern of gene expression defined in this study consists in cells at
+the border of the field ($n<11$ and $n>20$) displaying expression levels lower than
 10\% of the maximal level observed along the field of cells for the output gene,
 and cells at the middle of the field ($n ∈ [11,20]$) displaying expression
 levels greater than 90\% of the maximal level observed along the entire field
@@ -759,8 +761,9 @@ Erdös-Rényi network with many nodes and edges~\cite{Erdos1959}. This kind of
 network presents a great
 number of nodes with low degree and a few nodes with high degree
 (Fig~\ref{fig:deg-dist}A). Nodes corresponding to topologies number one and
-three showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, nodes with
-higher degree resulted to be also those network topologies with higher abundance
+three showed the highest degree ($deg(1) = deg (3) = 14$). Curiously, we found
+that nodes with higher degree turned out to be also those network topologies
+with higher abundance
 (Fig~\ref{fig:deg-dist}B). This relationship between abundance and node degree
 was corroborated by the Spearman's rank correlation coefficient
 ($r_S = 0.353752$, $p = 6.2933\times10^{-23} $).
@@ -774,11 +777,10 @@ was corroborated by the Spearman's rank correlation coefficient
  \label{fig:deg-dist}
 \end{figure}
 
-We wanted to know if connecting topologies separated by two mutational steps
-would produce a connected graph, for that reason we generated another neutral
-network joining neighbors at two mutational steps and we found that only
-topology number 420 remained unconnected from the rest of topologies in the
-graph (Fig~\ref{fig:2neut-net}).
+Furthermore, we examined the extent to which the metagraph of topologies
+remained highly connected when joining neighbors at two mutational steps.
+Interestingly, we found that only topology number 420 remained isolated from
+the rest of topologies in the metagraph (Fig~\ref{fig:2neut-net}).
 
 \begin{figure}
  \includegraphics[width=\textwidth]{figures/results/Fig5}
@@ -791,12 +793,12 @@ graph (Fig~\ref{fig:2neut-net}).
  \label{fig:2neut-net}
 \end{figure}
 
-Besides topological robustness, we wanted to know if network topologies were
-robust to perturbations in the values of the parameters. After performing the
-perturbations to a GRN from each topology, we plotted the abundance of the
-topology vs. its robustness. We did not find a significant correlation between
-these two variables ($r_S = −0.0389724$, $\text{p-value} = 0.298475$)
-(Fig~\ref{fig:ab-rob}A). However, when we grouped those topologies containing
+Next to topological robustness, we investigated the robustness of the sampled
+network topologies to parameter changes (see Methods). Fig~\ref{fig:ab-rob}A
+illustrates the association between the abundance of a topology class versus its
+robustness. We did not find a significant correlation between
+these two variables ($r_S = −0.0389724$, $\text{p-value} = 0.298475$).
+However, when we grouped those topologies containing
 the same subgraph and calculated their mean robustness, we found that between
 the most robust subgraphs is the ``Bistable'' motif reported by Cotterell \&
 Sharpe~\cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif
