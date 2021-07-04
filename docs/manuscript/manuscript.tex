@@ -641,7 +641,7 @@ $S \in \mathbb{R}^{3 \times 26 \times 30}$, in which each element ($s_{itn} \geq
 
 Later we calculated the distance between all the pairs of tensors and we
 performed a Neighbor Joining clustering using the package Scikit Bio 0.5.5 from
-Python 3.
+Python 3~\cite{skbio2020}.
 
 \subsection*{Classification of topologies}
 
@@ -654,8 +654,9 @@ topology or 0 if the subgraph was not present.\\
 
 With this matrix we then calculated a distance matrix in which each element
 consisted in the Hamming distance between the row vectors in matrix $T$ between
-each pair of topologies. We then performed a clustering of these topologies
-using the Neighbor Joining method in the Scikit Bio package.
+each pair of topologies. We then clustered the topologies based on the
+Neighbor Joining method, as implemented in the Scikit Bio
+package~\cite{skbio2020}.
 
 \subsection*{Complexity index and network descriptors}
 
