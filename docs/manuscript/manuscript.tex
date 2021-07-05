@@ -679,24 +679,21 @@ index using the following equation:
  I_{vd} = \sum_{i=1}^V a_i \cdot \log_{2} a_i,
 \end{equation}
 \noindent
-being $a_i$ the degree of \emph{i}-th node and $V$ the number of nodes in the
-network. The network descriptors were calculated using built-in functions from
-Wolfram Mathematica software.\\
-
-We performed a Pearson’s chi-square goodness of fit test for the node degree
-distribution using Wolfram Mathematica.
+where $a_i$ denotes the degree of the \emph{i}-th node and $V$ the number of
+nodes in the network. Both the network descriptors and Pearson’s chi-square
+goodness of fit tests were performed for the node degree distribution using
+the built-in functions from the Wolfram Mathematica software.\\
 
 \subsection*{Pattern formation under varying size of the morphogenetic field}
-We wanted to evaluate if the GRNs evolved in our model with a morphogenetic
-field size of 30 cells could produce the desired pattern in morphogenetic fields
-with a different number of cells. For this reason, we calculated the fitness of
-each GRN in morphogenetic fields with 10, 20, 40, and 50 cells. In these
-simulations we redefined the morphogen gradient in such a way that the initial
-and final concentration were constant in all the fields (\nameref{S3_Fig}A).
-In order to know if topologies with the same topology had a similar fitness
-in the different fields, we performed a Principal Component Analysis in
-Scikit-learn~0.24.2~\cite{sklearn} using the fitness values of each GRN in
-the four different fields.
+We evaluated the ability of each of the sampled GRNs to generate a striped
+pattern of gene expression under varying sizes of the morphogenetic field.
+Specifically, we calculated the fitness of each GRN across morphogenetic fields
+composed of 10, 20, 40, and 50 cells. In these simulations we redefined the
+morphogen gradient in such a way that the initial and final concentration were
+constant in all the fields (\nameref{S3_Fig}A). In order to know if topologies
+with the same topology had a similar fitness in the different fields, we performed
+a Principal Component Analysis in Scikit-learn~0.24.2~\cite{sklearn} using the
+fitness values of each in the four different fields.
 
 % For placing video, \nameref{S1_Video} vel sagittis arcu lobortis.
 
@@ -711,8 +708,8 @@ the four different fields.
 \section*{Results}
 
 The classification of GRNs showed that our initial set of 2061 GRNs can be
-grouped in a number of 714 distinct network topologies, each one of them
-containing a different number of GRNs (Fig~\ref{fig:distopol}). This abundances
+grouped into 714 distinct network topology classes, with each containing a
+variable number of GRNs (Fig~\ref{fig:distopol}). This abundances
 distribution was not produced by chance (Shannon entropy = 8.52963, 95\%
 confidence interval = [10.8915, 10.9275]), and instead it displays some level
 of structure, indicating the existence of network motifs.
@@ -746,8 +743,8 @@ This graph is composed of 639 nodes that are accessible by one mutational step.
 The 15 most abundant network topologies, with the exception of
 number 10, are part of this graph (Fig~\ref{fig:neutral-network}). We also
 found nodes inside the neutral network that had more connections between them
-than with other nodes, generating clusters of nodes, interestingly in
-almost every cluster is present one or more of the 15 most abundant network
+than with other nodes, which leads to further clustering of nodes. Interestingly in
+almost every cluster one can find one or more of the 15 most abundant network
 topologies. In addition, we found that the first eight most abundant network
 topologies were located in the largest cluster.
 
@@ -810,9 +807,9 @@ robustness. We did not find a significant correlation between
 these two variables ($r_S = −0.0389724$, $\text{p-value} = 0.298475$).
 However, when we grouped those topologies containing
 the same subgraph and calculated their mean robustness, we found that between
-the most robust subgraphs is the ``Bistable'' motif reported by Cotterell \&
-Sharpe~\cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif
-(which is a variation of the I3-FFL) also reported by Cotterell \& Sharpe
+the most robust subgraphs is the ``Bistable'' motif, the I3-FFL, as well as
+the ``Overlapping domains'' motif (which is a variation of the I3-FFL), which
+have been previously reported in Cotterell \& Sharpe~\cite{Cotterell2010}
 (see \nameref{S2_Fig} and \nameref{S1_Table}).
 
 \begin{figure}[!h]
@@ -895,14 +892,12 @@ in our set of 2061 GRNs (Fig~\ref{fig:clustering}B).
 Among the new network topologies we report here, perhaps one of the most
 interesting ones is the topology number 9, which is able to express the striped
 gene expression pattern with only two genes (Fig~\ref{fig:topol9}).
-This topology is composed of a core that consists in the
-Gierer-Meinhardt network~\cite{giererMeinh1972, meinhardt2000} known to
-generate stripes and dots in bidimensional fields, and additional
-interactions such as the self inhibition of gene A and the inhibition of the genes
-by the morphogen. The Gierer-Meinhardt network consists in an activator of low
-diffusivity (gene C) and an inhibitor with greater diffusivity (gene A). The additional
-interactions of topology number 9 have the role of restricting the generation of
-the expression band to a precise location.
+This topology is composed of a core quite similar to the Gierer-Meinhardt
+mechanism~\cite{giererMeinh1972, meinhardt2000} known to generate
+stripes and dots in bidimensional fields, with the only differences being
+the self inhibition of gene A and the inhibition of the genes by the morphogen.
+Such additional interactions in the topology number 9 play a role in restricting
+the striped expression pattern to a precise location along the morphogenetic field.
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig8}
