@@ -341,25 +341,29 @@ interesting biomedical applications~\cite{karlsson_therapeutic_2012,
 higashikuni_advancing_2017,abil_synthetic_2015,healy_genetic_2019,
 kitada_programming_2018}.
 
-Producing a stripe of gene expression is a fundamental patterning function
-in development, and it has been shown that feed-forward motifs are minimal
-networks capable of performing this function~\cite{munteanu_2014}. For example,
-Cotterell and Sharpe studied what kind of 3-node network topologies could
-interact with a morphogen gradient and produce a stripe of gene expression
-in a one-dimensional field of cells and found a variety of networks that
-implemented at least 7 different mechanisms and had different levels of
-complexity, being most of them variations of feed-forward motifs~\cite{Cotterell2010}.
+In a tissue context, the generation of a stripe of gene expression is a fundamental
+patterning function in development, and it has been shown that simple feed-forward
+motifs can robustly achieve such a patterning task~\cite{munteanu_2014}. For
+example, Cotterell and Sharpe studied  what kind of 3-node network topologies
+could effectively translate a morphogen gradient into a striped gene expression
+pattern in a one-dimensional field of cells, and found a variety of networks that
+implemented at least 7 different mechanisms with varying levels of complexity,
+being most of them variations of feed-forward motifs~\cite{Cotterell2010}.
 
-However, although several studies have analyzed the properties of GRNs that
-process positional information, they have focused on particular natural
-networks~\cite{Schaerli2014,Jaeger2004}, in synthetic networks~\cite{Basu2005,
-Reinitz1995,Schaerli2018,Elowitz2000}, or have constrained the
-design of the GRNs to accept an input signal from only one of its nodes, which is
-not always biologically realistic as multiple input systems can exist~\cite{Cotterell2010,
-munteanu_2014, Schaerli2014}. For example, the neural subtypes specification
-system in the vertebrate neural tube is a two-input network in which
-Sonic Hedgehog acts as a morphogen and Olig2 and Nkx2.2 act as the receiver
-nodes~\cite{dessaud_dynamic_2010, balaskas2012, exelby_2021}.
+Although GRNs with positional information processing capacities have been
+extensively analyzed, most studies have so far placed emphasis on particular
+regulatory systems that respond to a single input only. These studies have
+typically focused on either regulatory systems observed in
+nature~\cite{vonDassow2000,Reinitz1995,Jaeger2004}, synthetic
+implementations~\cite{Basu2005,Schaerli2018,Elowitz2000,barbier2020} with
+predefined topologies, or have deliberately constrained the study of GRNs to just
+a handful of alternative designs~\cite{munteanu_2014,Schaerli2014}. However,
+previous work has demonstrated the necessity to expand computational analysis
+of pattern forming GRNs to multi-input settings. For instance, it has been shown
+that the neural subtypes specification system in the vertebrate neural tube involves
+a  two-input network in which Sonic Hedgehog acts as a morphogen and the Olig2
+and Nkx2.2 genes can act as the receiver nodes~\cite{dessaud_dynamic_2010,
+balaskas2012, exelby_2021}.
 
 In this study, we used a genetic algorithm to generate a set of 2061 three-node GRNs
 including single and multiple input topologies that were able to interpret a morphogen
