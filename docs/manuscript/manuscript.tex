@@ -566,8 +566,9 @@ included changes in the  numerical values of degradation and diffusion
 parameters and interaction strengths, and addition and removal of interactions
 among genes and between the genes and the morphogen. If fitness of the mutated
 GRN was greater or equal than that of the previous GRN, mutated GRN was saved
-and the cycle continued from step 2. This cycle was repeated 5000000 times and
-GRNs with a fitness greater or equal than 0.95 were saved into a file.
+and the cycle continued from step 2. This cycle was repeated 50000, and a GRN
+sampled at a given step and with a fitness score ≥ 0.95 was saved to a file as
+long as its associated topology had not been sampled in previous steps.
 
 \end{enumerate}
 
@@ -579,7 +580,8 @@ The source code for the genetic algorithm and other parts of analysis is availab
 
 \subsection*{Classification of GRNs}
 
-In order to group all the isomorphic networks in the set of 2061 GRNs we used a
+In order to group all the isomorphic (i.e. topologically equivalent) networks from
+the totality (2061) of sampled GRNs we used a
 classification algorithm that selected a random GRN, then it generated all
 isomorphs of that GRN by performing permutations in rows and columns. The
 algorithm then compared all six isomorphs with other GRN and classified the
@@ -649,8 +651,8 @@ over time. These spatiotemporal expression profiles were represented as tensors
 $S \in \mathbb{R}^{3 \times 26 \times 30}$, in which each element ($s_{itn} \geq
 0$) is the expression level of the \emph{i}-th gene at time $t$ in cell $n$.\\
 
-Later we calculated the distance between all the pairs of tensors and we
-performed a Neighbor Joining clustering using the package Scikit Bio 0.5.5 from
+Next, we calculated the distance between all the pairs of tensors and performed
+a Neighbor Joining clustering using the package Scikit Bio 0.5.5 from
 Python 3~\cite{skbio2020}.
 
 \subsection*{Classification of topologies}
@@ -826,15 +828,21 @@ Sharpe~\cite{Cotterell2010}, the I3-FFL and the ``Overlapping domains'' motif
  \label{fig:ab-rob}
 \end{figure}
 
-The average vertex degree indicates that in general, all the network topologies
-display high robustness and that they could resist an average of approximately 4
-topological mutations without losing their fitness. Additionally, the average
-path length indicates that the evolutionary landscape is easily accessible for
-most network topologies (Table~\ref{table1}). Although the GRNs in this modelling
-framework are robust to changes in its topology, they are sensitive to changes in
-the morphogenetic field size, especially when this size is reduced, as only
-4.66, 56.82, 56.14 and 41.05 percent of the GRNs had a fitness greater than 0.9
-in fields with 10, 20, 40 and 50 cells, respectively (\nameref{S3_Fig}B).
+On the other hand, analysis of the average vertex degree seems to be indicative
+that network topologies are likely to withstand numerous topological
+modifications (approximately 4) without significant loss in their ability to
+generate a striped pattern of gene expression, representing a high fitness
+solution to the prescribed task. Additionally, the average path length seems
+to suggest that the evolutionary landscape could be easily traversed by
+most network topologies without incurring in significant fitness loss as long
+as mutational changes results in moves between adjacent neighbors across
+the metagraph (Table~\ref{table1}). It is interesting to note that,
+although the examined GRNs seem to exhibit, on average, a high robustness to
+topological/parameter changes, they generally show a rather high sensitivity to
+variation in the size of the morphogenetic field. For instance, we found that
+when the size of the morphogenetic field was fixed at 10, 20, 40 and 50 cells
+only 4.66\%, 56.82\%, 56.14\% and 41.05\%, respectively, of the examined
+GRNs showed a fitness greater than 0.9 (\nameref{S3_Fig}B).
 
 \begin{table}[!ht]
 % \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
