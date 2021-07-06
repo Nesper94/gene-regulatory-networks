@@ -365,10 +365,18 @@ a  two-input network in which Sonic Hedgehog acts as a morphogen and the Olig2
 and Nkx2.2 genes can act as the receiver nodes~\cite{dessaud_dynamic_2010,
 balaskas2012, exelby_2021}.
 
-In this study, we used a genetic algorithm to generate a set of 2061 three-node GRNs
-including single and multiple input topologies that were able to interpret a morphogen
-signal and respond to it generating a striped pattern of gene expression in order to
-analyse the role of network motifs in this process and its dynamic properties.
+In this study, we apply a Markov chain Monte Carlo (MCMC)-like algorithm to
+probe the design space of three-node GRNs looking for topologies capable of
+translating a morphogen gradient  (input signal) into a striped pattern of gene
+expression (phenotype). Importantly, unlike most previous computational
+studies, here we allowed any node (e.g. gene) in a GRN to perceive the input
+signal in varying ways, and selected the best performing GRNs based on a
+fitness criterion used to assess the quality of the phenotype with respect to
+a prescribed optimal pattern. Based on this computational strategy, we were
+able to uncover a great variety of distinct classes of network topologies that
+tend to form a complex interconnected meta-graph that could be easily
+traversed throughout evolution via single changes in the wiring of the
+different GRNs.
 
 % Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Nullam Eq~(\ref{eq:schemeP}) sapien tellus, commodo id velit id, eleifend volutpat quam. Nunc pellentesque pretium diam, quis maximus dolor faucibus id.~\cite{bib2} Nunc convallis sodales ante, ut ullamcorper est egestas vitae.
 
