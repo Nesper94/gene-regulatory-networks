@@ -974,30 +974,48 @@ implementation in synthetic gene regulatory networks.
 
 \section*{Discussion}
 
-This study can help us to understand the mechanisms by which the GRNs work in
-nature as modules that make part of genomes, and it also can provide guidance
-in the construction of new synthetic GRNs in the field of synthetic biology.
+In this work, we have conducted extensive computational explorations of small
+GRNs with the capacity to generate a simple spatial pattern in a 1-D
+morphogenetic field. Our findings shed new light on regulatory rules and
+dynamical mechanisms that  GRNs observed in nature could potentially
+implement to achieve fundamental spatio-temporal tasks, which might
+serve as guidance for future synthetic biology implementations.
 
-We found the presence of network motifs in the set of GRNs produced by the
-genetic algorithm. However, we also found a great diversity of network
+Overall, based on our extensive search space exploration we were able to identify
+a great variety of pattern-forming GRN topologies  with distinctive and often
+widely shared building blocks (network motifs), which are likely to confer on
+each topology the ability to achieve specific regulatory tasks in a semi-autonomous
+manner. However, we also found a great diversity of network
 topologies that could produce a striped gene expression pattern, where 615 out of
 714 were multi-input topologies, showing that considering multiple
 morphogen inputs allows to find different solution for the patterning
-problem.\\
+problem. Most importantly, we found that this ensemble of pattern-forming GRNs
+tend to form a highly connected meta-graph, which highlights at a very high level
+emergent properties, such as robustness and evolvability, of complex biological
+systems \cite{kitano2004}.\\
 
-Robustness is an important feature of patterning mediated by morphogens, and
-the GRNs involved can be selected in an evolutionary process not only by their final
-steady state but also by their ability to buffer noise~\cite{lo_robust_2015, exelby_2021}.
-In our study, the most abundant topologies were
-found to be part of highly connected clusters in the neutral network, and this fact
-indicates that these topologies are both robust to quantitative changes in the
-strength of interactions and diffusion and degradation parameters as well as to
-qualitative changes in the topology itself. This, in principle, means that many
-mechanisms for producing striped patterns are available and accessible to each
-other through bridge topologies (\nameref{S6_Fig}), i.e.,
-an organism can change between different GRNs (for example between
-a Gierer-Meinhardt-like network to an Incoherent Feed-Forward Loop) without losing its
-fitness, which allows to fine-tune the regulatory system according to its specific
+Robustness is a defining feature of any developmental patterning process,
+and our results suggests that the underlying morphogen interpretation
+mechanisms (GRNs) are highly accessible through exploration of the
+topology space constrained not only by selection for their final steady state,
+but also by their ability to buffer noise~\cite{lo_robust_2015, exelby_2021}.
+
+In our study, the most abundant topologies were found forming highly
+connected clusters in a so-called neutral network of genotypes,
+implying that the corresponding GRN topologies would tend to be robust
+to quantitative changes in the strength of regulatory interactions, diffusion and
+degradation parameters, as well as to qualitative changes in the topology
+itself. In essence, such organization could be seen as an intrinsic evolutionary
+property of GRNs that facilitates the coexistence of robustness and
+evolvability~\cite{wagner_robustness_2008}. For instance, bridge topologies
+in the neutral network connect distinct classes of pattern-forming
+GRNs~(\nameref{S6_Fig}), which suggests that an organism could switch
+between different GRNs (for example between a Gierer-Meinhardt-like network
+to an Incoherent Feed-Forward Loop) with minimal fitness costs. This high-level
+property of the neutral network of topologies could thus facilitate the fine-tuning
+of the regulatory systems through genetic modifications in order to meet specific functional requirements under selective pressures.
+
+ which allows to fine-tune the regulatory system according to its specific
 needs. As robustness and evolvability are
 not mutually exclusive properties~\cite{wagner_robustness_2008}, it is likely
 that these topologies are also evolvable in the sense that they can produce
