@@ -2,7 +2,7 @@
 (* ::Package:: *)
 
 <<"../modules/importData.m"
-<<"../modules/fitness2.m"
+<<"../modules/EvolAlgorithm.m"
 
 
 grns=importGRNs[];
@@ -12,11 +12,7 @@ grns=importGRNs[];
 Do[grns[[i,1,2]]={0,0,0}, {i, Length[grns]}];
 
 
-(*Define function to get max fitness*)
-fitnessMax[x_List]:=Max[fitness[x]];
-
-
-zeroDiffusionFitness = Table[{fitnessMax[grns[[i,1]]] , i, grns[[i,2]]}, {i, Length[grns]}];
+zeroDiffusionFitness = Table[{AssessFitnessScoreStripeFormingGRCs4SSMorpGradient[grns[[i,1]]] , i, grns[[i,2]]}, {i, Length[grns]}];
 
 
 (*Add header to the table*)
