@@ -265,7 +265,7 @@ space process, and thus enables us to identify a larger set of potentially
 interesting and realizable morphogen interpretation mechanisms.
 
 \subsection*{Results}
-Out of 2061 GRNs selected using the genetic algorithm, we found 714 groups of
+Out of 2061 GRNs selected using the search space algorithm, we found 714 groups of
 network topologies that were able to correctly interpret the morphogen.
 Importantly, the main network motif found to generate the target phenotype in
 response to the input signal was the type 3 Incoherent Feed Forward Loop (I3-FFL),
@@ -508,10 +508,10 @@ and cells at the middle of the field ($n ∈ [11,20]$) displaying expression
 levels greater than 90\% of the maximal level observed along the entire field
 for the output gene (Fig~\ref{fig:model}C).
 
-\subsection*{Genetic algorithm}
+\subsection*{Search space algorithm}
 
-The genetic algorithm used to produce the set of gene regulatory networks (GRNs)
-consisted in the following steps:
+The Markov chain Monte Carlo (MCMC)-like algorithm used to produce the set of
+gene regulatory networks (GRNs) consisted in the following steps:
 
 \begin{enumerate}
  \item{\bf Generate a random GRN.}
@@ -590,8 +590,8 @@ long as its associated topology had not been sampled in previous steps.
 Steps 1 to 5 were iterated 500 times, resulting in a set of 2061 GRNs with a
 striped pattern of gene expression in at least one gene.
 
-The source code for the genetic algorithm and other parts of analysis is available at
-\url{https://github.com/Nesper94/gene-regulatory-networks}.
+The source code for the search space algorithm and other parts of analysis is
+available at \url{https://github.com/Nesper94/gene-regulatory-networks}.
 
 \subsection*{Classification of GRNs}
 
@@ -844,7 +844,11 @@ On the other hand, analysis of the average vertex degree seems to be indicative
 that network topologies are likely to withstand numerous topological
 modifications (approximately 4) without significant loss in their ability to
 generate a striped pattern of gene expression, representing a high fitness
-solution to the prescribed task. Additionally, the average path length seems
+solution to the prescribed task. The average complexity index of network
+topologies was 39.2435 ($\pm 11.6768$) and was found to be negatively
+correlated with the abundance ($r_S = -0.316653$, $\text{p-value} =
+2.25161\times10^{-18}$) (Fig~\ref{fig:ab-rob}B).
+Additionally, the average path length seems
 to suggest that the evolutionary landscape could be easily traversed by
 most network topologies without incurring in significant fitness loss as long
 as mutational changes results in moves between adjacent neighbors across
@@ -877,10 +881,6 @@ GRNs showed a fitness greater than 0.9 (\nameref{S3_Fig}B).
 % \end{adjustwidth}
  \end{table}
 
-The average complexity index of network topologies was 39.2435 ($\pm 11.6768$)
-and was found to be negatively correlated with the abundance ($r_S = -0.316653$,
-$\text{p-value} = 2.25161\times10^{-18}$) (Fig~\ref{fig:ab-rob}B).
-
 Hierarchical clustering of spatiotemporal expression profiles showed that GRNs
 with topologies that seemed to be very different have indeed very similar
 expression dynamics. We expected to find GRNs with the same topology to group
@@ -891,7 +891,9 @@ very infrequent network topologies. This seems to indicate that additional
 interactions in the networks are likely to represent alternative regulatory
 mechanisms for fine tuning gene expression, instead of drastically changing
 the expression mechanism, which can be seen in the expression dynamics of
-networks with different topologies (\nameref{S4_Fig}).
+networks with different topologies (\nameref{S4_Fig}). Additionally, clustering
+of topologies revealed that there are six main groups of topologies in our set
+of 2061 GRNs (Fig~\ref{fig:clustering}B).
 
 \begin{figure}[!h]
  \includegraphics[width=\textwidth]{figures/results/Fig7}
@@ -901,9 +903,6 @@ networks with different topologies (\nameref{S4_Fig}).
  correspond to topologies that contain the I3-FFL network motif.
  \label{fig:clustering}
 \end{figure}
-
-Clustering of topologies revealed that there are six main groups of topologies
-in our set of 2061 GRNs (Fig~\ref{fig:clustering}B).
 
 Among the new network topologies we report here, perhaps one of the most
 interesting ones is the topology number 9, which is able to express the striped
@@ -922,12 +921,13 @@ the striped expression pattern to a precise location along the morphogenetic fie
  genes, it display a striped pattern of gene expression for both of them as
  can be observed in (B). (B) Spatiotemporal expression profile of a GRN
  with topology 9. Gene \textbf{B} is not shown as it was lost in this topology
- in the evolutionary process simulated by the genetic algorithm.
+ in the evolutionary process simulated by the search space algorithm.
  \label{fig:topol9}
 \end{figure}
 
-Although the topology 9 consists of only two genes, its mechanism of expression
-is dynamically more complex than that of other topologies such as the simple
+Despite having only two genes, the regulatory mechanism underlying
+the topology 9 generates dynamically more complex expression patterns
+compared to other topologies, such as the
 I3-FFL; however, and despite the fact that the Gierer-Meinhardt model form
 patterns that scale with tissue size~\cite{shoaf1984}, we found that topology 9
 was more sensible to changes in the morphogenetic field size than those
@@ -935,14 +935,15 @@ topologies based on I3-FFL (\nameref{S2_Table}),
 indicating that the additional regulatory interactions need to be fine-tuned
 depending on the number of cells in the field.\\
 
-In the mechanism of expression of topology 9 the expression pattern of the
-gene A is initially uniform in the
-morphogenetic field, but later it is shaped by the morphogen gradient in such a
-way that two important events occur, in first place the overall expression
-level of the gene A is decreased by the inhibition of the morphogen, releasing
-gene C from its repression by gene A; in second place, it appears a
-non-homogeneous spatial distribution in which gene A is expressed at higher
-levels in the cells at the rightmost part of the morphogenetic field.\\
+In the mechanism of expression of topology 9 the initial expression
+pattern of gene A is uniform across the morphogenetic field, but later
+on the morphogen gradient shapes its dynamics in such a way that
+two important events occur: firstly, the overall expression level of the
+gene A is decreased by the inhibition of the morphogen, releasing
+gene C from its repression by gene A; next, gene A tend to display a
+non-homogeneous spatial distribution with higher expression levels
+being shifted towards the cells at the rightmost part of the morphogenetic
+field.\\
 
 These two events conduce to the repression of the gene C by the gene A in the
 rightmost part of the morphogenetic field and by the morphogen in the leftmost
@@ -999,7 +1000,6 @@ and our results suggests that the underlying morphogen interpretation
 mechanisms (GRNs) are highly accessible through exploration of the
 topology space constrained not only by selection for their final steady state,
 but also by their ability to buffer noise~\cite{lo_robust_2015, exelby_2021}.
-
 In our study, the most abundant topologies were found forming highly
 connected clusters in a so-called neutral network of genotypes,
 implying that the corresponding GRN topologies would tend to be robust
@@ -1046,7 +1046,7 @@ subgraph~(\nameref{S1_Table}).
 Although it has been experimentally demonstrated that the Incoherent Feed
 Forward Loop type 2 (I2-FFL) is able to generate a striped gene expression
 pattern,~\cite{Schaerli2014, Basu2005}, in our study this motif was present in
-only 10.92\% of the topologies. This fact may be because genetic algorithms
+only 10.92\% of the topologies. This fact may be because evolutionary algorithms
 can not always find global minima but local minima or its surroundings, however,
 it is also possible that the I2-FFL motif is not as robust as other motifs and
 therefore be less represented.
@@ -1068,7 +1068,7 @@ presents high complexity, was one of the
 topologies with lower abundance and was disconnected from all other topologies
 in the two-step neighbors in the neutral network.
 
-The cladogram of spatiotemporal expression profiles shows that the genetic
+The cladogram of spatiotemporal expression profiles shows that the search space
 algorithm selected similar expression mechanisms that can be produced by very
 different topologies.
 
