@@ -254,27 +254,28 @@ in systems biology as a tractable system to investigate the emergent properties
 of complex genotype-phenotype maps.
 
 \subsection*{Methods}
-In this study we apply a Markov chain Monte Carlo (MCMC)-like algorithm to probe
+In this study, we apply a Markov chain Monte Carlo (MCMC)-like algorithm to probe
 the design space of three-node GRNs with the ability to generate a band-like
 expression pattern (target phenotype) in the middle of an arrangement of 30
 cells, which resemble a simple (1-D) morphogenetic field in a developing embryo.
-Unlike the majority of modeling studies published so far, here we explore the
+Unlike most modeling studies published so far, here we explore the
 space of GRN topologies with nodes having the potential to perceive differently
 the same input signal. This allows for a lot more flexibility during the search
 space process, and thus enables us to identify a larger set of potentially
 interesting and realizable morphogen interpretation mechanisms.
 
 \subsection*{Results}
-Out of 2061 GRNs selected using the search space algorithm, we found 714 groups of
-network topologies that were able to correctly interpret the morphogen.
-Importantly, the main network motif found to generate the target phenotype in
-response to the input signal was the type 3 Incoherent Feed Forward Loop (I3-FFL),
-which is in agreement with previous theoretical expectations and experimental
-observations. Notably, compared to previously reported pattern forming GRN
+Out of 2061 GRNs selected using the search space algorithm, we found 714 classes of
+network topologies that could correctly interpret the morphogen.
+Notably, the main network motif that generated the target phenotype in
+response to the input signal was the type 3 Incoherent Feed-Forward Loop (I3-FFL),
+which agrees with previous theoretical expectations and experimental
+observations. Particularly, compared to a previously reported pattern forming GRN
 topologies, we have uncovered a great variety of novel network designs, some of
 which might be worth inquiring through synthetic biology methodologies to test
-for the ability of network design with minimal regulatory complexity to robustly
-interpret a developmental cue.
+for the ability of network design with minimal regulatory complexity to 
+interpret a developmental cue robustly.
+
 
 % \subsection*{Conclusions}
 
@@ -284,12 +285,12 @@ interpret a developmental cue.
 \section*{Author summary}
 Systems biology is a fast growing field largely powered by advances in
 high-performance computing and sophisticated mathematical modeling of
-biological systems. Based on these advances, we are now in a position to not
-only mechanistically understand but also to accurately predict the behavior of
+biological systems. Based on these advances, we are now in a position to
+mechanistically understand and accurately predict the behavior of
 complex biological processes, including cell differentiation and spatial pattern
-formation during embryogenesis. In this article we use an \textit{in silico}
-approach to probe the design space of multi-input, three node Gene Regulatory
-Networks (GRNs) capable of generating a striped pattern of gene expression in
+formation during embryogenesis. In this article, we use an \textit{in silico}
+approach to probe the design space of multi-input, three-node Gene Regulatory
+Networks (GRNs) capable of generating a striped gene expression pattern in
 the context of a simplified 1-D morphogenetic field.
 
 \linenumbers
@@ -297,21 +298,20 @@ the context of a simplified 1-D morphogenetic field.
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
 
-Cells interact continuously with their environment, which requires very specific
+Cells interact continuously with their environment, which requires precise
 regulatory strategies to avoid potential detrimental responses. Arguably, most
 cellular functions arise from the dynamic activity of Gene Regulatory Networks
-(GRNs), which play a central role in the interpretation of external and internal
-signals. This information
-processing function is of particular importance in developmental processes such
-as those in which a group of cells differentiate in response to a signalling
-molecule. Such molecules were referred to as morphogens by Turing in
-1952~\cite{Turing1952} and posterior theoretical studies on patterning led to the
+(GRNs), which play a central role in interpreting external and internal
+signals. This information processing function is critical in 
+developmental processes such as those in which a group of cells differentiates in
+response to a signaling molecule. Such molecules were referred to as morphogens by Turing in
+1952~\cite{Turing1952}, and posterior theoretical studies on patterning led to the
 conceptualization of the French Flag Problem by Wolpert, who also stated
 in this respect that a gradient of concentration of a morphogen could
 trigger cell differentiation in a one-dimensional field of cells~\cite{Wolpert1969,
 sharpe_2019}.
 Although the Bicoid protein (bcd), the first example of a molecule that acted
-as a morphogen, was only found in the 80's in the developing embryos of
+as a morphogen, was only found in the 80s in the developing embryos of
 \textit{Drosophila melanogaster}~\cite{driever_gradient_1988,
 driever_bicoid_1988}, now it is known that there
 are many other examples such as the Decapentaplegic (Dpp) protein in
@@ -323,14 +323,14 @@ is to understand mechanistically how positional information conveyed by morphoge
 is translated into spatial differentiation.\\
 
 Our understanding of how GRNs process information has increased thanks to the
-concept and theory of network motifs, which are defined as patterns of
-interconnections occurring in networks at numbers that are significantly higher
+concept and theory of network motifs, defined as patterns of
+interconnections occurring in networks at numbers significantly higher
 than those in randomized networks~\cite{Milo2002}. This novel approach, along
-with mathematical modeling and computational systems biology methods have been
-shown to be a powerful tool to study GRNs~\cite{kitano_computational_2002}, and
-the predictions of studies using these methods have been validated by
-experimental studies~\cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005}, and
-some of them have even used synthetic GRNs to produce artificial cell
+with mathematical modeling and computational systems biology methods, is a 
+powerful tool to study GRNs~\cite{kitano_computational_2002}, and
+experimental studies have validated the predictions of studies using these
+methods~\cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005}.
+Some have even used synthetic GRNs to produce artificial cell
 differentiation~\cite{Basu2005}, circadian gene
 expression~\cite{atkinson_development_2003}, counting
 devices~\cite{friedland_synthetic_2009} and systems that respond to light.
@@ -344,14 +344,14 @@ kitada_programming_2018}.
 In a tissue context, the generation of a stripe of gene expression is a fundamental
 patterning function in development, and it has been shown that simple feed-forward
 motifs can robustly achieve such a patterning task~\cite{munteanu_2014}. For
-example, Cotterell and Sharpe studied  what kind of 3-node network topologies
+example, Cotterell and Sharpe studied what kind of 3-node network topologies
 could effectively translate a morphogen gradient into a striped gene expression
-pattern in a one-dimensional field of cells, and found a variety of networks that
-implemented at least 7 different mechanisms with varying levels of complexity,
-being most of them variations of feed-forward motifs~\cite{Cotterell2010}.
+pattern in a one-dimensional field of cells. They found a variety of networks that
+implemented at least 7 different mechanisms with varying complexity levels,
+most of them variations of feed-forward motifs~\cite{Cotterell2010}.
 
 Although GRNs with positional information processing capacities have been
-extensively analyzed, most studies have so far placed emphasis on particular
+extensively analyzed, most studies have so far emphasized particular
 regulatory systems that respond to a single input only. These studies have
 typically focused on either regulatory systems observed in
 nature~\cite{vonDassow2000,Reinitz1995,Jaeger2004}, synthetic
@@ -369,16 +369,14 @@ In this study, we apply a Markov chain Monte Carlo (MCMC)-like algorithm to
 probe the design space of three-node GRNs looking for topologies capable of
 translating a morphogen gradient  (input signal) into a striped pattern of gene
 expression (phenotype). Importantly, unlike most previous computational
-studies, here we allowed any node (e.g. gene) in a GRN to perceive the input
-signal in varying ways, and selected the best performing GRNs based on a
-fitness criterion used to assess the quality of the phenotype with respect to
-a prescribed optimal pattern. Based on this computational strategy, we were
-able to uncover a great variety of distinct classes of network topologies that
+studies, here we allowed any node (e.g., gene) in a GRN to perceive the input
+signal in varying ways and selected the best-performing GRNs based on a
+fitness criterion used to assess the quality of the phenotype to
+a prescribed optimal pattern. Based on this computational strategy, we uncovered
+a great variety of distinct classes of network topologies that
 tend to form a complex interconnected meta-graph that could be easily
 traversed throughout evolution via single changes in the wiring of the
 different GRNs.
-
-% Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Nullam Eq~(\ref{eq:schemeP}) sapien tellus, commodo id velit id, eleifend volutpat quam. Nunc pellentesque pretium diam, quis maximus dolor faucibus id.~\cite{bib2} Nunc convallis sodales ante, ut ullamcorper est egestas vitae.
 
 % Equation provided by the LaTeX template.
 % \begin{eqnarray}
