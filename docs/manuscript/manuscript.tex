@@ -459,13 +459,15 @@ Eq~(\ref{ec:input-func}) and described in more detail below. $D_i$ and
 $\delta_i$ are the diffusion and the degradation rate of \emph{i}-th gene
 product, respectively.\\
 
-The input function is a sigmoid function described by Eq~\ref{ec:input-func}.
 Sigmoid functions are often used to approximate Hill functions describing gene
-activation/inhibition, and this approach has been used extensively to model the
-response of signaling pathways and gene interactions in GRNs \cite{mendoza2006,
-vu2007, zhang2013, armao2016}. Moreover, differential equation models using
-sigmoid functions have shown to fit gene expression data \cite{chen2005,
-dahlquist2015}.
+activation/inhibition in which steepness can be modulated by mechanisms as
+molecular cooperativity and target sequestration \cite{ricci2011}. This approach
+has been used extensively to model the response of signaling pathways and gene
+interactions in GRNs \cite{mendoza2006, vu2007, zhang2013, armao2016}.
+Moreover, differential equation models using sigmoid functions have shown to
+fit gene expression data \cite{chen2005, dahlquist2015}. In this study, the
+input function representing regulatory interactions is a sigmoid function
+described by Eq~\ref{ec:input-func}.
 
 \begin{equation}
  g(u^i) = \frac{1}{1 + \exp(a - b \cdot u^i)},
@@ -600,8 +602,10 @@ available at \url{https://github.com/Nesper94/gene-regulatory-networks}.
 
 In order to group all the isomorphic (i.e. topologically equivalent) networks from
 the totality (2061) of sampled GRNs we used a
-classification algorithm that selected a random GRN, then it generated all
-isomorphs of that GRN by performing permutations in rows and columns. The
+classification algorithm that selected a random GRN and generated all
+isomorphs of that GRN by interchanging rows of the adjacency matrix
+($i \leftrightarrow j$) while interchanging the corresponding columns
+($i+1 \leftrightarrow j+1$). The
 algorithm then compared all six isomorphs with other GRN and classified the
 topologies in the same group if they were isomorphic networks.
 
