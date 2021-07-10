@@ -460,6 +460,13 @@ $\delta_i$ are the diffusion and the degradation rate of \emph{i}-th gene
 product, respectively.\\
 
 The input function is a sigmoid function described by Eq~\ref{ec:input-func}.
+Sigmoid functions are often used to approximate Hill functions describing gene
+activation/inhibition, and this approach has been used extensively to model the
+response of signaling pathways and gene interactions in GRNs \cite{mendoza2006,
+vu2007, zhang2013, armao2016}. Moreover, differential equation models using
+sigmoid functions have shown to fit gene expression data \cite{chen2005,
+dahlquist2015}.
+
 \begin{equation}
  g(u^i) = \frac{1}{1 + \exp(a - b \cdot u^i)},
  \label{ec:input-func}
