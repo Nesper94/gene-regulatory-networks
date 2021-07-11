@@ -1,7 +1,6 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
-SetDirectory[NotebookDirectory[]];
 <<"../modules/EvolAlgorithm.m"
 <<"../modules/importData.m"
 
