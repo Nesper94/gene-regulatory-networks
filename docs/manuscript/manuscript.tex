@@ -934,7 +934,7 @@ the striped expression pattern to a precise location along the morphogenetic fie
 Despite having only two genes, the regulatory mechanism underlying
 the topology 9 generates dynamically more complex expression patterns
 compared to other topologies, such as the
-I3-FFL; however, and despite the fact that the Gierer-Meinhardt model form
+I3-FFL; however, and despite the fact that the Gierer-Meinhardt model forms
 patterns that scale with tissue size~\cite{shoaf1984}, we found that topology 9
 was more sensible to changes in the morphogenetic field size than those
 topologies based on I3-FFL (\nameref{S2_Table}),
@@ -951,7 +951,7 @@ non-homogeneous spatial distribution with higher expression levels
 being shifted towards the cells at the rightmost part of the morphogenetic
 field.\\
 
-These two events conduce to the repression of the gene C by the gene A in the
+These two events lead to the repression of the gene C by the gene A in the
 rightmost part of the morphogenetic field and by the morphogen in the leftmost
 part of the morphogenetic field, thus generating a slightly higher level of
 expression of gene C in the center of the field. Because gene C activates its
@@ -974,29 +974,31 @@ latter to extend out of the middle of the field. In turn, the band of
 expression of gene A can only exist in the middle of the field because its
 expression depends on gene C.
 
-This is a complex mechanism remindful of the Gierer-Meinhardt model, but
-described by the first time in this study in the context of multiple morphogen
-inputs, and it would be interesting to study its feasibility and possible
-implementation in synthetic gene regulatory networks.
+This is a complex mechanism reminiscent of the Gierer-Meinhardt model, which
+to the best of our knowledge is reported for the first time in the context of
+multiple morphogen inputs, and could thus be of particular interest to for
+synthetic biology implementations to assess the feasibility and robustness
+conferred by this mechanism to GRNs.
 
 \section*{Discussion}
 
 In this work, we have conducted extensive computational explorations of small
 GRNs with the capacity to generate a simple spatial pattern in a 1-D
 morphogenetic field. Our findings shed new light on regulatory rules and
-dynamical mechanisms that  GRNs observed in nature could potentially
-implement to achieve fundamental spatio-temporal tasks, which might
-guide for future synthetic biology implementations.
+dynamical mechanisms that GRNs in nature could potentially implement to
+achieve stereotyped spatio-temporal tasks.
 
 Overall, based on our extensive search space exploration we identified
 a great variety of pattern-forming GRN topologies  with distinctive and often
 widely shared building blocks (network motifs), which are likely to confer
 each topology the ability to achieve specific regulatory tasks in a semi-autonomous
-manner. However, we also found a great diversity of network
+manner. In particular, we uncovered a great variety of network
 topologies that could produce a striped gene expression pattern, where 615 out of
-714 were multi-input topologies, showing that considering multiple
-morphogen inputs allows finding a different solution for the patterning
-problem. Most importantly, we found that this ensemble of pattern-forming GRNs
+714 were found to be multi-input topologies, which highlights the importance of
+often disregarded pleiotropic signaling events as a potentially critical design
+specification rule for successful synthetic biology implementations of GRNs
+with various types of pattern-forming abilities. Most importantly, we found that
+this ensemble of pattern-forming GRNs
 tends to form a highly connected meta-graph, which highlights emergent
 properties, such as robustness and evolvability, of complex biological
 systems at a very high level~\cite{kitano2004}.\\
@@ -1015,9 +1017,9 @@ itself. In essence, such organization could be seen as an intrinsic evolutionary
 property of GRNs that facilitates the coexistence of robustness and
 evolvability~\cite{wagner_robustness_2008}. For instance, bridge topologies
 in the neutral network connect distinct classes of pattern-forming
-GRNs~(\nameref{S6_Fig}), suggesting that an organism could switch
-between different GRNs (for example, between a Gierer-Meinhardt-like network
-to an Incoherent Feed-Forward Loop) with minimal fitness costs. This high-level
+GRNs~(\nameref{S6_Fig}), suggesting that evolutionary transitions between
+different GRNs (for example, between a Gierer-Meinhardt-like network to an
+Incoherent Feed-Forward Loop) could be achieved with minimal fitness costs. This high-level
 property of the neutral network of topologies could thus facilitate the fine-tuning
 of the regulatory systems through genetic modifications to meet
 specific functional requirements under selective pressures.
@@ -1033,7 +1035,7 @@ different scales.
 Other studies have shown that Incoherent Feed-Forward Loops can form
 spatial stripes of gene expression~\cite{ishihara_cross_2005}. In particular,
 we found that the I3-FFL is one of the network motifs that appears more
-frequently in these GRNs, as has also been reported by Cotterell \&
+frequently in these GRNs, which is in agreement with the study by Cotterell \&
 Sharpe~\cite{Cotterell2010}, and has been found in transcriptional networks involved
 in cell fate definition~\cite{Li2019}. Moreover, our results indicate that this
 is a robust motif that can be useful for constructing synthetic gene
