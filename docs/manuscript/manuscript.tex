@@ -1043,28 +1043,33 @@ regulatory networks exposed to stochastic fluctuations in the
 environment and mutations.
 
 However, as our model was less stringent and allowed the morphogen input to
-interact with any gene, we found a more significant number of possible topologies with the
-same striped phenotype and a diverse combination of diffusion and degradation
-parameters~(\nameref{S7_Fig}). For example, in a single input model, the I4-FFL could
-not produce a stripe of gene expression~\cite{munteanu_2014}, whereas, in our
-experimental setup, 20.17\% of the topologies presented this motif as a
-subgraph~(\nameref{S1_Table}).
+interact with any gene, we found a significantly larger number of pattern-forming
+topologies, which can operate under disparate combinations of diffusion and degradation
+parameters~(\nameref{S7_Fig}). For example, in a single input GRN model, the I4-FFL
+has not been found capable of generating a striped gene expression
+pattern~\cite{munteanu_2014}, whereas, in our experimental setup, 20.17\% of
+the topologies were found  to implement such a regulatory motif~(\nameref{S1_Table}).
 
-Although it has been experimentally demonstrated that the Incoherent Feed-Forward
-Loop type 2 (I2-FFL) can generate a striped gene expression
-pattern~\cite{Schaerli2014, Basu2005}, in our study, this motif was present in
-only 10.92\% of the topologies. This fact may be because evolutionary algorithms
-can not always find global minima but local minima or their surroundings. However,
-it is also possible that the I2-FFL motif is not as robust as other motifs and
-therefore be less represented.
+Although recent experimental evidence highlights the importance of the Incoherent
+Feed-Forward Loop type 2 (I2-FFL) for generating a striped gene expression
+pattern~\cite{Schaerli2014, Basu2005}, it is intriguing to find that such motif is
+underrepresented in our study, with only 10.92\% of the topologies implementing
+such regulatory mechanism. This might be due to the difficulty to find optimal
+solutions when probing the design space of multi-input GRNs, which are likely to
+contain multiple locally optimal solutions. In addition, it is important to mention
+here that the application of a MCMC-like algorithm as a search space strategy for
+such complex tasks cannot be expected to allow for extensive exploration of the
+design space of GRNs nor for the accessibility of every single locally optimal
+solution. However, it is also possible that the I2-FFL motif is not as robust as
+other motifs and therefore be less represented.
 
 We also found topologies with a similar topology to that of the “opposing
 gradients” reported by Schaerli et al.~\cite{Schaerli2018,Schaerli2014}.
 Although the “opposing gradients” mechanism requires the constitutive expression
 of two of the genes in the GRN, and our model does not take constitutive
-expression into account, we realized that the GRNs that presented the “opposing
-gradients” topology, had also commonly positive auto-regulation interactions on
-these two nodes, supplying in this way the lack of constitutive
+expression into account, we observed that the GRNs that implement the “opposing
+gradients” mechanism also tend to implement auto-regulation interactions on
+these two nodes, bypassing in this way the lack of constitutive
 expression as found in previous studies~\cite{munteanu_2014}.
 
 The correlation between the complexity index of a topology and its abundance
@@ -1081,18 +1086,19 @@ different topologies can produce.
 
 Although GRNs that produce a band of gene expression with only two nodes have
 been described (e.g., the I-zero motif~\cite{Schaerli2014}), this is to our
-knowledge the first time a GRN with a topology such as that of topology
-nine~(Fig \ref{fig:topol9})
-and its expression mechanism is reported, increasing our knowledge of the
-genotype-phenotype map in this kind of system. It would be very interesting
-to confirm experimentally the ability of this topology to generate the described
-pattern and it would be interesting to study its feasibility and possible
-implementation in synthetic gene regulatory networks.
+knowledge the first time that a novel GRN topology such as number
+9~(Fig \ref{fig:topol9}) has been reported, which adds considerably to existing
+knowledge on the genotype-phenotype mapping problems studied in the
+context of developmental pattern formation. It would be interesting to assess
+experimentally the ability of this particular topology to generate striped gene
+expression patterns, as well as to assess its robustness in the face of mutational
+changes and noisy morphogen input profiles.
 
-This work provides a catalog of GRNs that can be extended in future computational
-and theoretical analysis and provides a foundation to design and build synthetic
-regulatory networks or identify new ones existing in nature.
-
+Overall, we believe our work provides a set of enticing hypotheses on GRN designs,
+represented as a large catalog of distinct GRN topologies that could provide
+valuable information as starting points for future computational and theoretical
+analysis of the genotype-phenotype map, as well as for experimental validation and
+future discovery of potentially interesting GRN designs.
 
 %\section*{Conclusion}
 
