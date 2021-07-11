@@ -333,7 +333,8 @@ methods~\cite{Kalir2005,Kalir2004,Mangan2003a,ODonnell2005}.
 Some have even used synthetic GRNs to produce artificial cell
 differentiation~\cite{Basu2005}, circadian gene
 expression~\cite{atkinson_development_2003}, counting
-devices~\cite{friedland_synthetic_2009} and systems that respond to light.
+devices~\cite{friedland_synthetic_2009} and systems that respond to
+light~\cite{gardner2012,levskaya2005}.
 Moreover, the design and implementation of GRNs through synthetic biology is
 emerging as a promising tool to study biological phenomena as pattern
 formation~\cite{santos-moreno_using_2019} and as a novel therapeutic tool with
@@ -355,8 +356,8 @@ extensively analyzed, most studies have so far emphasized particular
 regulatory systems that respond to a single input only. These studies have
 typically focused on either regulatory systems observed in
 nature~\cite{vonDassow2000,Reinitz1995,Jaeger2004}, synthetic
-implementations~\cite{Basu2005,Schaerli2018,Elowitz2000,barbier2020} with
-predefined topologies, or have deliberately constrained the study of GRNs to just
+implementations with predefined topologies~\cite{Basu2005, Schaerli2018,
+Elowitz2000, barbier2020}, or have deliberately constrained the study of GRNs to just
 a handful of alternative designs~\cite{munteanu_2014,Schaerli2014}. However,
 previous work has demonstrated the necessity to expand computational analysis
 of pattern forming GRNs to multi-input settings. For instance, it has been shown
@@ -371,7 +372,7 @@ translating a morphogen gradient  (input signal) into a striped pattern of gene
 expression (phenotype). Importantly, unlike most previous computational
 studies, here we allowed any node (e.g., gene) in a GRN to perceive the input
 signal in varying ways and selected the best-performing GRNs based on a
-fitness criterion used to assess the quality of the phenotype to
+fitness criterion used to assess the quality of the phenotype with respect to
 a prescribed optimal pattern. Based on this computational strategy, we uncovered
 a great variety of distinct classes of network topologies that
 tend to form a complex interconnected meta-graph that could be easily
@@ -434,7 +435,7 @@ In our model the morphogen could interact with any of the three genes on the
 GRN, but could not be affected by them. The morphogenetic field was defined by
 an unidimensional array of 30 isogenic cells exposed to the morphogen
 concentration gradient (Fig~\ref{fig:model}C). The initial concentration of
-each gene product in all cells was set to 1 in all simulations.\\
+each gene product in all cells was set to 0.1 in all simulations.\\
 
 \subsection*{Mathematical model}
 
@@ -646,7 +647,7 @@ control morphogen gradient and changes in initial concentrations of gene
 products, we generated 100 fitness values for each one of the 19 GRNs
 belonging to topology 9; in each of these 100 assays we chose $A_0$, $h$ or
 initial concentrations randomly from a Normal Distribution with $\mu = 1$ for
-$A_0$, $\mu = 0.4$ for $h$ and $\mu = 1$ for initial concentrations and a
+$A_0$, $\mu = 0.4$ for $h$ and $\mu = 0.1$ for initial concentrations and a
 Coefficient of Variation of 30\% in each case.
 
 \subsection*{Shannon entropy}
