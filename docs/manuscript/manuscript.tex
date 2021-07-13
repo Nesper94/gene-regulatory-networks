@@ -1,77 +1,3 @@
-% Template for PLoS
-% Version 3.4 January 2017
-%
-% % % % % % % % % % % % % % % % % % % % % %
-%
-% -- IMPORTANT NOTE
-%
-% This template contains comments intended
-% to minimize problems and delays during our production
-% process. Please follow the template instructions
-% whenever possible.
-%
-% % % % % % % % % % % % % % % % % % % % % % %
-%
-% Once your paper is accepted for publication,
-% PLEASE REMOVE ALL TRACKED CHANGES in this file
-% and leave only the final text of your manuscript.
-% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
-% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
-%
-%
-% There are no restrictions on package use within the LaTeX files except that
-% no packages listed in the template may be deleted.
-%
-% Please do not include colors or graphics in the text.
-%
-% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
-%
-% % % % % % % % % % % % % % % % % % % % % % %
-%
-% -- FIGURES AND TABLES
-%
-% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
-%
-% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
-% - Figures should be uploaded separately from your manuscript file.
-% - Figures generated using LaTeX should be extracted and removed from the PDF before submission.
-% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
-% For figure citations, please use "Fig" instead of "Figure".
-% See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
-%
-% Tables should be cell-based and may not contain:
-% - spacing/line breaks within cells to alter layout or alignment
-% - do not nest tabular environments (no tabular environments within tabular environments)
-% - no graphics or colored text (cell background color/shading OK)
-% See http://journals.plos.org/plosone/s/tables for table guidelines.
-%
-% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
-%
-% % % % % % % % % % % % % % % % % % % % % % % %
-%
-% -- EQUATIONS, MATH SYMBOLS, SUBSCRIPTS, AND SUPERSCRIPTS
-%
-% IMPORTANT
-% Below are a few tips to help format your equations and other special characters according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
-%
-% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
-%
-% Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
-%
-% Please add line breaks to long display equations when possible in order to fit size of the column.
-%
-% For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
-%
-% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2".
-%
-% Do not use \cal for caligraphic font.  Instead, use \mathcal{}
-%
-% % % % % % % % % % % % % % % % % % % % % % % %
-%
-% Please contact latex@plos.org with any questions.
-%
-% % % % % % % % % % % % % % % % % % % % % % % %
-
 \documentclass[10pt,letterpaper]{article}
 \usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 
@@ -189,10 +115,6 @@ Juan Camilo Arboleda-Rivera\textsuperscript{1*},
 Gloria Machado-Rodríguez\textsuperscript{1},
 Boris A. Rodríguez\textsuperscript{2},
 Jayson Gutiérrez\textsuperscript{3},
-% Name5 Surname\textsuperscript{2\ddag},
-% Name6 Surname\textsuperscript{2\ddag},
-% Name7 Surname\textsuperscript{1,2,3*},
-% with the Lorem Ipsum Consortium\textsuperscript{\textpilcrow}
 \\
 \bigskip
 \textbf{1} Grupo de Fundamentos y Enseñanza de la Física y los Sistemas Dinámicos,
@@ -205,32 +127,8 @@ UdeA, Calle 70 No. 52-21, Medellín, Colombia.
 \\
 \textbf{3} Flanders Marine Institute (VLIZ), Wandelaarkaai 7, 8400 Oostende,
 Belgium
-% \textbf{3} Affiliation Dept/Program/Center, Institution Name, City, State, Country
 \\
 \bigskip
-
-% Insert additional author notes using the symbols described below. Insert symbol callouts after author names as necessary.
-%
-% Remove or comment out the author notes below if they aren't used.
-%
-% Primary Equal Contribution Note
-% \Yinyang These authors contributed equally to this work.
-
-% Additional Equal Contribution Note
-% Also use this double-dagger symbol for special authorship notes, such as senior authorship.
-% \ddag These authors also contributed equally to this work.
-
-% Current address notes
-% \textcurrency Current Address: Dept/Program/Center, Universidad de Antioquia,
-% Medellín, Antioquia, Colombia % change symbol to "\textcurrency a" if more than one current address note
-% \textcurrency b Insert second current address
-% \textcurrency c Insert third current address
-
-% Deceased author note
-% \dag Deceased
-
-% Group/Consortium Author Note
-% \textpilcrow Membership list can be found in the Acknowledgments section.
 
 % Use the asterisk to denote corresponding authorship and provide email address in note below.
 * juan.arboleda2@udea.edu.co
@@ -378,12 +276,6 @@ a great variety of distinct classes of network topologies that
 tend to form a complex interconnected meta-graph that could be easily
 traversed throughout evolution via single changes in the wiring of the
 different GRNs.
-
-% Equation provided by the LaTeX template.
-% \begin{eqnarray}
-% \label{eq:schemeP}
-% 	\mathrm{P_Y} = \underbrace{H(Y_n) - H(Y_n|\mathbf{V}^{Y}_{n})}_{S_Y} + \underbrace{H(Y_n|\mathbf{V}^{Y}_{n})- H(Y_n|\mathbf{V}^{X,Y}_{n})}_{T_{X\rightarrow Y}},
-% \end{eqnarray}
 
 \section*{Materials and methods}
 \subsection*{Gene Regulatory Networks and morphogenetic field}
@@ -716,15 +608,6 @@ with the same topology had a similar fitness in the different fields, we perform
 a Principal Component Analysis in Scikit-learn~0.24.2~\cite{sklearn} using the
 fitness values of each in the four different fields (see \nameref{S3_Fig}).
 
-% For placing video, \nameref{S1_Video} vel sagittis arcu lobortis.
-
-% Place figure captions after the first paragraph in which they are cited.
-% \begin{figure}[!h]
-% \caption{{\bf Bold the figure title.}
-% Figure caption text here, please use this space for the figure panel descriptions instead of using subfigure commands. A: Lorem ipsum dolor sit amet. B: Consectetur adipiscing elit.}
-% \label{fig1}
-% \end{figure}
-
 % Results and Discussion can be combined.
 \section*{Results}
 
@@ -958,13 +841,6 @@ expression of gene C in the center of the field. Because gene C activates its
 own expression, a band of expression begins to form. This band of expression
 then begins to activate the gene A also in the center of the field
 (\nameref{S5_Fig}).
-% (Fig~\ref{fig:topol9-dyn}).
-
-% \begin{figure}[!h]
-%  \includegraphics[width=\textwidth]{figures/results/topol-9-dynamics}
-%  \caption{\bf Dynamics of expression in topology number 9.}
-%  \label{fig:topol9-dyn}
-% \end{figure}
 
 In this way two bands of expression that depend on each other are formed. The
 high level of gene C in the middle of the field counteract its inhibition by
@@ -1019,10 +895,10 @@ evolvability~\cite{wagner_robustness_2008}. For instance, bridge topologies
 in the neutral network connect distinct classes of pattern-forming
 GRNs~(\nameref{S6_Fig}), suggesting that evolutionary transitions between
 different GRNs (for example, between a Gierer-Meinhardt-like network to an
-Incoherent Feed-Forward Loop) could be achieved with minimal fitness costs. This high-level
-property of the neutral network of topologies could thus facilitate the fine-tuning
-of the regulatory systems through genetic modifications to meet
-specific functional requirements under selective pressures.
+Incoherent Feed-Forward Loop) could be achieved with minimal fitness
+costs. This high-level property of the neutral network of topologies could thus
+facilitate the fine-tuning of the regulatory systems through genetic modifications
+to meet specific functional requirements under selective pressures.
 
 In contrast to this robustness to
 qualitative and quantitative changes, we found that many GRNs were susceptible
@@ -1184,46 +1060,11 @@ The computational resources (Stevin Supercomputer Infrastructure) and
 services used in this work were provided by the VSC (Flemish Supercomputer
 Center), funded by Ghent University, FWO and the Flemish Government–department EWI.
 All authors acknowledge partial support from CoDI-Universidad de Antioquia under
-project ``Estudio de la Evolución de Circuitos de Regulación del Desarollo Embrionario a través de
-la Biología Evolutiva de Sistemas'' code 2017-14367. All authors acknowledge the Colombian
-youth for their defense of a better country.
+project ``Estudio de la Evolución de Circuitos de Regulación del Desarollo
+Embrionario a través de la Biología Evolutiva de Sistemas'' code 2017-14367. All
+authors acknowledge the Colombian youth for their defense of a better country.
 
 \nolinenumbers
-
-% Either type in your references using
-% \begin{thebibliography}{}
-% \bibitem{}
-% Text
-% \end{thebibliography}
-%
-% or
-%
-% Compile your BiBTeX database using our plos2015.bst
-% style file and paste the contents of your .bbl file
-% here. See http://journals.plos.org/plosone/s/latex for
-% step-by-step instructions.
-%
-% \begin{thebibliography}{10}
-%
-% \bibitem{bib1}
-% Conant GC, Wolfe KH.
-% \newblock {{T}urning a hobby into a job: how duplicated genes find new
-%   functions}.
-% \newblock Nat Rev Genet. 2008 Dec;9(12):938--950.
-%
-% \bibitem{bib2}
-% Ohno S.
-% \newblock Evolution by gene duplication.
-% \newblock London: George Alien \& Unwin Ltd. Berlin, Heidelberg and New York:
-%   Springer-Verlag.; 1970.
-%
-% \bibitem{bib3}
-% Magwire MM, Bayer F, Webster CL, Cao C, Jiggins FM.
-% \newblock {{S}uccessive increases in the resistance of {D}rosophila to viral
-%   infection through a transposon insertion followed by a {D}uplication}.
-% \newblock PLoS Genet. 2011 Oct;7(10):e1002337.
-%
-% \end{thebibliography}
 
 \bibliography{referencias-tesis}{}
 
