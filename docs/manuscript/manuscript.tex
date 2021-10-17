@@ -495,12 +495,17 @@ available at \url{https://github.com/Nesper94/gene-regulatory-networks}.
 
 In order to group all the isomorphic (i.e. topologically equivalent) networks from
 the totality (2061) of sampled GRNs we used a
-classification algorithm that selected a random GRN and generated all
+classification algorithm that selected a GRN and generated all
 isomorphs of that GRN by interchanging rows of the adjacency matrix
 ($i \leftrightarrow j$) while interchanging the corresponding columns
-($i+1 \leftrightarrow j+1$). The
-algorithm then compared all six isomorphs with other GRN and classified the
-topologies in the same group if they were isomorphic networks.
+($i+1 \leftrightarrow j+1$). This kind of transformation of the adjacency
+matrix results in isospectral graphs that are also isomorphic to the
+original graph and is comparable to generate a permutation matrix $P$ and
+multiplying $PMP^{T}$, where $M$ is the adjacency matrix and $P^{T}$ the
+transpose of $P$. The algorithm then compared these isomorphs with another
+GRN and classified the topologies in the same group if at least one of the
+transformed adjacency matrices (or the original one) was identical to that
+of the other GRN, i. e., if they were isomorphic networks.
 
 \subsection*{Neutral network}
 
