@@ -477,13 +477,19 @@ gene regulatory networks (GRNs) consisted in the following steps:
   F = \mathit{PF_{eff}} \cdot Q_1(P_{filter}) \cdot Q_2(S_{filter}).
  \end{equation}
 
- \item {\bf Mutate GRNs randomly and evaluate fitness again.} Mutations
-included changes in the  numerical values of degradation and diffusion
-parameters and interaction strengths, and addition and removal of interactions
-among genes and between the genes and the morphogen. If fitness of the mutated
-GRN was greater or equal than that of the previous GRN, mutated GRN was saved
-and the cycle continued from step 2. This cycle was repeated 50000 times, and a GRN
-sampled at a given step and with a fitness score ≥ 0.95 was saved to a file as
+ \item {\bf Mutate GRNs randomly and evaluate fitness again.} Three types
+ of mutations were possible in our algorithm:
+1) changes in the numerical value of the degradation parameter, 2) changes
+in the numerical value of the diffusion parameter and 3) changes in the
+numerical values of the interaction strengths. The type of mutation to be
+performed was selected randomly with a probability of 0.15 for type 1 and
+type 2 mutations and 0.7 for type 3 mutations. If type 3 mutation was
+selected, either the interaction strength was set to zero (with a
+probability of 0.2) or was changed randomly (with a probability of 0.8).
+If fitness of the mutated GRN was greater or equal than that of the
+previous GRN, mutated GRN was saved and the cycle continued from step 2.
+This cycle was repeated 50000 times, and a GRN sampled at a given step
+and with a fitness score ≥ 0.95 was saved to a file as
 long as its associated topology had not been sampled in previous steps.
 
 \end{enumerate}
