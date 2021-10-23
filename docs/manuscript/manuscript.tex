@@ -737,8 +737,9 @@ have been previously reported in Cotterell \& Sharpe~\cite{Cotterell2010}
 
 \begin{figure}[!h]
 %  \includegraphics[width=\textwidth]{figures/results/Fig6}
- \caption{\bf Relationship between Abundance and robustness and complexity
- index.} (A) Abundance vs. Robustness. The robustness of each topology was
+ \caption{\bf Relationship between the abundance of topologies with
+ robustness and complexity index.}
+ (A) Abundance vs. Robustness. The robustness of each topology was
  calculated as the ratio of perturbations in which the fitness was greater or
  equal to 0.95 with respect to the total of perturbations performed.
  (B) Abundance vs. Complexity index. Each point in the plot represents one of
@@ -766,7 +767,12 @@ topological/parameter changes, they generally show a rather high sensitivity to
 variation in the size of the morphogenetic field. For instance, we found that
 when the size of the morphogenetic field was fixed at 10, 20, 40 and 50 cells
 only 4.66\%, 56.82\%, 56.14\% and 41.05\%, respectively, of the examined
-GRNs showed a fitness greater than 0.9 (\nameref{S3_Fig}B).
+GRNs showed a fitness greater than 0.9 (\nameref{S3_Fig}B). In addition to
+robustness, we wanted to investigate which of the GRNs could still produce
+a striped pattern in absence of diffusion, as it has been shown that some
+networks can work without diffusion involved \cite{Schaerli2018}. We found
+that out of 2061 GRNs, 404 were diffusion independent, many of them
+presenting the I3-FFL (see \nameref{S1_Appendix}).
 
 \begin{table}[!ht]
 % \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
@@ -1015,7 +1021,11 @@ reported in \nameref{S1_Table}.
 \paragraph*{S3 Fig.}
 \label{S3_Fig}
 {\bf Response of GRNs to changes in morphogenetic field size.}
-(A) Morphogen gradients of fields with 10, 20, 40 and 50 cells. (B) Fitness of the
+(A) Morphogen gradients of fields with 10, 20, 40 and 50 cells. These
+morphogen gradients were set up so that the morphogen concentration in the
+first cell and in the last cell were constant and only one
+morphogen gradient was considered at a time depending on the number of
+cells in the morphogenetic field. (B) Fitness of the
 GRNs by topology in each one of the morphogenetic fields. (C) Principal Component
 Analysis of fitness by morphogenetic field size. Although principal components
 separate GRNs in clusters, not all the GRNs with the same topology are located in the
