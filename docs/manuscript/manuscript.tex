@@ -487,7 +487,7 @@ type 2 mutations and 0.7 for type 3 mutations. If type 3 mutation was
 selected, either the interaction strength was set to zero (with a
 probability of 0.2) or was changed randomly (with a probability of 0.8).
 If fitness of the mutated GRN was greater or equal than that of the
-previous GRN, mutated GRN was saved and the cycle continued from step 2.
+previous GRN, the mutated GRN was saved and the cycle continued from step 2.
 This cycle was repeated 50000 times, and a GRN sampled at a given step
 and with a fitness score ≥ 0.95 was saved to a file as
 long as its associated topology had not been sampled in previous steps.
@@ -509,7 +509,7 @@ isomorphs of that GRN by interchanging rows of the adjacency matrix
 ($i \leftrightarrow j$) while interchanging the corresponding columns
 ($i+1 \leftrightarrow j+1$). This kind of transformation of the adjacency
 matrix results in isospectral graphs that are also isomorphic to the
-original graph and is comparable to generate a permutation matrix $P$ and
+original graph and is equivalent to generate a permutation matrix $P$ and
 multiplying $PMP^{T}$, where $M$ is the adjacency matrix and $P^{T}$ the
 transpose of $P$. The algorithm then compared these isomorphs with another
 GRN and classified the topologies in the same group if at least one of the
@@ -619,7 +619,7 @@ pattern of gene expression under varying sizes of the morphogenetic field.
 Specifically, we calculated the fitness of each GRN across morphogenetic fields
 composed of 10, 20, 40, and 50 cells. In these simulations we redefined the
 morphogen gradient in such a way that the initial and final concentration were
-constant in all the fields (\nameref{S3_Fig}A). In order to know if topologies
+constant in all the fields (\nameref{S3_Fig}A). In order to know if GRNs
 with the same topology had a similar fitness in the different fields, we performed
 a Principal Component Analysis in Scikit-learn~0.24.2~\cite{sklearn} using the
 fitness values of each in the four different fields (see \nameref{S3_Fig}).
@@ -647,7 +647,7 @@ of network motifs.
  is inactivated in a direct way by the morphogen (negative interaction).
  Topologies are numbered in order of decreasing abundance, being the
  Topology 1 the most abundant with a number of 95 genotypes. The number of
- genotypes belonging to each network topology is presented below
+ genotypes belonging to each network topology is presented below the
  topology number.
  Note that network topology number 9 produces the striped phenotype using a
  two-node GRN.
@@ -666,7 +666,7 @@ This graph is composed of 639 nodes that are accessible by one mutational step.
 The 15 most abundant network topologies, with the exception of
 number 10, are part of this graph (Fig~\ref{fig:neutral-network}). We also
 found nodes inside the neutral network that had more connections between them
-than with other nodes, which leads to further clustering of nodes. Interestingly in
+than with other nodes, which leads to further clustering of nodes. Interestingly, in
 almost every cluster one can find one or more of the 15 most abundant network
 topologies. In addition, we found that the first eight most abundant network
 topologies were located in the largest cluster.
@@ -685,7 +685,7 @@ topologies were located in the largest cluster.
  \label{fig:neutral-network}
 \end{figure}
 
-The degree distribution of this network seems to follow a Poisson distribution
+The degree distribution of this neutral network seems to follow a Poisson distribution
 (Pearson’s $\chi^2 = 12.8902$, $\text{p-value} = 0.115684$) characteristic of a
 Erdös-Rényi network with many nodes and edges~\cite{Erdos1959}. This kind of
 network presents a great
@@ -714,7 +714,8 @@ the rest of topologies in the metagraph (Fig~\ref{fig:2neut-net}).
 
 \begin{figure}
 %  \includegraphics[width=\textwidth]{figures/results/Fig5}
- \caption{\bf Network of topologies separated by two mutational steps.}
+ \caption{\bf Neutral network of topologies separated by two mutational
+ steps.}
  The network shows that almost all the topologies are connected by two or less
  mutational steps. Big red circle represents topology 420 that remains
  unconnected from the main graph. Big black circles correspond to the 15
@@ -878,7 +879,7 @@ expression depends on gene C.
 
 This is a complex mechanism reminiscent of the Gierer-Meinhardt model, which
 to the best of our knowledge is reported for the first time in the context of
-multiple morphogen inputs, and could thus be of particular interest to for
+multiple morphogen inputs, and could thus be of particular interest for
 synthetic biology implementations to assess the feasibility and robustness
 conferred by this mechanism to GRNs.
 
@@ -928,7 +929,7 @@ to meet specific functional requirements under selective pressures.
 
 In contrast to this robustness to
 qualitative and quantitative changes, we found that many GRNs were susceptible
-to changes in morphogenetic field size. However, interestingly, GRNs with the same
+to changes in morphogenetic field size. However, GRNs with the same
 topology behave in different ways for each field size~(\nameref{S3_Fig}C),
 indicating that the specific values of network parameters are more important
 than the network topology when it comes to producing the same pattern at
@@ -944,7 +945,7 @@ is a robust motif that can be useful for constructing synthetic gene
 regulatory networks exposed to stochastic fluctuations in the
 environment and mutations.
 
-However, as our model was less stringent and allowed the morphogen input to
+Moreover, as our model was less stringent and allowed the morphogen input to
 interact with any gene, we found a significantly larger number of pattern-forming
 topologies, which can operate under disparate combinations of diffusion and degradation
 parameters~(\nameref{S7_Fig}). For example, in a single input GRN model, the I4-FFL
@@ -965,7 +966,7 @@ design space of GRNs nor for the accessibility of every single locally optimal
 solution. However, it is also possible that the I2-FFL motif is not as robust as
 other motifs and therefore be less represented.
 
-We also found topologies with a similar topology to that of the “opposing
+We also found GRNs with a similar topology to that of the “opposing
 gradients” reported by Schaerli et al.~\cite{Schaerli2018,Schaerli2014}.
 Although the “opposing gradients” mechanism requires the constitutive expression
 of two of the genes in the GRN, and our model does not take constitutive
@@ -1090,7 +1091,7 @@ The average fitness by topology is reported for morphogenetic fields with 10, 20
 The computational resources (Stevin Supercomputer Infrastructure) and
 services used in this work were provided by the VSC (Flemish Supercomputer
 Center), funded by Ghent University, FWO and the Flemish Government–department EWI.
-All authors acknowledge partial support from CoDI-Universidad de Antioquia under
+All authors acknowledge partial support from CODI-Universidad de Antioquia under
 project ``Estudio de la Evolución de Circuitos de Regulación del Desarollo
 Embrionario a través de la Biología Evolutiva de Sistemas'' code 2017-14367. All
 authors acknowledge the Colombian youth for their defense of a better country.
