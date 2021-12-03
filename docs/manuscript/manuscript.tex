@@ -137,7 +137,6 @@ Belgium
 % Please keep the abstract below 300 words
 \section*{Abstract}
 
-\subsection*{Background}
 A central problem in developmental and synthetic biology is understanding the
 mechanisms by which cells in a tissue or a Petri dish process external cues
 and transform such information into a coherent response, e.g., a terminal
@@ -149,10 +148,8 @@ dynamics of a cell's gene regulatory network (GRN) in decoding the information
 carried by the morphogen, which is eventually translated into a spatial
 pattern. This morphogen interpretation mechanism has gained much attention
 in systems biology as a tractable system to investigate the emergent properties
-of complex genotype-phenotype maps.
-
-\subsection*{Methods}
-In this study, we apply a Markov chain Monte Carlo (MCMC)-like algorithm to probe
+of complex genotype-phenotype maps. In this study, we apply a Markov chain
+Monte Carlo (MCMC)-like algorithm to probe
 the design space of three-node GRNs with the ability to generate a band-like
 expression pattern (target phenotype) in the middle of an arrangement of 30
 cells, which resemble a simple (1-D) morphogenetic field in a developing embryo.
@@ -161,8 +158,6 @@ space of GRN topologies with nodes having the potential to perceive
 the same input signal differently. This allows for a lot more flexibility during the search
 space process, and thus enables us to identify a larger set of potentially
 interesting and realizable morphogen interpretation mechanisms.
-
-\subsection*{Results}
 Out of 2061 GRNs selected using the search space algorithm, we found 714 classes of
 network topologies that could correctly interpret the morphogen.
 Notably, the main network motif that generated the target phenotype in
@@ -725,8 +720,9 @@ the rest of topologies in the metagraph (Fig~\ref{fig:2neut-net}).
 \end{figure}
 
 Next to topological robustness, we investigated the robustness of the sampled
-network topologies to parameter changes (see Methods). Fig~\ref{fig:ab-rob}A
-illustrates the association between the abundance of a topology class versus its
+network topologies to parameter changes (see Materials and methods).
+Fig~\ref{fig:ab-rob}A illustrates the association
+between the abundance of a topology class versus its
 robustness. We did not find a significant correlation between
 these two variables ($r_S = −0.0389724$, $\text{p-value} = 0.298475$).
 However, when we grouped those topologies containing
